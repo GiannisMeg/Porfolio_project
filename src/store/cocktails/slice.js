@@ -15,12 +15,17 @@ export const cocktailStateSlice = createSlice({
 			state.cocktails = newCocktailsArray;
 		},
 		getOneCocktail: (state, action) => {
-			const incomingId = action.payload;
-			state.cocktails = incomingId;
+			const incomingData = action.payload;
+
+			state.cocktailDetails = incomingData;
+		},
+		newComment: (state, action) => {
+			state.cocktails = action.payload;
 		},
 	},
 });
 
-export const { getAllCocktails, getOneCocktail } = cocktailStateSlice.actions;
+export const { getAllCocktails, getOneCocktail, newComment } =
+	cocktailStateSlice.actions;
 
 export default cocktailStateSlice.reducer;

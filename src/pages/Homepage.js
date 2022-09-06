@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 //selectors
 import { selectAllCocktails } from "../store/cocktails/selectors";
 //thunks
-import { showAllCocktails } from "../store/cocktails/thunks";
+import { showAllCocktails, postComment } from "../store/cocktails/thunks";
 import { Button } from "@mui/material";
 
 //[Todo]
@@ -26,24 +26,25 @@ export const Homepage = () => {
 
 	//states
 	const [randomCocktail, setRandomCocktail] = useState([]);
-	// const [comments, setComments] = useState([]);
+	// const [comment, setComment] = useState("");
 	// const [commentId, setCommentId] = useState(0);
 	// const [name, setName] = useState("");
 	// const [text, setText] = useState("");
 
-	//submit comments
-	// const submitComment = (e) => {
+	// submit comments
+	// const submitComment = (e, id) => {
 	// 	e.preventDefault();
 
 	// 	//comment form
-	// 	const comment = {
-	// 		name: name,
-	// 		text: text,
-	// 		id: commentId,
-	// 	};
+	// 	// const comment = {
+	// 	// 	name: name,
+	// 	// 	text: text,
+	// 	// 	id: commentId,
+	// 	// };
 
-	// 	setCommentId(commentId + 1);
-	// 	setComments([...comments, comment]);
+	// 	dispatch(postComment(id, comment));
+
+	// 	setComment("");
 	// };
 
 	// carousel of all cocktails
