@@ -43,3 +43,5 @@
 -  comments -> ( belongsTo user)
 
 -  review -> (belongsTo user)
+
+// when we render multiple functionalities inside the same page it can be that the components of that page dont get rendered on the right way - better keep components separate( carousel from randomCocktail button)

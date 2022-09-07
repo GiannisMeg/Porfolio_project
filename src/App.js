@@ -25,7 +25,7 @@ function App() {
 			{appLoading ? <Loading /> : null}
 			<Routes>
 				<Route path="/" element={<Homepage />} />
-				<Route path="/:id" element={<DetailsPage />} />
+				<Route path="/cocktails/:id" element={<DetailsPage />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/login" element={<Login />} />
 			</Routes>

@@ -1,12 +1,18 @@
-import { Title } from "../styled";
 import { Link } from "react-router-dom";
-import { LinkWord } from "../styled";
-import styled from "styled-components";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReviewModal from "../components/ReviewModal";
 
-//[Todo] : ingredients has to Collapse
+//CSS
+import styled from "styled-components";
+
+//[Todo] : ingredients has to Collapse with button
+// 			: post a review
+//			: review form has to opque
+//			: import thunk and selector / set useState / dispatch action / conditional rendering (visible/hide ) while we display in return
+//			:
 
 //thunks
 import { showSpecificCocktail } from "../store/cocktails/thunks";
@@ -68,6 +74,7 @@ export const DetailsPage = () => {
 					</article>
 				</section>
 			</div>
+			<ReviewModal />
 		</Container>
 	);
 };

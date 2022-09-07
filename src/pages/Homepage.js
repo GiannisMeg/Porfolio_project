@@ -1,7 +1,10 @@
 //css
 import styled from "styled-components";
 import { Carousel } from "3d-react-carousal";
-import { Image, NavLink } from "react-bootstrap";
+import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import { RandomCocktail } from "../components";
 
 //files
 // import CocktailCarousel from "../components/Carousel";
@@ -11,21 +14,18 @@ import { useEffect, useState } from "react";
 import { selectAllCocktails } from "../store/cocktails/selectors";
 //thunks
 import { showAllCocktails, postComment } from "../store/cocktails/thunks";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 
 //[Todo]
-// while i submit a comment i want to create one in the database an manage state with redux
-// make details page
-
-// apiUrl
-const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+// 			:Submit a comment
+//			: comments have to appear after login and refresh page
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
 	const allCocktails = useSelector(selectAllCocktails);
 
 	//states
-	const [randomCocktail, setRandomCocktail] = useState([]);
+
 	// const [comment, setComment] = useState("");
 	// const [commentId, setCommentId] = useState(0);
 	// const [name, setName] = useState("");
@@ -48,36 +48,25 @@ export const Homepage = () => {
 	// };
 
 	// carousel of all cocktails
-	let slides = allCocktails?.map((tails) => (
+	let slides = allCocktails.map((tails) => (
 		<div key={tails.id}>
-			<NavLink to={`/cocktails/${tails.id}`}>
+			<Link to={`/cocktails/${tails.id}`}>
 				<img
 					src={tails.imageUrl}
 					alt=""
 					style={{ width: "350px", height: "350px", maxWidth: "100%" }}
 				/>
-			</NavLink>
+			</Link>
 		</div>
 	));
 
-	// random cocktail fetch from api dont declare it inside useEffect cant run inside button
-	const fetchApiCocktails = async () => {
-		const response = await fetch(url);
-		const data = await response.json();
-		//set incoming value
-		setRandomCocktail(data.drinks);
-		console.log("cocktails fetched", data.drinks);
-	};
-
 	useEffect(() => {
 		// call function -> onclick render again
-		fetchApiCocktails();
-
 		// get all cocktails from db
 		dispatch(showAllCocktails());
 	}, [dispatch]);
 
-	// console.log(" home cocktails", randomCocktail);
+	console.log(" home cocktails", allCocktails);
 	return (
 		<Container
 			style={{
@@ -85,58 +74,7 @@ export const Homepage = () => {
 			}}
 		>
 			<Carousel slides={slides} autoplay={false} interval={1000} />
-
-			<section className="random-cocktail">
-				{randomCocktail.map((cocktail) => {
-					// destructure needed apiNames
-					const {
-						idDrink,
-						strDrink,
-						strCategory,
-						strDrinkThumb,
-						strInstructions,
-					} = cocktail;
-					// display cocktail
-					return (
-						<article
-							style={{
-								display: "flex",
-								backgroundColor: "pink",
-							}}
-							key={idDrink}
-						>
-							<div className="rdm-cocktail-n_i_c">
-								<h3>{strDrink}</h3>
-								<h5>{strCategory}</h5>
-								<img
-									src={strDrinkThumb}
-									alt=""
-									style={{
-										borderRadius: "5px",
-										width: "350px",
-										height: "350px",
-										maxWidth: "100%",
-									}}
-								/>
-							</div>
-							<div
-								style={{
-									background: "lightblue",
-									paddingTop: "30px",
-								}}
-								className="rdm-cocktail-instr"
-							>
-								<p>
-									Follow instructions : <br /> {strInstructions}
-								</p>
-							</div>
-						</article>
-					);
-				})}
-				<Button variant="outlined" onClick={() => fetchApiCocktails()}>
-					Random
-				</Button>
-			</section>
+			<RandomCocktail />
 		</Container>
 	);
 };
