@@ -19,9 +19,13 @@ export const cocktailStateSlice = createSlice({
 
 			state.cocktailDetails = incomingData;
 		},
+		addedReview: (state, action) => {
+			state.cocktailDetails = action.payload;
+		},
 	},
 });
 
-export const { getAllCocktails, getOneCocktail } = cocktailStateSlice.actions;
+export const { getAllCocktails, getOneCocktail, addedReview } =
+	cocktailStateSlice.actions;
 
 export default cocktailStateSlice.reducer;

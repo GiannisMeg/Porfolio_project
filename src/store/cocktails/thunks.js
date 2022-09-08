@@ -1,5 +1,5 @@
-import { getAllCocktails, getOneCocktail } from "./slice";
-import { showMessageWithTimeout } from "../appState/thunks";
+import { getAllCocktails, getOneCocktail, addedReview } from "./slice";
+// import { showMessageWithTimeout } from "../appState/thunks";
 const axios = require("axios");
 
 // get all
@@ -24,3 +24,34 @@ export const showSpecificCocktail = (id) => async (dispatch, getState) => {
 		console.log(err.message);
 	}
 };
+
+// create review
+
+export const addReview =
+	(reviewObj, cocktailId) => async (dispatch, getState) => {
+		const token = getState().user.token;
+		// console.log(getState().user);
+		try {
+			//make a post request to the server with the story object
+			const response = await axios.post(
+				`http://localhost:4000/cocktails/create/${cocktailId}`,
+				reviewObj,
+				{ headers: { Authorization: `Bearer ${token}` } }
+			);
+
+			console.log(
+				"Thunk returning successfully review added",
+				response.data
+			);
+
+			// We get back Listing data from the new Offer inc.headers
+			const listingResponse = await axios.get(
+				`http://localhost:4000/cocktails/${cocktailId}`
+			);
+			console.log(listingResponse.data);
+			//upadate state in client side
+			dispatch(addedReview(response.data));
+		} catch (e) {
+			console.log(e.message);
+		}
+	};

@@ -10,19 +10,29 @@ import { RandomCocktail } from "../components";
 // import CocktailCarousel from "../components/Carousel";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+
 //selectors
 import { selectAllCocktails } from "../store/cocktails/selectors";
-import { selectUser } from "../store/user/selectors";
+import {
+	selectUser,
+	selectAllUsersWithComments,
+} from "../store/user/selectors";
 //thunks
-import { showAllCocktails, postComment } from "../store/cocktails/thunks";
+import { showAllCocktails } from "../store/cocktails/thunks";
+import { showAllComments, postComment } from "../store/user/thunks";
 
 import Comments from "../components/Comments";
 
 //[Todo]
 // 			: add darkMode
+// -- debug comments - get and post
+// -- add favorite funtionality in details page
+// -- review modal modify
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
+	const user = useSelector(selectUser);
+	const userWithComments = useSelector(selectAllUsersWithComments);
 	const allCocktails = useSelector(selectAllCocktails);
 
 	// carousel of all cocktails
@@ -42,9 +52,12 @@ export const Homepage = () => {
 		// call function -> onclick render again
 		// get all cocktails from db
 		dispatch(showAllCocktails());
+		dispatch(showAllComments());
 	}, [dispatch]);
 
-	console.log(" home cocktails", allCocktails);
+	// console.log(" home cocktails", allCocktails);
+	// console.log(" home cocktails", userWithComments);
+
 	return (
 		<>
 			<Container

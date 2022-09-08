@@ -23,13 +23,21 @@ export const userSlice = createSlice({
 		tokenStillValid: (state, action) => {
 			state.profile = action.payload.user;
 		},
+		getAllUsersWithComments: (state, action) => {
+			state.profile.comment = action.payload;
+		},
 		newComment: (state, action) => {
-			state.comment = action.payload;
+			state.profile.comment = action.payload;
 		},
 	},
 });
 
-export const { loginSuccess, logOut, tokenStillValid, newComment } =
-	userSlice.actions;
+export const {
+	loginSuccess,
+	logOut,
+	tokenStillValid,
+	getAllUsersWithComments,
+	newComment,
+} = userSlice.actions;
 
 export default userSlice.reducer;

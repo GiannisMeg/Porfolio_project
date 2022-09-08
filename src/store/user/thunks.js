@@ -3,7 +3,13 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
-import { loginSuccess, logOut, tokenStillValid, newComment } from "./slice";
+import {
+	loginSuccess,
+	logOut,
+	tokenStillValid,
+	newComment,
+	getAllUsersWithComments,
+} from "./slice";
 
 export const signUp = (name, email, password) => {
 	return async (dispatch, getState) => {
@@ -125,6 +131,18 @@ export const getUserWithStoredToken = () => {
 	};
 };
 
+//get all comments
+
+export const showAllComments = () => async (dispatch, getState) => {
+	try {
+		const response = await axios.get("http://localhost:4000/users");
+
+		dispatch(getAllUsersWithComments(response.data));
+	} catch (err) {
+		console.log(err.message);
+	}
+};
+
 //create comment
 
 export const postComment = (userId, comment) => async (dispatch, getState) => {
@@ -133,7 +151,7 @@ export const postComment = (userId, comment) => async (dispatch, getState) => {
 	console.log("id", userId);
 	try {
 		const response = await axios.post(
-			`http://localhost:4000/comment/create/${userId}`,
+			`http://localhost:4000/users/create/${userId}`,
 			// {comment}
 			comment,
 			{ headers: { Authorization: `Bearer ${token}` } }
@@ -143,7 +161,7 @@ export const postComment = (userId, comment) => async (dispatch, getState) => {
 
 		//get request to update the state with adding new created comment
 		const commentResponse = await axios.get(
-			`http://localhost:4000/comment/${userId}`
+			`http://localhost:4000/users/${userId}`
 		);
 		console.log(commentResponse.data);
 
