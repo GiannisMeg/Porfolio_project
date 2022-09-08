@@ -1,58 +1,79 @@
-import { Title } from "../styled";
-import { Link } from "react-router-dom";
-import { LinkWord } from "../styled";
-import styled from "styled-components";
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
-import { fetchSingleCocktail } from "../store/cocktails/thunks";
+// import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
+//thunks
+import { showAllCocktails } from "../store/cocktails/thunks";
+
+//selectors
+import { selectAllCocktails } from "../store/cocktails/selectors";
+import { useEffect, useState } from "react";
+import CocktailCard from "../components/CocktailCard";
+import { Button } from "@mui/material";
+import CreateFormMdl from "../components/CreateFormMdl";
+
+//[Todo]
+// list of 10 cocktails
+//	Input for search by name
+//		add favorite
 export const FindCocktailsPage = () => {
 	const dispatch = useDispatch();
-	// useRef hook return a mutable obj with .current property
-	const searchValue = useRef();
+	const [searchName, setSearchName] = useState("");
+	const fetchCocktailList = useSelector(selectAllCocktails);
 
-	const submitHandler = (e) => {
-		e.preventDefault();
-	};
+	const filteredCocktails = fetchCocktailList.filter((cktail) => {
+		return cktail.name.toLowerCase().includes(searchName.toLowerCase());
+	});
 
-	// create and render a cocktail card
-	const cocktailCard = () => {
-		// Display something like this
-		// <div className="main-card">
-		// 		<h3 className="main-title"></h3>
-		// 		<p className="main-ingredient">Ingredients :
-		// 			{cocktail.strIngredient1},{cocktail.strIngredient2},
-		// 			{cocktail.strIngredient3}
-		// 		</p>
-		// 	</div>;
-	};
-
-	const handleChange = () => {
-		// use useRef hook to track the searchTerm like e.target.value
-		const searchText = searchValue.current.value;
-		// calling the searchTerm inside the thunk who is getting the cocktails
-		dispatch(fetchSingleCocktail({ searchText }));
-	};
+	useEffect(() => {
+		dispatch(showAllCocktails());
+	}, [dispatch]);
 
 	return (
-		<Container>
-			<h3>FindCocktail</h3>
-			<from onSubmit={submitHandler}>
-				<div className="search-container">
+		<div>
+			<h2 style={{ textAlign: "center" }}>FindCocktail</h2>
+			<div className="ckt-add">
+				<CreateFormMdl />
+			</div>
+
+			<br />
+
+			<div className="main">
+				<div className="find-cocktail">
 					<input
-						type="text"
-						className="search-field"
-						placeholder="cocktails"
-						// ref is related to useRef hook
-						ref={searchValue}
-						onChange={handleChange}
+						className="input-find"
+						placeholder="find cocktail"
+						value={searchName}
+						onChange={(e) => setSearchName(e.target.value)}
 					/>
 				</div>
-			</from>
-		</Container>
+				<div className="ckt-list">
+					{filteredCocktails &&
+						filteredCocktails
+							.sort((name_a, name_b) => {
+								return name_a.name.localeCompare(name_b.name);
+							})
+							.slice(0, 10)
+							?.map((ckt) => {
+								return (
+									<ul key={ckt.id}>
+										<CocktailCard
+											id={ckt.id}
+											name={ckt.name}
+											imageUrl={ckt.imageUrl}
+											glass={ckt.glass}
+											instructions={ckt.instructions}
+											ingredients={ckt.ingredients}
+											userId={ckt.userId}
+										/>
+									</ul>
+								);
+							})}
+				</div>
+			</div>
+		</div>
 	);
 };
 
-const Container = styled.div`
-	margin: 20px;
-`;
+// const Container = styled.div`
+// 	margin: 20px;
+// `;

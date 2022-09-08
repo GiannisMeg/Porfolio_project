@@ -6,7 +6,13 @@ import { getUserWithStoredToken } from "./store/user/thunks";
 // import { Add } from "@mui/icons-material";
 import { Routes, Route } from "react-router-dom";
 import { Navigation, MessageBox } from "./components";
-import { Homepage, DetailsPage, Login, SignUp } from "./pages";
+import {
+	Homepage,
+	DetailsPage,
+	Login,
+	SignUp,
+	FindCocktailsPage,
+} from "./pages";
 import { selectAppLoading } from "./store/appState/selectors";
 import Loading from "./components/Loading";
 
@@ -26,6 +32,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Homepage />} />
 				<Route path="/cocktails/:id" element={<DetailsPage />} />
+				<Route path="/cocktails/findone" element={<FindCocktailsPage />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/login" element={<Login />} />
 			</Routes>

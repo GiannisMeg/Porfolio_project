@@ -19,6 +19,7 @@ import { showSpecificCocktail } from "../store/cocktails/thunks";
 
 //selectors
 import { selectOneCocktail } from "../store/cocktails/selectors";
+import CocktailCard from "../components/CocktailCard";
 
 export const DetailsPage = () => {
 	const { id } = useParams();
@@ -35,44 +36,15 @@ export const DetailsPage = () => {
 		<Container>
 			<h3>Details</h3>
 			<div className="main">
-				<section className="cocktail-details">
-					<article
-						style={{
-							display: "flex",
-							backgroundColor: "pink",
-						}}
-					>
-						<div className="rdm-cocktail-n_i_c">
-							<h3>{selectedCocktail.name}</h3>
-							<h5>{selectedCocktail.category}</h5>
-
-							<img
-								src={selectedCocktail.imageUrl}
-								alt=""
-								style={{
-									borderRadius: "5px",
-									width: "350px",
-									height: "350px",
-									maxWidth: "100%",
-								}}
-							/>
-						</div>
-						<div
-							style={{
-								background: "lightblue",
-								paddingTop: "30px",
-							}}
-							className="rdm-cocktail-instr"
-						>
-							<p>
-								Follow instructions : <br />{" "}
-								{selectedCocktail.instructions}
-							</p>
-							<p>Suggested Glass : {selectedCocktail.glass}</p>
-							<p>{selectedCocktail.ingredients}</p>
-						</div>
-					</article>
-				</section>
+				<CocktailCard
+					id={selectedCocktail.id}
+					name={selectedCocktail.name}
+					imageUrl={selectedCocktail.imageUrl}
+					glass={selectedCocktail.glass}
+					instructions={selectedCocktail.instructions}
+					ingredients={selectedCocktail.ingredients}
+					userId={selectedCocktail.userId}
+				/>
 			</div>
 			<ReviewModal />
 		</Container>

@@ -12,40 +12,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 //selectors
 import { selectAllCocktails } from "../store/cocktails/selectors";
+import { selectUser } from "../store/user/selectors";
 //thunks
 import { showAllCocktails, postComment } from "../store/cocktails/thunks";
-// import { Button } from "@mui/material";
+
+import Comments from "../components/Comments";
 
 //[Todo]
-// 			:Submit a comment
-//			: comments have to appear after login and refresh page
+// 			: add darkMode
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
 	const allCocktails = useSelector(selectAllCocktails);
-
-	//states
-
-	// const [comment, setComment] = useState("");
-	// const [commentId, setCommentId] = useState(0);
-	// const [name, setName] = useState("");
-	// const [text, setText] = useState("");
-
-	// submit comments
-	// const submitComment = (e, id) => {
-	// 	e.preventDefault();
-
-	// 	//comment form
-	// 	// const comment = {
-	// 	// 	name: name,
-	// 	// 	text: text,
-	// 	// 	id: commentId,
-	// 	// };
-
-	// 	dispatch(postComment(id, comment));
-
-	// 	setComment("");
-	// };
 
 	// carousel of all cocktails
 	let slides = allCocktails.map((tails) => (
@@ -68,43 +46,21 @@ export const Homepage = () => {
 
 	console.log(" home cocktails", allCocktails);
 	return (
-		<Container
-			style={{
-				background: "yellow",
-			}}
-		>
-			<Carousel slides={slides} autoplay={false} interval={1000} />
-			<RandomCocktail />
-		</Container>
+		<>
+			<Container
+				style={{
+					background: "yellow",
+				}}
+			>
+				<Carousel slides={slides} autoplay={false} interval={1000} />
+				<RandomCocktail />
+			</Container>
+
+			<Comments />
+		</>
 	);
 };
 
 const Container = styled.div`
 	margin: 20px;
 `;
-
-// 	<form className="comment-form" onSubmit={submitComment}>
-// 	<label>Name</label>
-// 	<input
-// 		type="text"
-// 		value={name}
-// 		onChange={(e) => setName(e.target.value)}
-// 	/>
-// </form>
-// <form className="form">
-// 	<label>Text</label>
-// 	<input
-// 		type="text"
-// 		value={text}
-// 		onChange={(e) => setText(e.target.value)}
-// 	/>
-// </form>
-// <div className="comment-box">
-// 	<h2>Comments</h2>
-// 	{comments.map((comm) => (
-// 		<div key={comm.id}>
-// 			<h3>{comm.name}</h3>
-// 			<p>{comm.text}</p>
-// 		</div>
-// 	))}
-// </div>

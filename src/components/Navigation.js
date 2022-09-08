@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export const Navigation = () => {
 	const [open, setOpen] = useState(false);
@@ -23,12 +24,24 @@ export const Navigation = () => {
 				<span />
 			</Hamburger>
 			<Menu open={open}>
-				<MenuLink to="/empty1"></MenuLink>
 				<MenuLink to="/empty2"></MenuLink>
+				<MenuLink to="/cocktails/findone">
+					<Button variant="contained" color="primary">
+						Find More
+					</Button>
+				</MenuLink>
 				{token ? (
-					<button onClick={() => dispatch(logOut())}>Logout</button>
+					<Button
+						variant="contained"
+						color="error"
+						onClick={() => dispatch(logOut())}
+					>
+						Logout
+					</Button>
 				) : (
-					<MenuLink to="/login">Login</MenuLink>
+					<MenuLink variant="contained" color="success" to="/login">
+						Login
+					</MenuLink>
 				)}
 			</Menu>
 		</Nav>
