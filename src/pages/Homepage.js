@@ -33,6 +33,12 @@ export const Homepage = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const userWithComments = useSelector(selectAllUsersWithComments);
+	const filteredUserWithComments = userWithComments?.map(
+		(user) => user.comments
+	);
+	// flat(); for nested arrays so that you get an list of lists
+	const newCommentList = filteredUserWithComments?.flat();
+	// const arrayOfComments = filteredUserWithComments.map((arr) => arr.Array);
 	const allCocktails = useSelector(selectAllCocktails);
 
 	// carousel of all cocktails
@@ -56,7 +62,8 @@ export const Homepage = () => {
 	}, [dispatch]);
 
 	// console.log(" home cocktails", allCocktails);
-	// console.log(" home cocktails", userWithComments);
+
+	console.log(" users ", newCommentList);
 
 	return (
 		<>
@@ -67,8 +74,23 @@ export const Homepage = () => {
 			>
 				<Carousel slides={slides} autoplay={false} interval={1000} />
 				<RandomCocktail />
+				<div
+					style={{ backgroundColor: "gray" }}
+					className="comment-section"
+				>
+					<h1>HELLOOOOOO</h1>
+					<ul>
+						{newCommentList?.map((name) => {
+							return (
+								<li>
+									<h3>{name.name}</h3>
+									<p>{name.text}</p>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
 			</Container>
-
 			<Comments />
 		</>
 	);

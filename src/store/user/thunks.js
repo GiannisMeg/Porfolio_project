@@ -136,7 +136,7 @@ export const getUserWithStoredToken = () => {
 export const showAllComments = () => async (dispatch, getState) => {
 	try {
 		const response = await axios.get("http://localhost:4000/users");
-
+		// console.log("response comment", response);
 		dispatch(getAllUsersWithComments(response.data));
 	} catch (err) {
 		console.log(err.message);
