@@ -145,32 +145,30 @@ export const showAllComments = () => async (dispatch, getState) => {
 
 //create comment
 
-export const postComment = (userId, comment) => async (dispatch, getState) => {
+export const postComment = (name, text) => async (dispatch, getState) => {
 	// prop comment is from useState and contains name and text
 	const token = getState().user.token;
-	console.log("id", userId);
 	try {
 		const response = await axios.post(
-			`http://localhost:4000/users/create/${userId}`,
-			// {comment}
-			comment,
+			`http://localhost:4000/users/create`,
+			{ name, text },
 			{ headers: { Authorization: `Bearer ${token}` } }
 		);
 
 		console.log(response.data, "response successful added comment");
 
 		//get request to update the state with adding new created comment
-		const commentResponse = await axios.get(
-			`http://localhost:4000/users/${userId}`
-		);
-		console.log(commentResponse.data);
+		// const commentResponse = await axios.get(
+		// 	`http://localhost:4000/users/${userId}`
+		// );
+		// console.log(commentResponse.data);
 
 		dispatch(
 			showMessageWithTimeout("success", false, response.data.message, 2000)
 		);
 		// update state with recieved data of created comment
 		// dispatch(newComment({ userId, comment: response.data }));
-		dispatch(newComment(commentResponse.data));
+		dispatch(newComment(response.data));
 	} catch (err) {
 		console.log(err.message);
 	}

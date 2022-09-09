@@ -80,11 +80,11 @@ export const Homepage = () => {
 				>
 					<h1>HELLOOOOOO</h1>
 					<ul>
-						{newCommentList?.map((name) => {
+						{newCommentList?.map((comm) => {
 							return (
-								<li>
-									<h3>{name.name}</h3>
-									<p>{name.text}</p>
+								<li key={comm.id}>
+									<h3>{comm.name}</h3>
+									<p>{comm.text}</p>
 								</li>
 							);
 						})}

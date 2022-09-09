@@ -21,16 +21,17 @@ export default function Comments() {
 
 	//states
 
-	const [comment, setComment] = useState("");
+	// const [comment, setComment] = useState("");
 
 	const [name, setName] = useState("");
 	const [text, setText] = useState("");
+	// const userId = user.id;
 
 	// submit comments
 	const submitComment = (e) => {
 		e.preventDefault();
 
-		dispatch(postComment(comment, user.id));
+		dispatch(postComment(name, text));
 
 		// setComment("");
 		setName("");
@@ -50,21 +51,21 @@ export default function Comments() {
 				<div>
 					<label htmlFor="">ADD Comments</label>
 					<div className="comments">
-						<form className="comment-form" onSubmit={submitComment}>
+						<form className="comment-form" type="submit">
 							<label>Name</label>
 							<input
 								type="text"
 								value={name}
 								onChange={(e) => setName(e.target.value)}
 							/>
-						</form>
-						<form className="form">
 							<label>Text</label>
 							<input
 								type="text"
 								value={text}
 								onChange={(e) => setText(e.target.value)}
 							/>
+
+							<button onClick={submitComment}>Submit Comment</button>
 						</form>
 					</div>
 				</div>
