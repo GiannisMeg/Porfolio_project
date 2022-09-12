@@ -5,9 +5,11 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SendIcon from "@mui/icons-material/Send";
 import { Input } from "@mui/material";
+import { TextareaAutosize } from "@mui/material";
 
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaStar } from "react-icons/fa";
 
 // thunk
 import { postReview } from "../store/user/thunks";
@@ -57,6 +59,36 @@ export default function ReviewModal() {
 		);
 	};
 
+	//stars state
+
+	const [currentValue, setCurrentValue] = useState(0);
+	const [hoverValue, setHoverValue] = useState(undefined);
+	const stars = Array(5).fill(0);
+
+	// stars funcrionality
+	const handleClick = (value) => {
+		setCurrentValue(value);
+	};
+
+	const handleMouseOver = (newHoverValue) => {
+		setHoverValue(newHoverValue);
+	};
+
+	const handleMouseLeave = () => {
+		setHoverValue(undefined);
+	};
+
+	const colors = {
+		orange: "#FFBA5A",
+		grey: "#a9a9a9",
+	};
+	const styles = {
+		stars: {
+			display: "flex",
+			flexDirection: "row",
+		},
+	};
+	//
 	return (
 		<div>
 			<Button
@@ -77,24 +109,42 @@ export default function ReviewModal() {
 					<Typography id="modal-modal-title" variant="h6" component="h2">
 						Review
 					</Typography>
+					<div style={styles.stars}>
+						{stars.map((_, index) => {
+							return (
+								<FaStar
+									key={index}
+									value={rating}
+									onChange={(e) => setRating(e.target.value)}
+									size={24}
+									onClick={() => handleClick(index + 1)}
+									onMouseOver={() => handleMouseOver(index + 1)}
+									onMouseLeave={handleMouseLeave}
+									color={
+										(hoverValue || currentValue) > index
+											? colors.orange
+											: colors.grey
+									}
+									style={{
+										marginRight: 10,
+										cursor: "pointer",
+									}}
+								></FaStar>
+							);
+						})}
+					</div>
+
 					<form type="submit">
-						<Input
-							id="modal-modal-description"
-							value={rating}
-							onChange={(e) => setRating(e.target.value)}
-							placeholder="rating *"
-							sx={{ mt: 4 }}
-							required
-						></Input>
-						<br></br>
-						<Input
-							id="modal-modal-description"
+						<TextareaAutosize
 							value={text}
 							onChange={(e) => setText(e.target.value)}
-							placeholder="text *"
-							sx={{ mt: 4 }}
+							aria-label="minimum height"
+							minRows={4}
+							placeholder="Cocktail experience"
+							style={{ width: 300 }}
 							required
-						></Input>
+						/>
+
 						<br></br>
 						<Button
 							variant="contained"
