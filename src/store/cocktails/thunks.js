@@ -1,4 +1,9 @@
-import { getAllCocktails, getOneCocktail, addedReview } from "./slice";
+import {
+	getAllCocktails,
+	getOneCocktail,
+	addedReview,
+	newCocktail,
+} from "./slice";
 // import { showMessageWithTimeout } from "../appState/thunks";
 const axios = require("axios");
 
@@ -24,6 +29,26 @@ export const showSpecificCocktail = (id) => async (dispatch, getState) => {
 		console.log(err.message);
 	}
 };
+
+// create cocktail
+
+export const addNewCocktail =
+	(name, glass, instructions, ingredients) => async (dispatch, getState) => {
+		const token = getState().user.token;
+
+		try {
+			const response = await axios.post(
+				`http://localhost:4000/cocktails/create/`,
+				{ name, glass, instructions, ingredients },
+				{ headers: { Authorization: `Bearer ${token}` } }
+			);
+
+			console.log(response.data, "response successful added cocktail");
+			dispatch(newCocktail(response.data));
+		} catch (err) {
+			console.log(err.message);
+		}
+	};
 
 // create review
 

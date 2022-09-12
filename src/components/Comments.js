@@ -31,6 +31,8 @@ export default function Comments() {
 	const submitComment = (e) => {
 		e.preventDefault();
 
+		// userID we get it from the token and the body we dont have to send it
+		// inside an object format cause in the backend get recognized as an array of objects
 		dispatch(postComment(name, text));
 
 		// setComment("");
@@ -41,7 +43,6 @@ export default function Comments() {
 		);
 	};
 
-	// !user ?"You need to Log In first" :
 	return (
 		<div>
 			{/* IF NOT A USER CANT MAKE COMMEntS */}
@@ -70,16 +71,6 @@ export default function Comments() {
 					</div>
 				</div>
 			)}
-			{/* DISPLAY COMMENTS  */}
-			{/* <div className="comment-box">
-				<h2>Comments</h2>
-				{comments?.map((comm) => (
-					<div key={comm.id}>
-						<h3>{comm.name}</h3>
-						<p>{comm.text}</p>
-					</div>
-				))}
-			</div> */}
 		</div>
 	);
 }

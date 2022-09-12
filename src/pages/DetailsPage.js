@@ -10,9 +10,6 @@ import styled from "styled-components";
 
 //[Todo] : ingredients has to Collapse with button
 // 			: post a review
-//			: review form has to opque
-//			: import thunk and selector / set useState / dispatch action / conditional rendering (visible/hide ) while we display in return
-//			:
 
 //thunks
 import { showSpecificCocktail } from "../store/cocktails/thunks";
@@ -30,7 +27,7 @@ export const DetailsPage = () => {
 		dispatch(showSpecificCocktail(id));
 	}, [dispatch, id]);
 
-	console.log("first", selectedCocktail);
+	// console.log("first", selectedCocktail);
 
 	return (
 		<Container>

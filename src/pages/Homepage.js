@@ -63,7 +63,7 @@ export const Homepage = () => {
 
 	// console.log(" home cocktails", allCocktails);
 
-	console.log(" users ", newCommentList);
+	// console.log(" users ", newCommentList);
 
 	return (
 		<>
@@ -74,22 +74,25 @@ export const Homepage = () => {
 			>
 				<Carousel slides={slides} autoplay={false} interval={1000} />
 				<RandomCocktail />
-				<div
-					style={{ backgroundColor: "gray" }}
-					className="comment-section"
-				>
-					<h1>HELLOOOOOO</h1>
-					<ul>
-						{newCommentList?.map((comm) => {
-							return (
-								<li key={comm.id}>
-									<h3>{comm.name}</h3>
-									<p>{comm.text}</p>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
+				{user || !user ? (
+					<div
+						style={{ backgroundColor: "gray" }}
+						className="comment-section"
+					>
+						<ul>
+							{newCommentList?.map((comm) => {
+								return (
+									<li key={comm.id}>
+										<h3>{comm.name}</h3>
+										<p>{comm.text}</p>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				) : (
+					" "
+				)}
 			</Container>
 			<Comments />
 		</>
