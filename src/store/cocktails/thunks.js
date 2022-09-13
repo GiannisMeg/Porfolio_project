@@ -64,6 +64,8 @@ export const addNewCocktail =
 	};
 
 // create Review
+// when we use id with params you dont have to put the front end prop to your backend urt
+// in this case cocktailId doesnt have to match with id in the backend url
 export const postReview =
 	(text, rating, cocktailId) => async (dispatch, getState) => {
 		// prop comment is from useState and contains name and text

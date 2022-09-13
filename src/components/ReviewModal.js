@@ -1,22 +1,22 @@
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { FaStar } from "react-icons/fa";
+
+//css
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SendIcon from "@mui/icons-material/Send";
-import { Input } from "@mui/material";
 import { TextareaAutosize } from "@mui/material";
-
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { FaStar } from "react-icons/fa";
 
 // thunk
 import { postReview } from "../store/cocktails/thunks";
 import { showMessageWithTimeout } from "../store/appState/thunks";
-import { selectOneCocktail } from "../store/cocktails/selectors";
-import { useParams } from "react-router-dom";
 
+// starts css
 const style = {
 	position: "absolute",
 	top: "50%",
@@ -31,30 +31,23 @@ const style = {
 
 export default function ReviewModal() {
 	const dispatch = useDispatch();
-	// const { id } = useParams();
-	// const oneCocktail = useSelector(selectOneCocktail);
+	const { id } = useParams();
 
 	// states
 	const [text, setText] = useState("");
 	const [open, setOpen] = React.useState(false);
 	const [rating, setRating] = useState(0);
-	//stars state
-
-	// const [currentValue, setCurrentValue] = useState(0);
 	const [hoverValue, setHoverValue] = useState(undefined);
-	//functionalities
+
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
-	//
+	const cocktailId = id;
 
 	const submitNewReview = (e) => {
 		e.preventDefault();
-		//
-		//twice wrong i guess
-		// dispatch(oneCocktail(id));
-		//
-		dispatch(postReview(text, rating));
+
+		dispatch(postReview(text, rating, cocktailId));
 
 		setText("");
 
