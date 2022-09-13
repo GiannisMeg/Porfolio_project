@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	token: localStorage.getItem("token"),
 	profile: null,
-	comment: {},
 };
 
 export const userSlice = createSlice({
@@ -22,11 +21,6 @@ export const userSlice = createSlice({
 		},
 		tokenStillValid: (state, action) => {
 			state.profile = action.payload.user;
-		},
-		getAllUsersWithComments: (state, action) => {
-			const newArrayUsersWithComments = action.payload;
-
-			state.profile.comment = newArrayUsersWithComments;
 		},
 		newComment: (state, action) => {
 			state.profile = action.payload;

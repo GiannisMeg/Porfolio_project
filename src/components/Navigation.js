@@ -16,7 +16,7 @@ export const Navigation = () => {
 	return (
 		<Nav>
 			<Logo href="/">
-				FridayColleaguesTails<span>joinUs</span>
+				FridayShakes<span>joinUs</span>
 			</Logo>
 			<Hamburger onClick={() => setOpen(!open)}>
 				<span />

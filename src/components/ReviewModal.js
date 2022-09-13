@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
 
 // thunk
-import { postReview } from "../store/user/thunks";
+import { postReview } from "../store/cocktails/thunks";
 import { showMessageWithTimeout } from "../store/appState/thunks";
 import { selectOneCocktail } from "../store/cocktails/selectors";
 import { useParams } from "react-router-dom";
@@ -31,13 +31,17 @@ const style = {
 
 export default function ReviewModal() {
 	const dispatch = useDispatch();
-	const { id } = useParams();
-	const oneCocktail = useSelector(selectOneCocktail);
+	// const { id } = useParams();
+	// const oneCocktail = useSelector(selectOneCocktail);
 
 	// states
 	const [text, setText] = useState("");
-	const [rating, setRating] = useState([]);
 	const [open, setOpen] = React.useState(false);
+	const [rating, setRating] = useState(0);
+	//stars state
+
+	// const [currentValue, setCurrentValue] = useState(0);
+	const [hoverValue, setHoverValue] = useState(undefined);
 	//functionalities
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -48,9 +52,9 @@ export default function ReviewModal() {
 		e.preventDefault();
 		//
 		//twice wrong i guess
-		dispatch(oneCocktail(id));
+		// dispatch(oneCocktail(id));
 		//
-		dispatch(postReview(text, rating, id));
+		dispatch(postReview(text, rating));
 
 		setText("");
 
@@ -59,15 +63,12 @@ export default function ReviewModal() {
 		);
 	};
 
-	//stars state
-
-	const [currentValue, setCurrentValue] = useState(0);
-	const [hoverValue, setHoverValue] = useState(undefined);
+	// replace array with rating array
 	const stars = Array(5).fill(0);
 
-	// stars funcrionality
+	// stars functionality
 	const handleClick = (value) => {
-		setCurrentValue(value);
+		setRating(value);
 	};
 
 	const handleMouseOver = (newHoverValue) => {
@@ -77,7 +78,7 @@ export default function ReviewModal() {
 	const handleMouseLeave = () => {
 		setHoverValue(undefined);
 	};
-
+	// starts css
 	const colors = {
 		orange: "#FFBA5A",
 		grey: "#a9a9a9",
@@ -89,6 +90,7 @@ export default function ReviewModal() {
 		},
 	};
 	//
+	// console.log("rating", rating);
 	return (
 		<div>
 			<Button
@@ -121,7 +123,7 @@ export default function ReviewModal() {
 									onMouseOver={() => handleMouseOver(index + 1)}
 									onMouseLeave={handleMouseLeave}
 									color={
-										(hoverValue || currentValue) > index
+										(hoverValue || rating) > index
 											? colors.orange
 											: colors.grey
 									}
@@ -160,3 +162,10 @@ export default function ReviewModal() {
 		</div>
 	);
 }
+
+//[Toggle functionality]
+//-button
+// we map through cocktails array and we place the toggle button
+//	<button onClick={() => dispatch(toggleFavorites(p.id))}>
+//	{user.favorites.includes(p.id) ? "♥" : "♡"}
+//</button>

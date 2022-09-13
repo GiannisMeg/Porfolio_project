@@ -16,6 +16,7 @@ import { showSpecificCocktail } from "../store/cocktails/thunks";
 
 //selectors
 import { selectOneCocktail } from "../store/cocktails/selectors";
+import { isUserFavorite } from "../store/user/selectors";
 import CocktailCard from "../components/CocktailCard";
 
 export const DetailsPage = () => {
@@ -23,11 +24,11 @@ export const DetailsPage = () => {
 	const dispatch = useDispatch();
 	const selectedCocktail = useSelector(selectOneCocktail);
 
+	const isFav = useSelector(isUserFavorite(parseInt(id)));
+
 	useEffect(() => {
 		dispatch(showSpecificCocktail(id));
 	}, [dispatch, id]);
-
-	// console.log("first", selectedCocktail);
 
 	return (
 		<Container>
@@ -41,6 +42,7 @@ export const DetailsPage = () => {
 					instructions={selectedCocktail.instructions}
 					ingredients={selectedCocktail.ingredients}
 					userId={selectedCocktail.userId}
+					isFav={isFav} // add true - false value in the card
 				/>
 			</div>
 			<ReviewModal />

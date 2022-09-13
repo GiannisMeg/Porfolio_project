@@ -1,10 +1,11 @@
 import {
 	getAllCocktails,
 	getOneCocktail,
-	addedReview,
+	newReview,
 	newCocktail,
+	getAllComments,
 } from "./slice";
-// import { showMessageWithTimeout } from "../appState/thunks";
+import { showMessageWithTimeout } from "../appState/thunks";
 const axios = require("axios");
 
 // get all
@@ -30,6 +31,18 @@ export const showSpecificCocktail = (id) => async (dispatch, getState) => {
 	}
 };
 
+//get all comments
+
+export const showAllComments = () => async (dispatch, getState) => {
+	try {
+		const response = await axios.get("http://localhost:4000/users/comments");
+		// console.log("response comment", response);
+		dispatch(getAllComments(response.data));
+	} catch (err) {
+		console.log(err.message);
+	}
+};
+
 // create cocktail
 
 export const addNewCocktail =
@@ -50,33 +63,32 @@ export const addNewCocktail =
 		}
 	};
 
-// create review
-
-export const addReview =
-	(reviewObj, cocktailId) => async (dispatch, getState) => {
+// create Review
+export const postReview =
+	(text, rating, cocktailId) => async (dispatch, getState) => {
+		// prop comment is from useState and contains name and text
 		const token = getState().user.token;
-		// console.log(getState().user);
 		try {
-			//make a post request to the server with the story object
 			const response = await axios.post(
-				`http://localhost:4000/cocktails/create/${cocktailId}`,
-				reviewObj,
+				`http://localhost:4000/cocktails/create/review/${cocktailId}`,
+				{ text, rating },
 				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 
-			console.log(
-				"Thunk returning successfully review added",
-				response.data
-			);
+			console.log(response.data, "response successful added comment");
 
-			// We get back Listing data from the new Offer inc.headers
-			const listingResponse = await axios.get(
-				`http://localhost:4000/cocktails/${cocktailId}`
+			dispatch(
+				showMessageWithTimeout(
+					"success",
+					false,
+					response.data.message,
+					2000
+				)
 			);
-			console.log(listingResponse.data);
-			//upadate state in client side
-			dispatch(addedReview(response.data));
-		} catch (e) {
-			console.log(e.message);
+			// update state with recieved data of created comment
+			// dispatch(newComment({ userId, comment: response.data }));
+			dispatch(newReview(response.data));
+		} catch (err) {
+			console.log(err.message);
 		}
 	};

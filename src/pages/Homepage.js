@@ -12,14 +12,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
 //selectors
-import { selectAllCocktails } from "../store/cocktails/selectors";
 import {
-	selectUser,
-	selectAllUsersWithComments,
-} from "../store/user/selectors";
+	selectAllCocktails,
+	selectAllComments,
+} from "../store/cocktails/selectors";
+import { selectUser } from "../store/user/selectors";
 //thunks
-import { showAllCocktails } from "../store/cocktails/thunks";
-import { showAllComments, postComment } from "../store/user/thunks";
+import { showAllCocktails, showAllComments } from "../store/cocktails/thunks";
 
 import Comments from "../components/Comments";
 
@@ -32,12 +31,8 @@ import Comments from "../components/Comments";
 export const Homepage = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
-	const userWithComments = useSelector(selectAllUsersWithComments);
-	const filteredUserWithComments = userWithComments?.map(
-		(user) => user.comments
-	);
+	const allComments = useSelector(selectAllComments);
 	// flat(); for nested arrays so that you get an list of lists
-	const newCommentList = filteredUserWithComments?.flat();
 	// const arrayOfComments = filteredUserWithComments.map((arr) => arr.Array);
 	const allCocktails = useSelector(selectAllCocktails);
 
@@ -80,11 +75,12 @@ export const Homepage = () => {
 						className="comment-section"
 					>
 						<ul>
-							{newCommentList?.map((comm) => {
+							{allComments?.map((comm) => {
 								return (
 									<li key={comm.id}>
 										<h3>{comm.name}</h3>
 										<p>{comm.text}</p>
+										<h3>{comm.user.name}</h3>
 									</li>
 								);
 							})}

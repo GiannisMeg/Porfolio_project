@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -63,8 +64,13 @@ export default function CocktailCard(props) {
 				</Typography>
 			</CardContent>
 			<CardActions disableSpacing>
+				{/* WE ADD THE FAVORITE CASES WITH THW DIFF BORDERS */}
 				<IconButton aria-label="add to favorites">
-					<FavoriteIcon />
+					{props.isFav ? (
+						<FavoriteIcon style={{ color: "red" }} />
+					) : (
+						<FavoriteBorderIcon />
+					)}
 				</IconButton>
 				<IconButton aria-label="share">
 					<ShareIcon />

@@ -3,14 +3,7 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
-import {
-	loginSuccess,
-	logOut,
-	tokenStillValid,
-	newComment,
-	getAllUsersWithComments,
-	newReview,
-} from "./slice";
+import { loginSuccess, logOut, tokenStillValid, newComment } from "./slice";
 
 export const signUp = (name, email, password) => {
 	return async (dispatch, getState) => {
@@ -132,18 +125,6 @@ export const getUserWithStoredToken = () => {
 	};
 };
 
-//get all comments
-
-export const showAllComments = () => async (dispatch, getState) => {
-	try {
-		const response = await axios.get("http://localhost:4000/users");
-		// console.log("response comment", response);
-		dispatch(getAllUsersWithComments(response.data));
-	} catch (err) {
-		console.log(err.message);
-	}
-};
-
 //create comment
 
 export const postComment = (name, text) => async (dispatch, getState) => {
@@ -164,30 +145,6 @@ export const postComment = (name, text) => async (dispatch, getState) => {
 		// update state with recieved data of created comment
 		// dispatch(newComment({ userId, comment: response.data }));
 		dispatch(newComment(response.data));
-	} catch (err) {
-		console.log(err.message);
-	}
-};
-
-// create Review
-export const postReview = (text, rating, id) => async (dispatch, getState) => {
-	// prop comment is from useState and contains name and text
-	const token = getState().user.token;
-	try {
-		const response = await axios.post(
-			`http://localhost:4000/users/create/review`,
-			{ text, rating, id },
-			{ headers: { Authorization: `Bearer ${token}` } }
-		);
-
-		console.log(response.data, "response successful added comment");
-
-		dispatch(
-			showMessageWithTimeout("success", false, response.data.message, 2000)
-		);
-		// update state with recieved data of created comment
-		// dispatch(newComment({ userId, comment: response.data }));
-		dispatch(newReview(response.data));
 	} catch (err) {
 		console.log(err.message);
 	}
