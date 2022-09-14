@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	cocktails: [],
 	cocktailDetails: {},
-	favorite: [],
 	allComments: [],
 	review: [],
 };
@@ -20,15 +19,20 @@ export const cocktailStateSlice = createSlice({
 		newCocktail: (state, action) => {
 			state.cocktails = action.payload;
 		},
+		getOneCocktail: (state, action) => {
+			const incomingData = action.payload;
+
+			state.cocktailDetails = incomingData;
+		},
 		getAllComments: (state, action) => {
 			const newArrayUsersWithComments = action.payload;
 
 			state.allComments = newArrayUsersWithComments;
 		},
-		getOneCocktail: (state, action) => {
-			const incomingData = action.payload;
+		getAllReviews: (state, action) => {
+			const newArrayAllReviews = action.payload;
 
-			state.cocktailDetails = incomingData;
+			state.review = newArrayAllReviews;
 		},
 		newReview: (state, action) => {
 			state.review = action.payload;
@@ -42,6 +46,7 @@ export const {
 	newReview,
 	newCocktail,
 	getAllComments,
+	getAllReviews,
 } = cocktailStateSlice.actions;
 
 export default cocktailStateSlice.reducer;

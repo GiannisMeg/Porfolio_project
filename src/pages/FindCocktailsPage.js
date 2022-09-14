@@ -1,4 +1,3 @@
-// import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 //thunks
@@ -7,14 +6,12 @@ import { showAllCocktails } from "../store/cocktails/thunks";
 //selectors
 import { selectAllCocktails } from "../store/cocktails/selectors";
 import { useEffect, useState } from "react";
-import CocktailCard from "../components/CocktailCard";
-import { Button } from "@mui/material";
+import DetailsCard from "../components/DetailsCard";
 import CreateFormMdl from "../components/CreateFormMdl";
 
 //[Todo]
-// list of 10 cocktails
-//	Input for search by name
 //		add favorite
+
 export const FindCocktailsPage = () => {
 	const dispatch = useDispatch();
 	const [searchName, setSearchName] = useState("");
@@ -56,7 +53,7 @@ export const FindCocktailsPage = () => {
 							?.map((ckt) => {
 								return (
 									<ul key={ckt.id}>
-										<CocktailCard
+										<DetailsCard
 											id={ckt.id}
 											name={ckt.name}
 											imageUrl={ckt.imageUrl}
@@ -73,7 +70,3 @@ export const FindCocktailsPage = () => {
 		</div>
 	);
 };
-
-// const Container = styled.div`
-// 	margin: 20px;
-// `;

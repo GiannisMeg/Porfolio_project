@@ -87,8 +87,9 @@ export default function ReviewModal() {
 	return (
 		<div>
 			<Button
+				style={{ margin: "10px", background: "lightgrey" }}
 				variant="outlined"
-				color="primary"
+				color="success"
 				startIcon={<SendIcon />}
 				onClick={handleOpen}
 			>
@@ -121,7 +122,9 @@ export default function ReviewModal() {
 											: colors.grey
 									}
 									style={{
-										marginRight: 10,
+										padding: 5,
+										marginRight: 5,
+										marginBottom: 5,
 										cursor: "pointer",
 									}}
 								></FaStar>
@@ -142,8 +145,8 @@ export default function ReviewModal() {
 
 						<br></br>
 						<Button
+							style={{ background: "orange", margin: "5px" }}
 							variant="contained"
-							color="primary"
 							startIcon={<SendIcon />}
 							onClick={submitNewReview}
 						>

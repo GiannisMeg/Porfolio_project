@@ -1,55 +1,92 @@
-import { Link } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReviewModal from "../components/ReviewModal";
+import ReviewList from "../components/ReviewList";
 
-//CSS
-import styled from "styled-components";
-
-//[Todo] : ingredients has to Collapse with button
-// 			: post a review
+//[Todo] : display a list of reviews
 
 //thunks
-import { showSpecificCocktail } from "../store/cocktails/thunks";
+import {
+	showSpecificCocktail,
+	showAllReviews,
+} from "../store/cocktails/thunks";
 
 //selectors
-import { selectOneCocktail } from "../store/cocktails/selectors";
-import { isUserFavorite } from "../store/user/selectors";
+import {
+	selectOneCocktail,
+	selectAllReviews,
+} from "../store/cocktails/selectors";
+import { isUserFavorite, selectUser } from "../store/user/selectors";
 import CocktailCard from "../components/CocktailCard";
 
 export const DetailsPage = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const selectedCocktail = useSelector(selectOneCocktail);
-
+	const user = useSelector(selectUser);
+	//takes the value of the selector whether is true or false
 	const isFav = useSelector(isUserFavorite(parseInt(id)));
+	const allReviews = useSelector(selectAllReviews);
 
 	useEffect(() => {
 		dispatch(showSpecificCocktail(id));
+		dispatch(showAllReviews());
 	}, [dispatch, id]);
 
+	// console.log("all reviews", allReviews);
 	return (
-		<Container>
-			<h3>Details</h3>
-			<div className="main">
-				<CocktailCard
-					id={selectedCocktail.id}
-					name={selectedCocktail.name}
-					imageUrl={selectedCocktail.imageUrl}
-					glass={selectedCocktail.glass}
-					instructions={selectedCocktail.instructions}
-					ingredients={selectedCocktail.ingredients}
-					userId={selectedCocktail.userId}
-					isFav={isFav} // add true - false value in the card
-				/>
+		<div className="main_container" style={{ margin: "10px" }}>
+			<div>
+				<h3>About this cocktail</h3>
+				<div className="main">
+					<CocktailCard
+						id={selectedCocktail.id}
+						name={selectedCocktail.name}
+						imageUrl={selectedCocktail.imageUrl}
+						glass={selectedCocktail.glass}
+						instructions={selectedCocktail.instructions}
+						ingredients={selectedCocktail.ingredients}
+						userId={selectedCocktail.userId}
+						isFav={isFav} // add true - false value in the card
+					/>
+				</div>
+				<div>
+					{user ? (
+						<ReviewModal />
+					) : (
+						<div
+							style={{ background: "lightgreen" }}
+							className="logged_out_review-text"
+						>
+							<p>Login and let us know about your favorite cocktail</p>{" "}
+						</div>
+					)}
+					<div style={{ background: "cyan" }} className="review-list">
+						{" "}
+						<h3>Review list</h3>
+						{user || !user ? (
+							<div
+								style={{ backgroundColor: "gray" }}
+								className="comment-section"
+							>
+								<ul>
+									{allReviews?.map((comm) => {
+										return (
+											<li key={comm.id}>
+												<p>{comm.text}</p>
+												<p>{comm.rating}</p>
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						) : (
+							" "
+						)}
+					</div>
+				</div>
 			</div>
-			<ReviewModal />
-		</Container>
+		</div>
 	);
 };
-
-const Container = styled.div`
-	margin: 20px;
-`;

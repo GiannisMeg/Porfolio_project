@@ -7,9 +7,8 @@ import { Link } from "react-router-dom";
 import { RandomCocktail } from "../components";
 
 //files
-// import CocktailCarousel from "../components/Carousel";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 //selectors
 import {
@@ -22,18 +21,10 @@ import { showAllCocktails, showAllComments } from "../store/cocktails/thunks";
 
 import Comments from "../components/Comments";
 
-//[Todo]
-// 			: add darkMode
-// -- debug comments - get and post
-// -- add favorite funtionality in details page
-// -- review modal modify
-
 export const Homepage = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const allComments = useSelector(selectAllComments);
-	// flat(); for nested arrays so that you get an list of lists
-	// const arrayOfComments = filteredUserWithComments.map((arr) => arr.Array);
 	const allCocktails = useSelector(selectAllCocktails);
 
 	// carousel of all cocktails
@@ -41,10 +32,15 @@ export const Homepage = () => {
 		<div key={tails.id}>
 			<Link to={`/cocktails/${tails.id}`}>
 				<img
+					text="Learn More"
 					src={tails.imageUrl}
 					alt=""
 					style={{ width: "350px", height: "350px", maxWidth: "100%" }}
 				/>
+				<button href={`/cocktails/${tails.id}`}>
+					{" "}
+					About this Cocktail
+				</button>
 			</Link>
 		</div>
 	));
@@ -56,45 +52,54 @@ export const Homepage = () => {
 		dispatch(showAllComments());
 	}, [dispatch]);
 
-	// console.log(" home cocktails", allCocktails);
-
 	// console.log(" users ", newCommentList);
 
 	return (
-		<>
-			<Container
+		<div style={{ background: "#222" }}>
+			<div
 				style={{
 					background: "yellow",
 				}}
 			>
 				<Carousel slides={slides} autoplay={false} interval={1000} />
+			</div>
+			<div style={{ background: "lightgreen" }} className="random_cocktails">
 				<RandomCocktail />
-				{user || !user ? (
-					<div
-						style={{ backgroundColor: "gray" }}
-						className="comment-section"
-					>
-						<ul>
-							{allComments?.map((comm) => {
-								return (
-									<li key={comm.id}>
-										<h3>{comm.name}</h3>
-										<p>{comm.text}</p>
-										<h3>{comm.user.name}</h3>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				) : (
-					" "
-				)}
-			</Container>
-			<Comments />
-		</>
+			</div>
+			<div>
+				<Comments />
+				<div className="comment_list">
+					{user || !user ? (
+						<div
+							style={{ backgroundColor: "gray" }}
+							className="comment-section"
+						>
+							<ul>
+								{allComments?.map((comm) => {
+									return (
+										<li key={comm.id}>
+											<h3>{comm.name}</h3>
+											<p>{comm.text}</p>
+											<h3>{comm.user.name}</h3>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					) : (
+						" "
+					)}
+				</div>
+			</div>
+
+			<div class="parallelogram" id="one"></div>
+			<div class="parallelogram" id="two"></div>
+			<div class="parallelogram" id="three"></div>
+			<div class="parallelogram" id="four"></div>
+			<div class="parallelogram" id="five"></div>
+			<div class="parallelogram" id="six"></div>
+
+			<h1>Welcome</h1>
+		</div>
 	);
 };
-
-const Container = styled.div`
-	margin: 20px;
-`;

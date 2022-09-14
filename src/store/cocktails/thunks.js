@@ -4,6 +4,7 @@ import {
 	newReview,
 	newCocktail,
 	getAllComments,
+	getAllReviews,
 } from "./slice";
 import { showMessageWithTimeout } from "../appState/thunks";
 const axios = require("axios");
@@ -38,6 +39,19 @@ export const showAllComments = () => async (dispatch, getState) => {
 		const response = await axios.get("http://localhost:4000/users/comments");
 		// console.log("response comment", response);
 		dispatch(getAllComments(response.data));
+	} catch (err) {
+		console.log(err.message);
+	}
+};
+//get all reviews
+
+export const showAllReviews = () => async (dispatch, getState) => {
+	try {
+		const response = await axios.get(
+			"http://localhost:4000/cocktails/reviews"
+		);
+		// console.log("response comment", response);
+		dispatch(getAllReviews(response.data));
 	} catch (err) {
 		console.log(err.message);
 	}

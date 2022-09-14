@@ -3,11 +3,19 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+//selector
+// import { selectAllCocktails } from "../store/cocktails/selectors";
+
+//thunks
+// import { showAllCocktails } from "../store/cocktails/thunks";
+// import { useEffect } from "react";
 
 export const Navigation = () => {
 	const [open, setOpen] = useState(false);
+	// const { id } = useParams();
+	// const allCocktails = useSelector(selectAllCocktails);
 
 	const dispatch = useDispatch();
 
@@ -24,12 +32,21 @@ export const Navigation = () => {
 				<span />
 			</Hamburger>
 			<Menu open={open}>
-				<MenuLink to="/empty2"></MenuLink>
+				<MenuLink to="/mycocktails">
+					<Button variant="contained" color="primary">
+						MyCocktails
+					</Button>
+				</MenuLink>
 				<MenuLink to="/cocktails/findone">
 					<Button variant="contained" color="primary">
 						Find More
 					</Button>
 				</MenuLink>
+				{/* <MenuLink to={`/cocktails/${allCocktails.id}`}>
+					<Button variant="contained" color="primary">
+						Details
+					</Button>
+				</MenuLink> */}
 				{token ? (
 					<Button
 						variant="contained"
@@ -40,7 +57,9 @@ export const Navigation = () => {
 					</Button>
 				) : (
 					<MenuLink variant="contained" color="success" to="/login">
-						Login
+						<Button variant="contained" color="success">
+							Login
+						</Button>
 					</MenuLink>
 				)}
 			</Menu>

@@ -48,8 +48,9 @@
 
 // [TODO]
 // ADD FOTO STRING OR UPLOAD FEATURE
-// Fix Validation after creation of cocktail (filtered array)
-// fix bug after create a user and add comment comment list disappear
+// Fix Validation after creation of cocktail (filtered array) [x]
+// fix bug after create a user and add comment comment list disappear [x]
+// render the reviews in the details page
 //
 
 [questions]
@@ -75,3 +76,11 @@
 // remove and add
 // we need a singe endpoint to add and remove FAVORITES
 // remove from favorite we have to check if the match exists and remove it from the list
+
+// sequelize : [where] gets a specific prop of a table
+// [include] gets the hole table
+
+// My cocktails
+// display users account with pic
+// display all users cocktails
+// display fav ones

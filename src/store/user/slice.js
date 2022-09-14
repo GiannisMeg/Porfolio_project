@@ -25,9 +25,6 @@ export const userSlice = createSlice({
 		newComment: (state, action) => {
 			state.profile = action.payload;
 		},
-		newReview: (state, action) => {
-			state.profile = action.payload;
-		},
 	},
 });
 
@@ -37,7 +34,7 @@ export const {
 	tokenStillValid,
 	getAllUsersWithComments,
 	newComment,
-	newReview,
+	setFavorite,
 } = userSlice.actions;
 
 export default userSlice.reducer;

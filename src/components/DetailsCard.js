@@ -32,10 +32,8 @@ const ExpandMore = styled((props) => {
 	}),
 }));
 
-export default function CocktailCard(props) {
+export default function DetailsCard(props) {
 	const dispatch = useDispatch();
-	const { id } = useParams();
-	const cocktailId = id;
 
 	// console.log("cocktailId", cocktailId);
 	//
@@ -72,16 +70,6 @@ export default function CocktailCard(props) {
 			</CardContent>
 			<CardActions disableSpacing>
 				{/* WE ADD THE FAVORITE CASES WITH THW DIFF BORDERS */}
-				<IconButton
-					onClick={() => dispatch(favoriteCocktail(cocktailId))}
-					aria-label="add to favorites"
-				>
-					{props.isFav ? (
-						<FavoriteIcon style={{ color: "red" }} />
-					) : (
-						<FavoriteBorderIcon />
-					)}
-				</IconButton>
 				<IconButton aria-label="share">
 					<ShareIcon />
 				</IconButton>

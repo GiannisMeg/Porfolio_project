@@ -3,4 +3,4 @@ export * from "./SignUp";
 export * from "./Homepage";
 export * from "./DetailsPage";
 export * from "./FindCocktailsPage";
-// export * from "./MyCocktails";
+export * from "./MyCocktails";

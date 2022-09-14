@@ -3,7 +3,13 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
-import { loginSuccess, logOut, tokenStillValid, newComment } from "./slice";
+import {
+	loginSuccess,
+	logOut,
+	tokenStillValid,
+	newComment,
+	setFavorite,
+} from "./slice";
 
 export const signUp = (name, email, password) => {
 	return async (dispatch, getState) => {
@@ -145,6 +151,32 @@ export const postComment = (name, text) => async (dispatch, getState) => {
 		// update state with recieved data of created comment
 		// dispatch(newComment({ userId, comment: response.data }));
 		dispatch(newComment(response.data));
+	} catch (err) {
+		console.log(err.message);
+	}
+};
+
+// favorite add/remove
+
+export const favoriteCocktail = (cocktailId) => async (dispatch, getState) => {
+	const token = getState().user.token;
+
+	try {
+		// we get the id [x]
+		// console.log("cocktail", cocktailId);
+		const response = await axios.post(
+			`http://localhost:4000/users/favorites`,
+			{ cocktailId },
+			{ headers: { Authorization: `Bearer ${token}` } }
+		);
+
+		console.log("response added to favorites", response.data);
+
+		dispatch(
+			showMessageWithTimeout("success", false, response.data.message, 2000)
+		);
+
+		dispatch(getUserWithStoredToken());
 	} catch (err) {
 		console.log(err.message);
 	}
