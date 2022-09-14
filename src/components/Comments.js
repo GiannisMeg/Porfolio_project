@@ -7,6 +7,7 @@ import { showMessageWithTimeout } from "../store/appState/thunks";
 
 // selectors
 import { selectUser } from "../store/user/selectors";
+import { Button } from "@mui/material";
 
 //      [TODO]
 // 			:Submit a comment
@@ -50,23 +51,32 @@ export default function Comments() {
 				"Login to leave a comment"
 			) : (
 				<div>
-					<label htmlFor="">ADD Comments</label>
+					<label htmlFor="">Comments</label>
 					<div className="comments">
 						<form className="comment-form" type="submit">
-							<label>Name</label>
+							<label>CocktailName</label>
+							<br />
 							<input
 								type="text"
 								value={name}
 								onChange={(e) => setName(e.target.value)}
 							/>
+							<br />
 							<label>Text</label>
+							<br />
 							<input
 								type="text"
 								value={text}
 								onChange={(e) => setText(e.target.value)}
 							/>
-
-							<button onClick={submitComment}>Submit Comment</button>
+							<br />
+							<Button
+								variant="contained"
+								style={{ background: "orange", color: "black" }}
+								onClick={submitComment}
+							>
+								Submit Comment
+							</Button>
 						</form>
 					</div>
 				</div>

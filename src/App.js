@@ -14,6 +14,7 @@ import {
 } from "./pages";
 import { selectAppLoading } from "./store/appState/selectors";
 import Loading from "./components/Loading";
+import Footer from "./components/Footer";
 
 function App() {
 	const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div>
+		<div style={{}}>
 			<Navigation />
 			<MessageBox />
 			{appLoading ? <Loading /> : null}
@@ -36,6 +37,7 @@ function App() {
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/login" element={<Login />} />
 			</Routes>
+			<Footer />
 		</div>
 	);
 }

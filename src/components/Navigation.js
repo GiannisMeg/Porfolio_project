@@ -5,6 +5,7 @@ import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+// FaCocktail;
 //selector
 // import { selectAllCocktails } from "../store/cocktails/selectors";
 
@@ -23,9 +24,7 @@ export const Navigation = () => {
 
 	return (
 		<Nav>
-			<Logo href="/">
-				FridayShakes<span>joinUs</span>
-			</Logo>
+			<Logo href="/">Friday Shakes</Logo>
 			<Hamburger onClick={() => setOpen(!open)}>
 				<span />
 				<span />
@@ -87,11 +86,7 @@ const Nav = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	background: #8b008b;
-	/* position: absolute; */
-	top: 0;
-	left: 0;
-	right: 0;
+	background: #222;
 `;
 
 const Logo = styled.a`

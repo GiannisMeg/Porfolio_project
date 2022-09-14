@@ -22,7 +22,16 @@ export const RandomCocktail = () => {
 
 	return (
 		<div>
-			<section className="random-cocktail">
+			<section
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					margin: "50px 0",
+					padding: "50px",
+				}}
+				className="random-cocktail"
+			>
 				{randomCocktail.map((cocktail) => {
 					// destructure needed apiNames
 					const {
@@ -37,13 +46,22 @@ export const RandomCocktail = () => {
 						<article
 							style={{
 								display: "flex",
-								backgroundColor: "pink",
+								alignContent: "center",
+								justifyContent: "space-around",
+								alignItems: "center",
 							}}
 							key={idDrink}
 						>
-							<div className="rdm-cocktail-n_i_c">
-								<h3>{strDrink}</h3>
-								<h5>{strCategory}</h5>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									alignItems: "center",
+								}}
+								className="rdm-cocktail-n_i_c"
+							>
+								<h3 style={{ marginBottom: "20px" }}>{strDrink}</h3>
+								<h5 style={{ marginBottom: "20px" }}>{strCategory}</h5>
 								<img
 									src={strDrinkThumb}
 									alt=""
@@ -52,25 +70,76 @@ export const RandomCocktail = () => {
 										width: "350px",
 										height: "350px",
 										maxWidth: "100%",
+										marginBottom: "20px",
 									}}
 								/>
 							</div>
 							<div
 								style={{
-									background: "lightblue",
-									paddingTop: "30px",
+									width: "33%",
+									display: "flex",
+									flexDirection: "column",
+									justifyContent: "space-between",
 								}}
 								className="rdm-cocktail-instr"
 							>
-								<p>
-									Follow instructions : <br /> {strInstructions}
-								</p>
+								<div>
+									<h4>Ingredients</h4>
+									{/* Map here the ingedians inside the <ul> */}
+									<ul>
+										<li>
+											<span>Whiskey:</span>
+											<span>50ml</span>
+										</li>
+										<li>
+											<span>Whiskey:</span>
+											<span>50ml</span>
+										</li>
+										<li>
+											<span>Whiskey:</span>
+											<span>50ml</span>
+										</li>
+										<li>
+											<span>Whiskey:</span>
+											<span>50ml</span>
+										</li>
+										<li>
+											<span>Whiskey:</span>
+											<span>50ml</span>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<h4>How to make it...</h4>
+									<div
+										style={{
+											maxHeight: "200px",
+											// overflowY: "scroll",
+											overflow: "scroll",
+											overflowX: "hidden",
+										}}
+									>
+										{strInstructions}
+									</div>
+								</div>
 							</div>
 						</article>
 					);
 				})}
-				<Button variant="outlined" onClick={() => fetchApiCocktails()}>
-					Random
+				<Button
+					style={{
+						alignSelf: "center",
+						margin: "50px 0",
+						padding: "20px",
+						background: "#222",
+						color: "#fff",
+						fontSize: "20px",
+						border: "#222",
+					}}
+					variant="outlined"
+					onClick={() => fetchApiCocktails()}
+				>
+					Generate a Random Cocktail
 				</Button>
 			</section>
 		</div>

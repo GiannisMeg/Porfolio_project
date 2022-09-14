@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+// import "./FindCocktailsPage.css";
 
 //thunks
 import { showAllCocktails } from "../store/cocktails/thunks";
@@ -26,7 +27,13 @@ export const FindCocktailsPage = () => {
 	}, [dispatch]);
 
 	return (
-		<div>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+			}}
+		>
 			<h2 style={{ textAlign: "center" }}>FindCocktail</h2>
 			<div className="ckt-add">
 				<CreateFormMdl />
@@ -34,7 +41,7 @@ export const FindCocktailsPage = () => {
 
 			<br />
 
-			<div className="main">
+			<div className="main" style={{ width: "100%" }}>
 				<div className="find-cocktail">
 					<input
 						className="input-find"
@@ -43,7 +50,14 @@ export const FindCocktailsPage = () => {
 						onChange={(e) => setSearchName(e.target.value)}
 					/>
 				</div>
-				<div className="ckt-list">
+				<ul
+					style={{
+						display: "flex",
+						flexWrap: "wrap",
+						justifyContent: "space-around",
+					}}
+					className="ckt-list"
+				>
 					{filteredCocktails &&
 						filteredCocktails
 							.sort((name_a, name_b) => {
@@ -52,7 +66,14 @@ export const FindCocktailsPage = () => {
 							.slice(0, 10)
 							?.map((ckt) => {
 								return (
-									<ul key={ckt.id}>
+									<li
+										style={{
+											listStyleType: "none",
+											width: 300,
+											margin: 10,
+										}}
+										key={ckt.id}
+									>
 										<DetailsCard
 											id={ckt.id}
 											name={ckt.name}
@@ -62,10 +83,10 @@ export const FindCocktailsPage = () => {
 											ingredients={ckt.ingredients}
 											userId={ckt.userId}
 										/>
-									</ul>
+									</li>
 								);
 							})}
-				</div>
+				</ul>
 			</div>
 		</div>
 	);

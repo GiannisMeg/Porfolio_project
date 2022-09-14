@@ -1,10 +1,10 @@
 //css
 import styled from "styled-components";
 import { Carousel } from "3d-react-carousal";
-import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import Comments from "../components/Comments";
 import { RandomCocktail } from "../components";
+import "./Homepage.css";
 
 //files
 import { useSelector, useDispatch } from "react-redux";
@@ -16,10 +16,9 @@ import {
 	selectAllComments,
 } from "../store/cocktails/selectors";
 import { selectUser } from "../store/user/selectors";
+
 //thunks
 import { showAllCocktails, showAllComments } from "../store/cocktails/thunks";
-
-import Comments from "../components/Comments";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -30,16 +29,39 @@ export const Homepage = () => {
 	// carousel of all cocktails
 	let slides = allCocktails.map((tails) => (
 		<div key={tails.id}>
-			<Link to={`/cocktails/${tails.id}`}>
+			<Link
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					borderRadius: "10px",
+					paddingTop: "40px 0",
+					textDecoration: "none",
+				}}
+				to={`/cocktails/${tails.id}`}
+			>
 				<img
 					text="Learn More"
 					src={tails.imageUrl}
 					alt=""
-					style={{ width: "350px", height: "350px", maxWidth: "100%" }}
+					style={{
+						maxWidth: "350px",
+						maxHeight: "350px",
+						borderRadius: "10px 10px 0 0",
+					}}
 				/>
-				<button href={`/cocktails/${tails.id}`}>
+				<button
+					style={{
+						borderRadius: "0 0 10px 10px",
+						padding: "15px",
+						color: "#fff",
+						fontSize: "20px",
+						background: "#222",
+						fontWeight: "700",
+					}}
+					href={`/cocktails/${tails.id}`}
+				>
 					{" "}
-					About this Cocktail
+					LEARN MORE
 				</button>
 			</Link>
 		</div>
@@ -55,25 +77,18 @@ export const Homepage = () => {
 	// console.log(" users ", newCommentList);
 
 	return (
-		<div style={{ background: "#222" }}>
-			<div
-				style={{
-					background: "yellow",
-				}}
-			>
+		<div className="body">
+			<div style={{ marginTop: "50px" }} className="c-homepage-carousel">
 				<Carousel slides={slides} autoplay={false} interval={1000} />
 			</div>
-			<div style={{ background: "lightgreen" }} className="random_cocktails">
+			<div style={{ background: "" }} className="random_cocktails">
 				<RandomCocktail />
 			</div>
 			<div>
 				<Comments />
 				<div className="comment_list">
 					{user || !user ? (
-						<div
-							style={{ backgroundColor: "gray" }}
-							className="comment-section"
-						>
+						<div style={{}} className="comment-section">
 							<ul>
 								{allComments?.map((comm) => {
 									return (
@@ -91,15 +106,42 @@ export const Homepage = () => {
 					)}
 				</div>
 			</div>
-
-			<div class="parallelogram" id="one"></div>
-			<div class="parallelogram" id="two"></div>
-			<div class="parallelogram" id="three"></div>
-			<div class="parallelogram" id="four"></div>
-			<div class="parallelogram" id="five"></div>
-			<div class="parallelogram" id="six"></div>
-
-			<h1>Welcome</h1>
+			{/* <div style={{ display: "flex" }}>
+				<div
+					style={{ background: "lightgreen" }}
+					className="random_cocktails"
+				>
+					<RandomCocktail />
+				</div>
+				<div>
+					<Comments />
+					<div className="comment_list">
+						{user || !user ? (
+							<div
+								style={{
+									backgroundColor: "lightgray",
+									border: "solid 1px",
+								}}
+								className="comment-section"
+							>
+								<ul>
+									{allComments?.map((comm) => {
+										return (
+											<li key={comm.id}>
+												<h3>{comm.name}</h3>
+												<p>{comm.text}</p>
+												<h3>{comm.user.name}</h3>
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						) : (
+							" "
+						)}
+					</div>
+				</div>
+			</div> */}
 		</div>
 	);
 };

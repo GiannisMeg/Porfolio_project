@@ -35,7 +35,7 @@ export const cocktailStateSlice = createSlice({
 			state.review = newArrayAllReviews;
 		},
 		newReview: (state, action) => {
-			state.review = action.payload;
+			state.review.push(action.payload);
 		},
 	},
 });

@@ -47,7 +47,7 @@ export default function CocktailCard(props) {
 
 	// console.log("loco", fetchCocktails);
 	return (
-		<Card sx={{ bgcolor: grey[300], maxWidth: 360 }}>
+		<Card sx={{ bgcolor: "#9999", maxWidth: 360 }}>
 			<CardHeader
 				avatar={
 					<Avatar sx={{ bgcolor: red[500] }} aria-label="">

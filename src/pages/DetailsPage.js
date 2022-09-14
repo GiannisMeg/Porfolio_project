@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import ReviewModal from "../components/ReviewModal";
 import ReviewList from "../components/ReviewList";
 
+//CSS
+import styled from "styled-components";
+
 //[Todo] : display a list of reviews
 
 //thunks
@@ -34,11 +37,14 @@ export const DetailsPage = () => {
 		dispatch(showAllReviews());
 	}, [dispatch, id]);
 
-	// console.log("all reviews", allReviews);
+	console.log("all reviews", allReviews);
 	return (
-		<div className="main_container" style={{ margin: "10px" }}>
-			<div>
-				<h3>About this cocktail</h3>
+		<div className="wrapper" style={{ display: "flex" }}>
+			<div
+				className="main_container"
+				style={{ width: "33%", padding: "10px" }}
+			>
+				<h3>{selectedCocktail.name}</h3>
 				<div className="main">
 					<CocktailCard
 						id={selectedCocktail.id}
@@ -51,41 +57,57 @@ export const DetailsPage = () => {
 						isFav={isFav} // add true - false value in the card
 					/>
 				</div>
-				<div>
-					{user ? (
-						<ReviewModal />
-					) : (
-						<div
-							style={{ background: "lightgreen" }}
-							className="logged_out_review-text"
-						>
-							<p>Login and let us know about your favorite cocktail</p>{" "}
-						</div>
-					)}
-					<div style={{ background: "cyan" }} className="review-list">
-						{" "}
-						<h3>Review list</h3>
-						{user || !user ? (
-							<div
-								style={{ backgroundColor: "gray" }}
-								className="comment-section"
-							>
-								<ul>
-									{allReviews?.map((comm) => {
-										return (
-											<li key={comm.id}>
-												<p>{comm.text}</p>
-												<p>{comm.rating}</p>
-											</li>
-										);
-									})}
-								</ul>
-							</div>
-						) : (
-							" "
-						)}
+				{user ? (
+					<ReviewModal />
+				) : (
+					<div
+						style={{ background: "" }}
+						className="logged_out_review-text"
+					>
+						<p>Login and let us know about your favorite cocktail</p>{" "}
 					</div>
-				</div>
+				)}
+			</div>
+			<div
+				style={{ background: "", width: "66%", padding: "10px" }}
+				className="review-list"
+			>
+				{" "}
+				<h3>Review list</h3>
+				{user || !user ? (
+					<div
+						style={{
+							padding: "20px",
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "center",
+							alignItems: "center",
+							border: "2px solid #222",
+							borderRadius: "10px",
+						}}
+						className="comment-section"
+					>
+						{allReviews?.map((comm) => {
+							return (
+								<li
+									style={{
+										display: "flex",
+										width: "100%",
+										justifyContent: "space-between",
+									}}
+									key={comm.id}
+								>
+									<p style={{ overflowWrap: "break-word" }}>
+										{comm.text}
+									</p>
+									<p>{comm.rating}</p>
+								</li>
+							);
+						})}
+					</div>
+				) : (
+					" "
+				)}
 			</div>
 		</div>
 	);

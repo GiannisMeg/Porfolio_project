@@ -54,6 +54,9 @@ export default function ReviewModal() {
 		dispatch(
 			showMessageWithTimeout("success", false, "comment added!", 2000)
 		);
+
+		// close modal
+		handleClose();
 	};
 
 	// replace array with rating array
@@ -87,9 +90,14 @@ export default function ReviewModal() {
 	return (
 		<div>
 			<Button
-				style={{ margin: "10px", background: "lightgrey" }}
-				variant="outlined"
-				color="success"
+				style={{
+					margin: "20px 0",
+					color: "red",
+					width: "100%",
+					background: "#77777",
+					padding: "20px 0",
+				}}
+				variant="contained"
 				startIcon={<SendIcon />}
 				onClick={handleOpen}
 			>
