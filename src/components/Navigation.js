@@ -5,7 +5,7 @@ import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
-// FaCocktail;
+import { FaCocktail } from "react-icons/fa";
 //selector
 // import { selectAllCocktails } from "../store/cocktails/selectors";
 
@@ -24,7 +24,18 @@ export const Navigation = () => {
 
 	return (
 		<Nav>
-			<Logo href="/">Friday Shakes</Logo>
+			<Logo href="/">
+				<span
+					style={{
+						color: "#ed5e7a",
+						fontSize: "22px",
+					}}
+				>
+					Friday'
+				</span>
+				<FaCocktail style={{ margin: "2px", width: "20%" }}></FaCocktail>{" "}
+				Shakes
+			</Logo>
 			<Hamburger onClick={() => setOpen(!open)}>
 				<span />
 				<span />
@@ -32,12 +43,28 @@ export const Navigation = () => {
 			</Hamburger>
 			<Menu open={open}>
 				<MenuLink to="/mycocktails">
-					<Button variant="contained" color="primary">
+					<Button
+						style={{
+							color: "#ed5e7a",
+							fontSize: "14px",
+							fontWeight: "550",
+							border: "solid 2px #ed5e7a ",
+						}}
+					>
 						MyCocktails
 					</Button>
 				</MenuLink>
 				<MenuLink to="/cocktails/findone">
-					<Button variant="contained" color="primary">
+					<Button
+						style={{
+							color: "#ed5e7a",
+							fontSize: "14px",
+							fontWeight: "550",
+							border: "solid 2px #ed5e7a ",
+						}}
+						to="/login"
+						variant="outlined"
+					>
 						Find More
 					</Button>
 				</MenuLink>
@@ -48,15 +75,36 @@ export const Navigation = () => {
 				</MenuLink> */}
 				{token ? (
 					<Button
-						variant="contained"
-						color="error"
+						style={{
+							color: "#f7264f",
+							fontSize: "14px",
+							fontWeight: "550",
+							marginLeft: "2px",
+
+							border: "solid 2px #f7264f ",
+						}}
+						variant="outlined"
 						onClick={() => dispatch(logOut())}
 					>
 						Logout
 					</Button>
 				) : (
-					<MenuLink variant="contained" color="success" to="/login">
-						<Button variant="contained" color="success">
+					<MenuLink
+						style={{
+							color: "#ed5e7a",
+							fontSize: "14px",
+							border: "solid 2px #ed5e7a ",
+						}}
+						to="/login"
+					>
+						<Button
+							variant="contained"
+							style={{
+								color: "#ed5e7a",
+								fontSize: "14px",
+								border: "solid 2px #ed5e7a ",
+							}}
+						>
 							Login
 						</Button>
 					</MenuLink>
@@ -90,6 +138,7 @@ const Nav = styled.div`
 `;
 
 const Logo = styled.a`
+	width : 50%
 	padding: 1rem 0;
 	color: #ececec;
 	text-decoration: none;
@@ -97,7 +146,7 @@ const Logo = styled.a`
 	font-size: 1.7rem;
 
 	span {
-		font-weight: 300;
+		font-weight: 1100;
 		font-size: 1.3rem;
 	}
 `;

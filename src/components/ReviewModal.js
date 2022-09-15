@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SendIcon from "@mui/icons-material/Send";
 import { TextareaAutosize } from "@mui/material";
+import RateReviewIcon from "@mui/icons-material/RateReview";
 
 // thunk
 import { postReview } from "../store/cocktails/thunks";
@@ -92,16 +93,19 @@ export default function ReviewModal() {
 			<Button
 				style={{
 					margin: "20px 0",
-					color: "red",
-					width: "100%",
-					background: "#77777",
+					color: "#ed5e7a",
+					width: "70%",
+
+					background: "#222",
 					padding: "20px 0",
+					border: "solid 4px #ed5e7a ",
+					fontWeight: "550",
 				}}
-				variant="contained"
-				startIcon={<SendIcon />}
+				variant="outlined"
+				startIcon={<RateReviewIcon style={{ fontSize: "large" }} />}
 				onClick={handleOpen}
 			>
-				Add Review
+				<strong> Add Review</strong>
 			</Button>
 			<Modal
 				open={open}
@@ -111,7 +115,7 @@ export default function ReviewModal() {
 			>
 				<Box sx={style}>
 					<Typography id="modal-modal-title" variant="h6" component="h2">
-						Review
+						<strong>Review</strong>
 					</Typography>
 					<div style={styles.stars}>
 						{stars.map((_, index) => {
@@ -153,7 +157,7 @@ export default function ReviewModal() {
 
 						<br></br>
 						<Button
-							style={{ background: "orange", margin: "5px" }}
+							style={{ background: "goldenrod", margin: "5px" }}
 							variant="contained"
 							startIcon={<SendIcon />}
 							onClick={submitNewReview}
@@ -166,10 +170,3 @@ export default function ReviewModal() {
 		</div>
 	);
 }
-
-//[Toggle functionality]
-//-button
-// we map through cocktails array and we place the toggle button
-//	<button onClick={() => dispatch(toggleFavorites(p.id))}>
-//	{user.favorites.includes(p.id) ? "♥" : "♡"}
-//</button>

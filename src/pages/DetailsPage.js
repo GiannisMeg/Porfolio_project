@@ -6,6 +6,7 @@ import ReviewList from "../components/ReviewList";
 
 //CSS
 import styled from "styled-components";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 //[Todo] : display a list of reviews
 
@@ -60,10 +61,7 @@ export const DetailsPage = () => {
 				{user ? (
 					<ReviewModal />
 				) : (
-					<div
-						style={{ background: "" }}
-						className="logged_out_review-text"
-					>
+					<div style={{}} className="logged_out_review-text">
 						<p>Login and let us know about your favorite cocktail</p>{" "}
 					</div>
 				)}
@@ -73,7 +71,7 @@ export const DetailsPage = () => {
 				className="review-list"
 			>
 				{" "}
-				<h3>Review list</h3>
+				<h3 style={{ textAlign: "center" }}>Review list</h3>
 				{user || !user ? (
 					<div
 						style={{
@@ -84,6 +82,8 @@ export const DetailsPage = () => {
 							alignItems: "center",
 							border: "2px solid #222",
 							borderRadius: "10px",
+							background: "#E2E1E1",
+							// background: "#222",
 						}}
 						className="comment-section"
 					>
@@ -94,13 +94,21 @@ export const DetailsPage = () => {
 										display: "flex",
 										width: "100%",
 										justifyContent: "space-between",
+										border: "2px solid #222",
+										borderRadius: "10px",
+										margin: 5,
+										padding: 4,
+										background: "#fff",
 									}}
 									key={comm.id}
 								>
 									<p style={{ overflowWrap: "break-word" }}>
 										{comm.text}
 									</p>
-									<p>{comm.rating}</p>
+									<p>
+										{comm.rating}{" "}
+										<StarBorderIcon style={{ color: "goldenrod" }} />
+									</p>
 								</li>
 							);
 						})}

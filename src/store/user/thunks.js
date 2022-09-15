@@ -3,13 +3,8 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
-import {
-	loginSuccess,
-	logOut,
-	tokenStillValid,
-	newComment,
-	setFavorite,
-} from "./slice";
+import { loginSuccess, logOut, tokenStillValid, newComment } from "./slice";
+// import { newComment } from "../cocktails/slice";
 
 export const signUp = (name, email, password) => {
 	return async (dispatch, getState) => {

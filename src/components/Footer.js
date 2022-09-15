@@ -8,7 +8,7 @@ export default function Footer() {
 			<div className="footer-list">
 				<span className="c-the">
 					Friday
-					<span className="c-shop">Shakers</span>
+					<span className="c-shop">Shakes</span>
 				</span>
 				<div className="ul-footer-links">
 					<ul className="f-link-1">

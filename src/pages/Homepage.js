@@ -4,7 +4,6 @@ import { Carousel } from "3d-react-carousal";
 import { Link } from "react-router-dom";
 import Comments from "../components/Comments";
 import { RandomCocktail } from "../components";
-import "./Homepage.css";
 
 //files
 import { useSelector, useDispatch } from "react-redux";
@@ -89,7 +88,7 @@ export const Homepage = () => {
 				<div className="comment_list">
 					{user || !user ? (
 						<div style={{}} className="comment-section">
-							<ul>
+							<ul style={{ listStyleType: "none" }}>
 								{allComments?.map((comm) => {
 									return (
 										<li key={comm.id}>

@@ -37,6 +37,10 @@ export const cocktailStateSlice = createSlice({
 		newReview: (state, action) => {
 			state.review.push(action.payload);
 		},
+		// newComment: (state, action) => {
+		// 	// state.profile = action.payload;
+		// 	state.allComments.push(action.payload);
+		// },
 	},
 });
 
@@ -47,6 +51,7 @@ export const {
 	newCocktail,
 	getAllComments,
 	getAllReviews,
+	// newComment,
 } = cocktailStateSlice.actions;
 
 export default cocktailStateSlice.reducer;

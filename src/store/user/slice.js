@@ -23,7 +23,8 @@ export const userSlice = createSlice({
 			state.profile = action.payload.user;
 		},
 		newComment: (state, action) => {
-			state.profile = action.payload;
+			// state.profile = action.payload;
+			state.profile.comments.push(action.payload);
 		},
 	},
 });

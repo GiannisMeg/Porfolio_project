@@ -84,9 +84,9 @@ export const RandomCocktail = () => {
 								className="rdm-cocktail-instr"
 							>
 								<div>
-									<h4>Ingredients</h4>
+									<h4>Ingredients ..</h4>
 									{/* Map here the ingedians inside the <ul> */}
-									<ul>
+									<ul style={{ listStyleType: "none" }}>
 										<li>
 											<span>Whiskey:</span>
 											<span>50ml</span>
@@ -135,6 +135,8 @@ export const RandomCocktail = () => {
 						color: "#fff",
 						fontSize: "20px",
 						border: "#222",
+						border: "1px solid",
+						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
 					}}
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}

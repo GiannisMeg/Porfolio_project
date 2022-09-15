@@ -18,17 +18,20 @@ import { showMessageWithTimeout } from "../store/appState/thunks";
 import { selectUser } from "../store/user/selectors";
 
 const style = {
-	position: "absolute",
-	top: "50%",
+	display: "flex",
+	flexDirection: "column",
+	position: "relative",
+	top: "45%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
-	width: 300,
-	height: 300,
+	width: 600,
+	height: 500,
 	bgcolor: "background.paper",
 	border: "2px solid #000",
 	boxShadow: 24,
 	p: 16,
 	column: 4,
+	overflow: "hidden",
 };
 
 export default function CreateFormMdl() {
@@ -44,8 +47,6 @@ export default function CreateFormMdl() {
 	const [glass, setGlass] = useState("");
 	const [instructions, setInstructions] = useState("");
 	const [ingredients, setIngredients] = useState("");
-
-	
 
 	const submitNewCocktail = (e) => {
 		e.preventDefault();
@@ -66,8 +67,12 @@ export default function CreateFormMdl() {
 			{!user ? (
 				<Link to={`/login`}>
 					<Button
+						style={{
+							color: "white",
+							fontWeight: "550",
+							background: "darkgreen",
+						}}
 						variant="contained"
-						color="success"
 						startIcon={<SendIcon />}
 						onClick={handleOpen}
 					>
@@ -88,7 +93,7 @@ export default function CreateFormMdl() {
 								variant="h6"
 								component="h2"
 							>
-								Add Your Own Cocktail!
+								<strong style={{}}>Add your own Cocktail! </strong>
 							</Typography>
 							<form type="submit">
 								<Input
@@ -126,10 +131,16 @@ export default function CreateFormMdl() {
 									sx={{ mt: 4 }}
 									required
 								></Input>
-								<br></br>
+
 								<Button
+									style={{
+										color: "#fff",
+										display: "flex",
+										padding: "10px",
+										marginTop: "20px",
+										background: "darkgreen",
+									}}
 									variant="contained"
-									color="primary"
 									startIcon={<SendIcon />}
 									onClick={submitNewCocktail}
 								>
@@ -139,6 +150,8 @@ export default function CreateFormMdl() {
 						</Box>
 					</Modal>
 					<Button
+						className="add-ckt-interface"
+						style={{ color: "#fff" }}
 						variant="contained"
 						color="success"
 						startIcon={<SendIcon />}

@@ -42,7 +42,8 @@ export const FindCocktailsPage = () => {
 			<br />
 
 			<div className="main" style={{ width: "100%" }}>
-				<div className="find-cocktail">
+				<div className="c-input">
+					{" "}
 					<input
 						className="input-find"
 						placeholder="find cocktail"
@@ -50,6 +51,7 @@ export const FindCocktailsPage = () => {
 						onChange={(e) => setSearchName(e.target.value)}
 					/>
 				</div>
+
 				<ul
 					style={{
 						display: "flex",
