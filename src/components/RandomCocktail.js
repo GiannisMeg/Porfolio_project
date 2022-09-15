@@ -24,10 +24,11 @@ export const RandomCocktail = () => {
 		<div>
 			<section
 				style={{
+					position: "relative",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
-					margin: "50px 0",
+					// margin: "50px 0",
 					padding: "50px",
 				}}
 				className="random-cocktail"

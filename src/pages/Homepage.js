@@ -19,6 +19,7 @@ import { selectUser, selectAllComments } from "../store/user/selectors";
 //thunks
 import { showAllCocktails } from "../store/cocktails/thunks";
 import { showAllComments } from "../store/user/thunks";
+import FotosList from "../components/FotosList";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -92,40 +93,33 @@ export const Homepage = () => {
 			>
 				<span>------</span>
 			</div>
-			<div className="random_cocktails" style={{ background: "" }}>
-				<RandomCocktail />
-			</div>
-			<div
-				className="middle-bar"
-				style={{
-					background: "#222",
-					margin: "60px",
-					border: "solid 1px #fff",
-					borderRadius: "20px",
-				}}
-			>
-				<span>------</span>
-			</div>
-			<div
-				className="comment_list"
-				style={{
-					listStyleType: "none",
-					margin: " 0 25%",
-					width: "50%",
-					padding: "20px",
-					display: "flex",
-					flexDirection: "row",
-					justifyContent: "space-around",
-					alignItems: "center",
-					border: "2px solid #222",
-					borderRadius: "10px",
-					background: "#E2E1E1",
-				}}
-			>
-				<Comments />
-				<div>
+			<div className="mdl-section" style={{ display: "flex" }}>
+				<div
+					className="random_cocktails"
+					style={{ display: "flex", flex: "3" }}
+				>
+					<RandomCocktail />
+				</div>
+				<div
+					className="comment_list"
+					style={{
+						listStyleType: "none",
+
+						padding: "20px",
+						display: "flex",
+						flex: "1",
+						flexDirection: "column",
+						justifyContent: "space-around",
+						alignItems: "center",
+						// border: "2px solid #222",
+						borderRadius: "10px",
+						// background: "#E2E1E1",
+					}}
+				>
+					<Comments />
+
 					{user || !user ? (
-						<div style={{}} className="comment-section">
+						<div className="comment-section">
 							<ul>
 								{allComments?.map((comm) => {
 									return (
@@ -136,11 +130,11 @@ export const Homepage = () => {
 												flexDirection: "column",
 												width: "100%",
 												justifyContent: "space-between",
-												border: "2px solid #222",
+												border: "2px solid  #ed5e7a ",
 												borderRadius: "10px",
 												margin: 5,
 												padding: 4,
-												background: "#fff",
+												background: "#ffe0db",
 											}}
 										>
 											<h4
@@ -161,6 +155,45 @@ export const Homepage = () => {
 					) : (
 						" "
 					)}
+				</div>
+			</div>
+			<div
+				className="middle-bar"
+				style={{
+					background: "#222",
+					margin: "60px",
+					border: "solid 1px #fff",
+					borderRadius: "20px",
+				}}
+			>
+				<span>------</span>
+			</div>
+			<div
+				className="btm-section"
+				style={{
+					display: "flex",
+				}}
+			>
+				<div
+					className="imp-fotoslist"
+					style={{
+						display: "flex",
+						flex: "1",
+						position: "relative",
+						left: "2%",
+					}}
+				>
+					<FotosList />
+				</div>
+				<div
+					className="imp-fotoslist1"
+					style={{
+						display: "flex",
+						flex: "1",
+						position: "relative",
+					}}
+				>
+					<FotosList />
 				</div>
 			</div>
 		</div>

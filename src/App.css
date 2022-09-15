@@ -1,4 +1,5 @@
-.btn-generate {
+.btn-generate,
+.btn-loggedOut-comment {
 	background: linear-gradient(89deg, #222222, #39007a);
 	background-size: 400% 400%;
 

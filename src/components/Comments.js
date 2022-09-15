@@ -52,7 +52,19 @@ export default function Comments() {
 		>
 			{/* IF NOT A USER CANT MAKE COMMEntS */}
 			{!user ? (
-				"Login to leave a comment"
+				<Button
+					className="btn-loggedOut-comment"
+					type="contained"
+					style={{
+						color: "#ed5e7a",
+						fontSize: "14px",
+						fontWeight: "550",
+						border: "solid 1.5px #ed5e7a ",
+						// background: "#E2E1E1",
+					}}
+				>
+					Login to leave a comment
+				</Button>
 			) : (
 				<div>
 					<div className="comments">
