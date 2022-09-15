@@ -1,5 +1,5 @@
 //css
-import styled from "styled-components";
+
 import { Carousel } from "3d-react-carousal";
 import { Link } from "react-router-dom";
 import Comments from "../components/Comments";
@@ -12,12 +12,13 @@ import { useEffect } from "react";
 //selectors
 import {
 	selectAllCocktails,
-	selectAllComments,
+	// selectAllComments,
 } from "../store/cocktails/selectors";
-import { selectUser } from "../store/user/selectors";
+import { selectUser, selectAllComments } from "../store/user/selectors";
 
 //thunks
-import { showAllCocktails, showAllComments } from "../store/cocktails/thunks";
+import { showAllCocktails } from "../store/cocktails/thunks";
+import { showAllComments } from "../store/user/thunks";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -76,18 +77,40 @@ export const Homepage = () => {
 	// console.log(" users ", newCommentList);
 
 	return (
-		<div className="body">
+		<div className="home-container">
 			<div style={{ marginTop: "50px" }} className="c-homepage-carousel">
 				<Carousel slides={slides} autoplay={false} interval={1000} />
 			</div>
-			<div style={{ background: "" }} className="random_cocktails">
+			<div
+				className="middle-bar"
+				style={{
+					background: "#222",
+					margin: "60px",
+					border: "solid 1px #fff",
+					borderRadius: "20px",
+				}}
+			>
+				<span>------</span>
+			</div>
+			<div className="random_cocktails" style={{ background: "" }}>
 				<RandomCocktail />
+			</div>
+			<div
+				className="middle-bar"
+				style={{
+					background: "#222",
+					margin: "60px",
+					border: "solid 1px #fff",
+					borderRadius: "20px",
+				}}
+			>
+				<span>------</span>
 			</div>
 			<div
 				className="comment_list"
 				style={{
 					listStyleType: "none",
-					margin: " 0 33%",
+					margin: " 0 25%",
 					width: "50%",
 					padding: "20px",
 					display: "flex",
@@ -130,7 +153,6 @@ export const Homepage = () => {
 											<p style={{ fontSize: "small" }}>
 												{comm.text}
 											</p>
-											<h5>user:{comm.user.name}</h5>
 										</li>
 									);
 								})}
@@ -141,42 +163,6 @@ export const Homepage = () => {
 					)}
 				</div>
 			</div>
-			{/* <div style={{ display: "flex" }}>
-				<div
-					style={{ background: "lightgreen" }}
-					className="random_cocktails"
-				>
-					<RandomCocktail />
-				</div>
-				<div>
-					<Comments />
-					<div className="comment_list">
-						{user || !user ? (
-							<div
-								style={{
-									backgroundColor: "lightgray",
-									border: "solid 1px",
-								}}
-								className="comment-section"
-							>
-								<ul>
-									{allComments?.map((comm) => {
-										return (
-											<li key={comm.id}>
-												<h3>{comm.name}</h3>
-												<p>{comm.text}</p>
-												<h3>{comm.user.name}</h3>
-											</li>
-										);
-									})}
-								</ul>
-							</div>
-						) : (
-							" "
-						)}
-					</div>
-				</div>
-			</div> */}
 		</div>
 	);
 };

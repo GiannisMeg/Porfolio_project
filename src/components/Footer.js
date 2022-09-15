@@ -1,15 +1,38 @@
 import React from "react";
 import "./Footer.css";
+import styled from "styled-components";
+import { FaCocktail } from "react-icons/fa";
+const Logo = styled.a`
+	width : 50%
+	padding: 1rem 0;
+	color: #ececec;
+	text-decoration: none;
+	font-weight: 800;
+	font-size: 1.7rem;
+
+	span {
+		font-weight: 1100;
+		font-size: 1.3rem;
+	}
+`;
 
 export default function Footer() {
 	return (
 		<div className="footer-box">
 			{" "}
 			<div className="footer-list">
-				<span className="c-the">
-					Friday
-					<span className="c-shop">Shakes</span>
-				</span>
+				<Logo className="logo-footer">
+					<span
+						style={{
+							color: "#ed5e7a",
+							fontSize: "22px",
+						}}
+					>
+						Friday'
+					</span>
+					<FaCocktail style={{ margin: "2px", width: "20%" }}></FaCocktail>{" "}
+					Shakes
+				</Logo>
 				<div className="ul-footer-links">
 					<ul className="f-link-1">
 						FrontEnd Technologies

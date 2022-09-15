@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-// import "./FindCocktailsPage.css";
 
 //thunks
 import { showAllCocktails } from "../store/cocktails/thunks";
@@ -18,7 +17,7 @@ export const FindCocktailsPage = () => {
 	const [searchName, setSearchName] = useState("");
 	const fetchCocktailList = useSelector(selectAllCocktails);
 
-	const filteredCocktails = fetchCocktailList.filter((cktail) => {
+	const filteredCocktails = fetchCocktailList?.filter((cktail) => {
 		return cktail.name.toLowerCase().includes(searchName.toLowerCase());
 	});
 
@@ -26,6 +25,7 @@ export const FindCocktailsPage = () => {
 		dispatch(showAllCocktails());
 	}, [dispatch]);
 
+	// console.log("give me ", filteredCocktails);
 	return (
 		<div
 			style={{
@@ -34,19 +34,31 @@ export const FindCocktailsPage = () => {
 				alignItems: "center",
 			}}
 		>
-			<h2 style={{ textAlign: "center" }}>FindCocktail</h2>
-			<div className="ckt-add">
+			<div
+				className="ckt-add"
+				style={{
+					display: "flex",
+					position: "relative",
+					left: "42%",
+					marginTop: "20px",
+				}}
+			>
 				<CreateFormMdl />
 			</div>
-
-			<br />
 
 			<div className="main" style={{ width: "100%" }}>
 				<div className="c-input">
 					{" "}
 					<input
+						style={{
+							background: "#DBDADA",
+							border: "solid 2px #222 ",
+							borderRadius: "10px",
+							position: "relative",
+							left: "44%",
+						}}
 						className="input-find"
-						placeholder="find cocktail"
+						placeholder="search"
 						value={searchName}
 						onChange={(e) => setSearchName(e.target.value)}
 					/>
@@ -62,10 +74,10 @@ export const FindCocktailsPage = () => {
 				>
 					{filteredCocktails &&
 						filteredCocktails
-							.sort((name_a, name_b) => {
+							?.sort((name_a, name_b) => {
 								return name_a.name.localeCompare(name_b.name);
 							})
-							.slice(0, 10)
+					.slice(0, 10)
 							?.map((ckt) => {
 								return (
 									<li

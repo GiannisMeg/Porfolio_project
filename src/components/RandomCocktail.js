@@ -32,6 +32,22 @@ export const RandomCocktail = () => {
 				}}
 				className="random-cocktail"
 			>
+				<Button
+					className="btn-generate"
+					style={{
+						alignSelf: "center",
+						margin: "50px 0",
+						padding: "20px",
+						color: "#fff",
+						fontSize: "20px",
+						border: "#222",
+						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
+					}}
+					variant="outlined"
+					onClick={() => fetchApiCocktails()}
+				>
+					Generate Random Cocktail
+				</Button>
 				{randomCocktail.map((cocktail) => {
 					// destructure needed apiNames
 					const {
@@ -40,6 +56,16 @@ export const RandomCocktail = () => {
 						strCategory,
 						strDrinkThumb,
 						strInstructions,
+						strIngredient1,
+						strIngredient2,
+						strIngredient3,
+						strIngredient4,
+						strIngredient5,
+						strMeasure1,
+						strMeasure2,
+						strMeasure3,
+						strMeasure4,
+						strMeasure5,
 					} = cocktail;
 					// display cocktail
 					return (
@@ -55,6 +81,8 @@ export const RandomCocktail = () => {
 							<div
 								style={{
 									display: "flex",
+									flex: "1",
+									position: "relative",
 									flexDirection: "column",
 									alignItems: "center",
 								}}
@@ -76,8 +104,9 @@ export const RandomCocktail = () => {
 							</div>
 							<div
 								style={{
-									width: "33%",
+									// width: "33%",
 									display: "flex",
+									flex: "1",
 									flexDirection: "column",
 									justifyContent: "space-between",
 								}}
@@ -88,24 +117,24 @@ export const RandomCocktail = () => {
 									{/* Map here the ingedians inside the <ul> */}
 									<ul style={{ listStyleType: "none" }}>
 										<li>
-											<span>Whiskey:</span>
-											<span>50ml</span>
+											<span>{strIngredient1} </span>
+											<span>{strMeasure1} </span>
 										</li>
 										<li>
-											<span>Whiskey:</span>
-											<span>50ml</span>
+											<span>{strIngredient2} </span>
+											<span>{strMeasure2} </span>
 										</li>
 										<li>
-											<span>Whiskey:</span>
-											<span>50ml</span>
+											<span>{strIngredient3} </span>
+											<span>{strMeasure3} </span>
 										</li>
 										<li>
-											<span>Whiskey:</span>
-											<span>50ml</span>
+											<span>{strIngredient4} </span>
+											<span>{strMeasure4} </span>
 										</li>
 										<li>
-											<span>Whiskey:</span>
-											<span>50ml</span>
+											<span>{strIngredient5} </span>
+											<span>{strMeasure5} </span>
 										</li>
 									</ul>
 								</div>
@@ -126,23 +155,6 @@ export const RandomCocktail = () => {
 						</article>
 					);
 				})}
-				<Button
-					style={{
-						alignSelf: "center",
-						margin: "50px 0",
-						padding: "20px",
-						background: "#222",
-						color: "#fff",
-						fontSize: "20px",
-						border: "#222",
-						border: "1px solid",
-						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
-					}}
-					variant="outlined"
-					onClick={() => fetchApiCocktails()}
-				>
-					Generate a Random Cocktail
-				</Button>
 			</section>
 		</div>
 	);

@@ -7,7 +7,8 @@ import { showMessageWithTimeout } from "../store/appState/thunks";
 
 // selectors
 import { selectUser } from "../store/user/selectors";
-import { Button } from "@mui/material";
+import { Button, TextareaAutosize } from "@mui/material";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 //      [TODO]
 // 			:Submit a comment
@@ -22,11 +23,8 @@ export default function Comments() {
 
 	//states
 
-	// const [comment, setComment] = useState("");
-
 	const [name, setName] = useState("");
 	const [text, setText] = useState("");
-	// const userId = user.id;
 
 	// submit comments
 	const submitComment = (e) => {
@@ -57,28 +55,33 @@ export default function Comments() {
 				"Login to leave a comment"
 			) : (
 				<div>
-					<label htmlFor="">Comments</label>
 					<div className="comments">
 						<form className="comment-form" type="submit">
-							<label>CocktailName</label>
-							<br />
 							<input
 								type="text"
 								value={name}
+								placeholder="CocktailName"
 								onChange={(e) => setName(e.target.value)}
 							/>
 							<br />
-							<label>Text</label>
+
 							<br />
-							<input
+							<TextareaAutosize
+								style={{
+									overflow: "hidden",
+									maxHeight: "150px",
+									height: "100px",
+								}}
 								type="text"
+								row={4}
 								value={text}
 								onChange={(e) => setText(e.target.value)}
 							/>
 							<br />
 							<Button
 								variant="contained"
-								style={{ background: "orange", color: "black" }}
+								startIcon={<ChatBubbleOutlineIcon />}
+								style={{ background: "#222", color: "#fff" }}
 								onClick={submitComment}
 							>
 								Submit Comment

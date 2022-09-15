@@ -3,7 +3,13 @@ import axios from "axios";
 import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
-import { loginSuccess, logOut, tokenStillValid, newComment } from "./slice";
+import {
+	loginSuccess,
+	logOut,
+	tokenStillValid,
+	newComment,
+	getAllComments,
+} from "./slice";
 // import { newComment } from "../cocktails/slice";
 
 export const signUp = (name, email, password) => {
@@ -126,6 +132,19 @@ export const getUserWithStoredToken = () => {
 	};
 };
 
+//get all comments
+export const showAllComments = () => async (dispatch, getState) => {
+	try {
+		const response = await axios.get(
+			"http://localhost:4000/comment/comments"
+		);
+		console.log("response comment", response);
+		dispatch(getAllComments(response.data));
+	} catch (err) {
+		console.log(err.message);
+	}
+};
+
 //create comment
 
 export const postComment = (name, text) => async (dispatch, getState) => {
@@ -133,7 +152,7 @@ export const postComment = (name, text) => async (dispatch, getState) => {
 	const token = getState().user.token;
 	try {
 		const response = await axios.post(
-			`http://localhost:4000/users/create`,
+			`http://localhost:4000/comment/create`,
 			{ name, text },
 			{ headers: { Authorization: `Bearer ${token}` } }
 		);
@@ -160,7 +179,7 @@ export const favoriteCocktail = (cocktailId) => async (dispatch, getState) => {
 		// we get the id [x]
 		// console.log("cocktail", cocktailId);
 		const response = await axios.post(
-			`http://localhost:4000/users/favorites`,
+			`http://localhost:4000/comment/favorites`,
 			{ cocktailId },
 			{ headers: { Authorization: `Bearer ${token}` } }
 		);

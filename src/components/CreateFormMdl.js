@@ -9,6 +9,7 @@ import Modal from "@mui/material/Modal";
 import SendIcon from "@mui/icons-material/Send";
 import { Input } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 // thunk
 import { addNewCocktail } from "../store/cocktails/thunks";
@@ -57,8 +58,14 @@ export default function CreateFormMdl() {
 		setInstructions("");
 		setIngredients("");
 
+		handleClose();
 		dispatch(
-			showMessageWithTimeout("success", false, "comment added!", 2000)
+			showMessageWithTimeout(
+				"success",
+				false,
+				"Cocktail successfully added!",
+				2000
+			)
 		);
 	};
 
@@ -151,10 +158,14 @@ export default function CreateFormMdl() {
 					</Modal>
 					<Button
 						className="add-ckt-interface"
-						style={{ color: "#fff" }}
+						style={{
+							color: "#555",
+							background: "tomato",
+							fontWeight: "550",
+							fontSize: "22px",
+						}}
 						variant="contained"
-						color="success"
-						startIcon={<SendIcon />}
+						startIcon={<AddCircleOutlineIcon />}
 						onClick={handleOpen}
 					>
 						Add Your Own

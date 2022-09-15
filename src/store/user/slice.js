@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	token: localStorage.getItem("token"),
 	profile: null,
+	allComments: [],
 };
 
 export const userSlice = createSlice({
@@ -22,9 +23,14 @@ export const userSlice = createSlice({
 		tokenStillValid: (state, action) => {
 			state.profile = action.payload.user;
 		},
+		getAllComments: (state, action) => {
+			const newArrayUsersWithComments = action.payload;
+
+			state.allComments = newArrayUsersWithComments;
+		},
 		newComment: (state, action) => {
 			// state.profile = action.payload;
-			state.profile.comments.push(action.payload);
+			state.allComments.push(action.payload);
 		},
 	},
 });
@@ -36,6 +42,7 @@ export const {
 	getAllUsersWithComments,
 	newComment,
 	setFavorite,
+	getAllComments,
 } = userSlice.actions;
 
 export default userSlice.reducer;

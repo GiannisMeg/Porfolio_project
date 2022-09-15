@@ -68,11 +68,6 @@ export const Navigation = () => {
 						Find More
 					</Button>
 				</MenuLink>
-				{/* <MenuLink to={`/cocktails/${allCocktails.id}`}>
-					<Button variant="contained" color="primary">
-						Details
-					</Button>
-				</MenuLink> */}
 				{token ? (
 					<Button
 						style={{
@@ -90,19 +85,19 @@ export const Navigation = () => {
 					</Button>
 				) : (
 					<MenuLink
-						style={{
-							color: "#ed5e7a",
-							fontSize: "14px",
-							border: "solid 2px #ed5e7a ",
-						}}
+						// style={{
+						// 	color: "#ed5e7a",
+						// 	fontSize: "14px",
+						// 	border: "solid 2px #ed5e7a ",
+						// }}
 						to="/login"
 					>
 						<Button
-							variant="contained"
+							variant="outlined"
 							style={{
-								color: "#ed5e7a",
+								color: "#D632E2",
 								fontSize: "14px",
-								border: "solid 2px #ed5e7a ",
+								border: "solid 2px #B108BD ",
 							}}
 						>
 							Login
@@ -134,7 +129,7 @@ const Nav = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	background: #222;
+	background: #585858;
 `;
 
 const Logo = styled.a`

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import "./App.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/thunks";
