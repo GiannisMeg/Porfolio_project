@@ -83,18 +83,54 @@ export const Homepage = () => {
 			<div style={{ background: "" }} className="random_cocktails">
 				<RandomCocktail />
 			</div>
-			<div>
+			<div
+				className="comment_list"
+				style={{
+					listStyleType: "none",
+					margin: " 0 33%",
+					width: "50%",
+					padding: "20px",
+					display: "flex",
+					flexDirection: "row",
+					justifyContent: "space-around",
+					alignItems: "center",
+					border: "2px solid #222",
+					borderRadius: "10px",
+					background: "#E2E1E1",
+				}}
+			>
 				<Comments />
-				<div className="comment_list">
+				<div>
 					{user || !user ? (
 						<div style={{}} className="comment-section">
-							<ul style={{ listStyleType: "none" }}>
+							<ul>
 								{allComments?.map((comm) => {
 									return (
-										<li key={comm.id}>
-											<h3>{comm.name}</h3>
-											<p>{comm.text}</p>
-											<h3>{comm.user.name}</h3>
+										<li
+											key={comm.id}
+											style={{
+												display: "flex",
+												flexDirection: "column",
+												width: "100%",
+												justifyContent: "space-between",
+												border: "2px solid #222",
+												borderRadius: "10px",
+												margin: 5,
+												padding: 4,
+												background: "#fff",
+											}}
+										>
+											<h4
+												style={{
+													display: "flex",
+												}}
+											>
+												{comm.name}
+											</h4>
+											<p style={{ fontSize: "small" }}>
+												{comm.text}
+											</p>
+											<h5>user:{comm.user.name}</h5>
 										</li>
 									);
 								})}

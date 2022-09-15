@@ -45,7 +45,13 @@ export default function Comments() {
 	};
 
 	return (
-		<div>
+		<div
+			style={{
+				position: "relative",
+
+				left: "10%",
+			}}
+		>
 			{/* IF NOT A USER CANT MAKE COMMEntS */}
 			{!user ? (
 				"Login to leave a comment"
