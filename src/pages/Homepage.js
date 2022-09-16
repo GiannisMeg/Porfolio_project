@@ -1,6 +1,6 @@
 //css
 
-import { Carousel } from "3d-react-carousal";
+import { Carousel } from "3d-react-carousel";
 import { Link } from "react-router-dom";
 import Comments from "../components/Comments";
 import { RandomCocktail } from "../components";
