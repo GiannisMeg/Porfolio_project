@@ -94,10 +94,7 @@ export const Homepage = () => {
 				<span>------</span>
 			</div>
 			<div className="mdl-section" style={{ display: "flex" }}>
-				<div
-					className="random_cocktails"
-					style={{ display: "flex", flex: "3" }}
-				>
+				<div className="random_cocktails" style={{ flex: "3" }}>
 					<RandomCocktail />
 				</div>
 				<div

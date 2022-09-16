@@ -60,7 +60,7 @@ export default function Comments() {
 						fontSize: "14px",
 						fontWeight: "550",
 						border: "solid 1.5px #ed5e7a ",
-						// background: "#E2E1E1",
+						
 					}}
 				>
 					Login to leave a comment
