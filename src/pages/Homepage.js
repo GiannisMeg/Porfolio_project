@@ -108,9 +108,8 @@ export const Homepage = () => {
 						flexDirection: "column",
 						justifyContent: "space-around",
 						alignItems: "center",
-						// border: "2px solid #222",
+
 						borderRadius: "10px",
-						// background: "#E2E1E1",
 					}}
 				>
 					<Comments />

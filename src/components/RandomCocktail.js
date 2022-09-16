@@ -90,7 +90,7 @@ export const RandomCocktail = () => {
 							<h3 style={{ marginBottom: "20px" }}>{strDrink}</h3>
 							<h5 style={{ marginBottom: "20px" }}>{strCategory}</h5>
 							<img
-								src={strDrinkThumb || "https://via.placeholder.com/350"}
+								src={strDrinkThumb}
 								alt=""
 								style={{
 									borderRadius: "5px",

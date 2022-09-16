@@ -46,8 +46,7 @@ export default function Comments() {
 		<div
 			style={{
 				position: "relative",
-
-				left: "10%",
+				right: "5%",
 			}}
 		>
 			{/* IF NOT A USER CANT MAKE COMMEntS */}
@@ -56,11 +55,12 @@ export default function Comments() {
 					className="btn-loggedOut-comment"
 					type="contained"
 					style={{
+						marginBottom: "14px",
+						padding: "20px",
 						color: "#ed5e7a",
 						fontSize: "14px",
 						fontWeight: "550",
 						border: "solid 1.5px #ed5e7a ",
-						
 					}}
 				>
 					Login to leave a comment
