@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
+import HeroBanner from "./HeroBanner";
 
 // apiUrl
 const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -39,7 +40,7 @@ export const RandomCocktail = () => {
 	} = randomCocktail || {};
 
 	return (
-		<div>
+		<div style={{}}>
 			<section
 				style={{
 					position: "relative",
@@ -51,6 +52,7 @@ export const RandomCocktail = () => {
 				}}
 				className="random-cocktail"
 			>
+				{/* <HeroBanner /> */}
 				<Button
 					className="btn-generate"
 					style={{
@@ -61,12 +63,14 @@ export const RandomCocktail = () => {
 						fontSize: "20px",
 						border: "#222",
 						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
+						backgroundImage: `url("https://ae01.alicdn.com/kf/He2bbaaef292b49dfba19addf83514244e/510ml-Cocktail-Shakers-Japanese-Style-Cocktail-Shaker-Bartender-Bar-Tool-Cocktail-Mixing-Bar-Tools.jpg_Q90.jpg_.webp")`,
 					}}
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}
 				>
 					Generate Random Cocktail
 				</Button>
+
 				{randomCocktail ? (
 					<article
 						style={{

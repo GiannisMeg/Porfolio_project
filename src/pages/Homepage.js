@@ -19,6 +19,7 @@ import { selectUser, selectAllComments } from "../store/user/selectors";
 import { showAllCocktails } from "../store/cocktails/thunks";
 import { showAllComments } from "../store/user/thunks";
 import FotosList from "../components/FotosList";
+import HeroBanner from "../components/HeroBanner";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -85,16 +86,23 @@ export const Homepage = () => {
 				className="middle-bar"
 				style={{
 					background: "#222",
-					margin: "60px",
-					fontSize: "10px",
-
+					margin: "5px",
+					border: "solid 0.5 px #fff",
 					borderRadius: "20px",
+					fontSize: "5px",
+					boxShadow: "2px 2px  hsl(0, 5%, 94%)",
 				}}
 			>
 				<span>------</span>
 			</div>
 			<div className="mdl-section" style={{ display: "flex" }}>
-				<div className="random_cocktails" style={{ flex: "3" }}>
+				<div
+					className="random_cocktails"
+					style={{
+						flex: "3",
+					}}
+				>
+					{/* <HeroBanner /> */}
 					<RandomCocktail />
 				</div>
 				<div
@@ -146,6 +154,7 @@ export const Homepage = () => {
 													margin: 5,
 													padding: 4,
 													background: "#ffe0db",
+													boxShadow: "2px 2px  hsl(0, 5%, 94%)",
 												}}
 											>
 												<h4

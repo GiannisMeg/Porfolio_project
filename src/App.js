@@ -38,6 +38,14 @@ function App() {
 				<Route path="/login" element={<Login />} />
 			</Routes>
 			<Footer />
+			<div class="background">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 		</div>
 	);
 }

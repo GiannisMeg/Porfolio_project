@@ -50,7 +50,7 @@ export default function CocktailCard(props) {
 		<Card sx={{ bgcolor: "#9999", maxWidth: 360 }}>
 			<CardHeader
 				avatar={
-					<Avatar sx={{ bgcolor: red[500] }} aria-label="">
+					<Avatar sx={{ bgcolor: "#9e043b" }} aria-label="">
 						{props.userId}
 					</Avatar>
 				}

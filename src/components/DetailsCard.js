@@ -9,11 +9,10 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { grey, red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import LocalBarIcon from "@mui/icons-material/LocalBar";
 
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -45,10 +44,13 @@ export default function DetailsCard(props) {
 
 	// console.log("loco", fetchCocktails);
 	return (
-		<Card sx={{ bgcolor: grey[300], maxWidth: 360 }}>
+		<Card sx={{ bgcolor: "#CCBDF0", maxWidth: 360 }}>
 			<CardHeader
 				avatar={
-					<Avatar sx={{ bgcolor: red[500] }} aria-label="">
+					<Avatar
+						sx={{ bgcolor: "#ffdae7", color: "#9e043b" }}
+						aria-label=""
+					>
 						{props.userId}
 					</Avatar>
 				}
@@ -71,7 +73,7 @@ export default function DetailsCard(props) {
 			<CardActions disableSpacing>
 				{/* WE ADD THE FAVORITE CASES WITH THW DIFF BORDERS */}
 				<IconButton aria-label="share">
-					<ShareIcon />
+					<LocalBarIcon />
 				</IconButton>
 				<ExpandMore
 					expand={expanded}
@@ -85,12 +87,12 @@ export default function DetailsCard(props) {
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
 					<Typography paragraph>
-						<strong> Method:</strong>
+						<strong> Method :</strong>
 					</Typography>
-					<Typography paragraph>{props.instructions}</Typography>
+					<Typography paragraph> {props.instructions}</Typography>
 
 					<Typography paragraph>
-						<strong> Ingredients/measure :</strong>
+						<strong> Ingredients/measure</strong>
 					</Typography>
 					<Typography paragraph>{props.ingredients}</Typography>
 				</CardContent>

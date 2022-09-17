@@ -30,8 +30,14 @@ export default function Footer() {
 					>
 						Friday'
 					</span>
-					<FaCocktail style={{ margin: "2px", width: "20%" }}></FaCocktail>{" "}
-					Shakes
+					<FaCocktail
+						style={{
+							margin: "2px",
+							width: "20%",
+							color: "#caeaee",
+						}}
+					></FaCocktail>{" "}
+					<p style={{ color: "#caeaee" }}>Shakes</p>
 				</Logo>
 				<div className="ul-footer-links">
 					<ul className="f-link-1">

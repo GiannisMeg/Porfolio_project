@@ -157,20 +157,7 @@ export default function CreateFormMdl() {
 							</form>
 						</Box>
 					</Modal>
-					{/* <Button
-						className="add-ckt-interface"
-						style={{
-							color: "#555",
-							background: "tomato",
-							fontWeight: "550",
-							fontSize: "22px",
-						}}
-						variant="contained"
-						startIcon={<AddCircleOutlineIcon />}
-						onClick={handleOpen}
-					>
-						Add Your Own
-					</Button> */}
+
 					<CocktailButton handleOpen={handleOpen} />
 				</>
 			)}

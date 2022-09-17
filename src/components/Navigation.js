@@ -33,8 +33,10 @@ export const Navigation = () => {
 				>
 					Friday'
 				</span>
-				<FaCocktail style={{ margin: "2px", width: "20%" }}></FaCocktail>{" "}
-				Shakes
+				<FaCocktail
+					style={{ margin: "2px", width: "20%", color: "#caeaee" }}
+				></FaCocktail>{" "}
+				<p style={{ color: "#caeaee" }}> Shakes</p>
 			</Logo>
 			<Hamburger onClick={() => setOpen(!open)}>
 				<span />
@@ -45,10 +47,12 @@ export const Navigation = () => {
 				<MenuLink to="/mycocktails">
 					<Button
 						style={{
-							color: "#ed5e7a",
+							color: "#caeaee",
 							fontSize: "14px",
 							fontWeight: "550",
+							padding: "10px 15px",
 							border: "solid 2px #ed5e7a ",
+							borderRadius: "8px",
 						}}
 					>
 						MyCocktails
@@ -57,26 +61,30 @@ export const Navigation = () => {
 				<MenuLink to="/cocktails/findone">
 					<Button
 						style={{
-							color: "#ed5e7a",
+							color: "#caeaee",
 							fontSize: "14px",
 							fontWeight: "550",
+							margin: "-10px",
+							padding: "9px 13px",
 							border: "solid 2px #ed5e7a ",
+							borderRadius: "8px",
 						}}
 						to="/login"
-						variant="outlined"
+						// variant="contained"
 					>
 						Find More
 					</Button>
+					{/* <span style={{ fontSize: "22px", color: "#caeaee" }}> | </span> */}
 				</MenuLink>
 				{token ? (
 					<Button
 						style={{
-							color: "#f7264f",
+							color: "#caeaee",
 							fontSize: "14px",
 							fontWeight: "550",
-							marginLeft: "2px",
-
-							border: "solid 2px #f7264f ",
+							padding: "10px 15px",
+							border: "solid 2px #ed5e7a ",
+							borderRadius: "50%",
 						}}
 						variant="outlined"
 						onClick={() => dispatch(logOut())}
@@ -84,20 +92,15 @@ export const Navigation = () => {
 						Logout
 					</Button>
 				) : (
-					<MenuLink
-						// style={{
-						// 	color: "#ed5e7a",
-						// 	fontSize: "14px",
-						// 	border: "solid 2px #ed5e7a ",
-						// }}
-						to="/login"
-					>
+					<MenuLink to="/login">
 						<Button
 							variant="outlined"
 							style={{
 								color: "#D632E2",
 								fontSize: "14px",
+								padding: "10px 15px",
 								border: "solid 2px #B108BD ",
+								borderRadius: "50%",
 							}}
 						>
 							Login
@@ -117,19 +120,19 @@ const MenuLink = styled(Link)`
 	color: #ececec;
 	transition: all 0.3s ease-in;
 	font-size: 0.9rem;
-
-	&:hover {
-		color: #9cc094;
-	}
 `;
 
 const Nav = styled.div`
-	padding: 0 2rem;
+	padding: 2rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	background: #585858;
+	background: #222;
+	border-radius: "3px";
+	font-weight: 1100;
+
+	background-image: url(https://assets.londonist.com/uploads/2016/10/i875/4322658427_3c659b16c2_o.jpg);
 `;
 
 const Logo = styled.a`
@@ -139,10 +142,12 @@ const Logo = styled.a`
 	text-decoration: none;
 	font-weight: 800;
 	font-size: 1.7rem;
+	color: "#caeaee";
 
 	span {
 		font-weight: 1100;
 		font-size: 1.3rem;
+		color: "#caeaee";
 	}
 `;
 
