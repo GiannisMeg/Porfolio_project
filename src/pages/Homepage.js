@@ -1,6 +1,5 @@
 //css
-
-import { Carousel } from "3d-react-carousel";
+import { Carousel } from "3d-react-carousal";
 import { Link } from "react-router-dom";
 import Comments from "../components/Comments";
 import { RandomCocktail } from "../components";
@@ -87,7 +86,8 @@ export const Homepage = () => {
 				style={{
 					background: "#222",
 					margin: "60px",
-					border: "solid 1px #fff",
+					fontSize: "10px",
+
 					borderRadius: "20px",
 				}}
 			>
@@ -116,37 +116,53 @@ export const Homepage = () => {
 
 					{user || !user ? (
 						<div className="comment-section">
-							<ul>
-								{allComments?.map((comm) => {
-									return (
-										<li
-											key={comm.id}
-											style={{
-												display: "flex",
-												flexDirection: "column",
-												width: "100%",
-												justifyContent: "space-between",
-												border: "2px solid  #ed5e7a ",
-												borderRadius: "10px",
-												margin: 5,
-												padding: 4,
-												background: "#ffe0db",
-											}}
-										>
-											<h4
+							<details>
+								<summary
+									style={{
+										border: "solid 2px #222",
+										borderRadius: "5px",
+										padding: "5px",
+										textAlign: "center",
+										width: "300px",
+										position: "relative",
+										left: "60px",
+									}}
+								>
+									{" "}
+									Show Comments{" "}
+								</summary>{" "}
+								<ul>
+									{allComments?.map((comm) => {
+										return (
+											<li
+												key={comm.id}
 												style={{
 													display: "flex",
+													flexDirection: "column",
+													width: "100%",
+													justifyContent: "space-between",
+													border: "2px solid  #ed5e7a ",
+													borderRadius: "10px",
+													margin: 5,
+													padding: 4,
+													background: "#ffe0db",
 												}}
 											>
-												{comm.name}
-											</h4>
-											<p style={{ fontSize: "small" }}>
-												{comm.text}
-											</p>
-										</li>
-									);
-								})}
-							</ul>
+												<h4
+													style={{
+														display: "flex",
+													}}
+												>
+													{comm.name}
+												</h4>
+												<p style={{ fontSize: "small" }}>
+													{comm.text}
+												</p>
+											</li>
+										);
+									})}
+								</ul>
+							</details>
 						</div>
 					) : (
 						" "
@@ -157,9 +173,10 @@ export const Homepage = () => {
 				className="middle-bar"
 				style={{
 					background: "#222",
-					margin: "60px",
+					margin: "5px",
 					border: "solid 1px #fff",
 					borderRadius: "20px",
+					fontSize: "5px",
 				}}
 			>
 				<span>------</span>

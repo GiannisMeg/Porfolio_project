@@ -34,7 +34,7 @@ export const FindCocktailsPage = () => {
 				alignItems: "center",
 			}}
 		>
-			<div
+			{/* <div
 				className="ckt-add"
 				style={{
 					display: "flex",
@@ -44,7 +44,7 @@ export const FindCocktailsPage = () => {
 				}}
 			>
 				<CreateFormMdl />
-			</div>
+			</div> */}
 
 			<div className="main" style={{ width: "100%" }}>
 				<div className="c-input">
@@ -77,7 +77,7 @@ export const FindCocktailsPage = () => {
 							?.sort((name_a, name_b) => {
 								return name_a.name.localeCompare(name_b.name);
 							})
-					.slice(0, 10)
+							.slice(0, 10)
 							?.map((ckt) => {
 								return (
 									<li

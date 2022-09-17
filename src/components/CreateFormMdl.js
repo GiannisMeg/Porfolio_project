@@ -9,7 +9,6 @@ import Modal from "@mui/material/Modal";
 import SendIcon from "@mui/icons-material/Send";
 import { Input } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 // thunk
 import { addNewCocktail } from "../store/cocktails/thunks";
@@ -17,6 +16,7 @@ import { showMessageWithTimeout } from "../store/appState/thunks";
 
 // selector
 import { selectUser } from "../store/user/selectors";
+import CocktailButton from "./CocktailButton";
 
 const style = {
 	display: "flex",
@@ -73,7 +73,7 @@ export default function CreateFormMdl() {
 		<div>
 			{!user ? (
 				<Link to={`/login`}>
-					<Button
+					{/* <Button
 						style={{
 							color: "white",
 							fontWeight: "550",
@@ -84,7 +84,8 @@ export default function CreateFormMdl() {
 						onClick={handleOpen}
 					>
 						Login to Add Your Own
-					</Button>
+					</Button> */}
+					<CocktailButton />
 				</Link>
 			) : (
 				<>
@@ -156,7 +157,7 @@ export default function CreateFormMdl() {
 							</form>
 						</Box>
 					</Modal>
-					<Button
+					{/* <Button
 						className="add-ckt-interface"
 						style={{
 							color: "#555",
@@ -169,7 +170,8 @@ export default function CreateFormMdl() {
 						onClick={handleOpen}
 					>
 						Add Your Own
-					</Button>
+					</Button> */}
+					<CocktailButton handleOpen={handleOpen} />
 				</>
 			)}
 		</div>

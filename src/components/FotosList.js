@@ -14,7 +14,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 export default function FotosList() {
 	return (
 		<ImageList
-			sx={{ width: 500, height: 450 }}
+			sx={{ width: 800, height: 498, bottom: 20 }}
 			variant="quilted"
 			cols={4}
 			rowHeight={121}
@@ -38,61 +38,41 @@ export default function FotosList() {
 
 const itemData = [
 	{
-		img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+		img: "https://m.media-amazon.com/images/I/41TWBs2+l3L._SL500_.jpg",
 		title: "Breakfast",
 		rows: 2,
 		cols: 2,
 	},
 	{
-		img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+		img: "https://www.oliviascuisine.com/wp-content/uploads/2020/09/caipirinha-thumb-1-735x735.jpg",
 		title: "Burger",
 	},
 	{
-		img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+		img: "https://i2.wp.com/media.scoutmagazine.ca/2019/08/38958920012_e5b4c19100_k.jpg?resize=2000%2C1333&ssl=1",
 		title: "Camera",
 	},
 	{
-		img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+		img: "https://vinepair.com/wp-content/uploads/2020/07/whiskeysour_card.jpg",
 		title: "Coffee",
 		cols: 2,
 	},
 	{
-		img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+		img: "https://www.thedataschool.com.au/wp-content/uploads/2020/09/jcblog9.jpg",
 		title: "Hats",
 		cols: 2,
 	},
 	{
-		img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+		img: "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F4362a676-0bbe-11ea-8f6d-195dfbf668c7.jpg?crop=1500%2C844%2C0%2C78",
 		title: "Honey",
-		author: "@arwinneil",
 		rows: 2,
 		cols: 2,
 	},
 	{
-		img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+		img: "https://www.liquor.com/thmb/FpQjWZNtBBC8PoW8aPfUj7cysYg=/720x720/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__08110806__negroni-720x720-recipe-7c1b747a616f4659af4008d025ab55df.jpg",
 		title: "Basketball",
 	},
 	{
-		img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+		img: "https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg",
 		title: "Fern",
-	},
-	{
-		img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-		title: "Mushrooms",
-		rows: 2,
-		cols: 2,
-	},
-	{
-		img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-		title: "Tomato basil",
-	},
-	{
-		img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-		title: "Sea star",
-	},
-	{
-		img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-		title: "Bike",
-		cols: 2,
 	},
 ];
