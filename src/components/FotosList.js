@@ -14,7 +14,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 export default function FotosList() {
 	return (
 		<ImageList
-			sx={{ width: 800, height: 498, bottom: 20 }}
+			sx={{ width: 900, height: 498, bottom: 20, borderRadius: "5px" }}
 			variant="quilted"
 			cols={4}
 			rowHeight={121}

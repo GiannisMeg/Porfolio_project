@@ -63,7 +63,7 @@ export const RandomCocktail = () => {
 						fontSize: "20px",
 						border: "#222",
 						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
-						backgroundImage: `url("https://ae01.alicdn.com/kf/He2bbaaef292b49dfba19addf83514244e/510ml-Cocktail-Shakers-Japanese-Style-Cocktail-Shaker-Bartender-Bar-Tool-Cocktail-Mixing-Bar-Tools.jpg_Q90.jpg_.webp")`,
+						backgroundImage: `url("https://img.freepik.com/vrije-photo/selectie-van-verschillende-cocktails-op-de-tafel_140725-2909.jpg")`,
 					}}
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}

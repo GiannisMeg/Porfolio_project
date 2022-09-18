@@ -19,7 +19,10 @@ import { selectUser, selectAllComments } from "../store/user/selectors";
 import { showAllCocktails } from "../store/cocktails/thunks";
 import { showAllComments } from "../store/user/thunks";
 import FotosList from "../components/FotosList";
-import HeroBanner from "../components/HeroBanner";
+
+import TwitCard1 from "../components/TwitCard3";
+import TwitCard2 from "../components/TwitCard2";
+import TwitCard3 from "../components/TwitCard3";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -86,14 +89,15 @@ export const Homepage = () => {
 				className="middle-bar"
 				style={{
 					background: "#222",
-					margin: "5px",
-					border: "solid 0.5 px #fff",
-					borderRadius: "20px",
-					fontSize: "5px",
-					boxShadow: "2px 2px  hsl(0, 5%, 94%)",
+					marginTop: "40px",
+					marginLeft: "18%",
+					border: "solid 1px #fff",
+					borderRadius: "450%",
+					fontSize: "3px",
+					width: "66%",
 				}}
 			>
-				<span> - - - - - - </span>
+				<span>-</span>
 			</div>
 			<div className="mdl-section" style={{ display: "flex" }}>
 				<div
@@ -174,22 +178,12 @@ export const Homepage = () => {
 					<Comments />
 				</div>
 			</div>
-			<div
-				className="middle-bar"
-				style={{
-					background: "#222",
-					margin: "5px",
-					border: "solid 1px #fff",
-					borderRadius: "20px",
-					fontSize: "5px",
-				}}
-			>
-				<span>------</span>
-			</div>
+
 			<div
 				className="btm-section"
 				style={{
 					display: "flex",
+					background: "#FFDEEA",
 				}}
 			>
 				<div
@@ -207,11 +201,54 @@ export const Homepage = () => {
 					className="imp-fotoslist1"
 					style={{
 						display: "flex",
+						// background: "#999",
 						flex: "1",
+
 						position: "relative",
 					}}
 				>
-					<FotosList />
+					<div
+						className="twit-crd-sct"
+						style={{
+							display: "flex",
+							flexDirection: "column",
+						}}
+					>
+						<h2
+							style={{
+								marginTop: "20px",
+								marginLeft: "25%",
+							}}
+						>
+							{" "}
+							Here's to over 100 million glasses raised.
+						</h2>
+						<p
+							style={{
+								marginTop: "20px",
+								marginLeft: "25%",
+							}}
+						>
+							{" "}
+							This is a fancy number that marketing wanted to use to show
+							that we've delivered drinks to a lot of people.
+						</p>
+						<div
+							className="cards"
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "space-around",
+								marginTop: "50px",
+							}}
+						>
+							<TwitCard1 />
+
+							<TwitCard2 />
+
+							<TwitCard3 />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

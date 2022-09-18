@@ -18,10 +18,31 @@ const Logo = styled.a`
 
 export default function Footer() {
 	return (
-		<div className="footer-box">
+		<div
+			className="footer-box"
+			style={{
+				display: "flex",
+				flexDirection: "column",
+			}}
+		>
 			{" "}
-			<div className="footer-list">
-				<Logo className="logo-footer">
+			<div
+				className="footer-list"
+				style={{
+					display: "flex",
+					justifyContent: "center",
+				}}
+			>
+				<Logo
+					className="logo-footer"
+					style={{
+						border: "2px inset #ed5e7a",
+						padding: "18px",
+						borderRadius: "50%",
+						position: "relative",
+						right: "120px",
+					}}
+				>
 					<span
 						style={{
 							color: "#ed5e7a",
@@ -39,21 +60,43 @@ export default function Footer() {
 					></FaCocktail>{" "}
 					<p style={{ color: "#caeaee" }}>Shakes</p>
 				</Logo>
-				<div className="ul-footer-links">
-					<ul className="f-link-1">
-						FrontEnd Technologies
+				<div
+					className="ul-footer-links"
+					style={{
+						display: "flex",
+						flexDirection: "row",
+					}}
+				>
+					<ul
+						className="f-link-1"
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+						}}
+					>
+						<h4>FrontEnd Technologies </h4>
+
 						<li>React</li>
-						<li>NodeJs</li>
 						<li>Redux</li>
+						<li>Mui5</li>
+						<li>3D modals</li>
+					</ul>
+					<ul
+						className="f-link-2"
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+						}}
+					>
+						<h4>BackEnd Technologies</h4>
+						<li>NodeJS</li>
 						<li>Sequelize</li>
+						<li>ElephantSQl</li>
+						<li>RestAPI</li>
 					</ul>
-					<ul className="f-link-2">
-						BackEnd Technologies
-						<li>Discount</li>
-						<li>Returns</li>
-						<li>Order History</li>
-						<li>Order Tracking</li>
-					</ul>
+
 					<ul className="f-link-3">
 						Follow Us
 						<li>
@@ -124,7 +167,24 @@ export default function Footer() {
 					</ul>
 				</div>
 			</div>
-			;
+			<div
+				className="prv-sct"
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					paddingTop: "20px",
+					background: "#222",
+					color: "#caeaee",
+					textAlign: "center",
+				}}
+			>
+				<p>
+					Privacy Notice | Terms of Service | Interest Based Ads | CA
+					Privacy Rights | Do Not Sell My Personal Information
+				</p>
+
+				<p> © Friday'Shakes All Rights Reserved</p>
+			</div>
 		</div>
 	);
 }
