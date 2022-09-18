@@ -9,13 +9,12 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { grey, red } from "@mui/material/colors";
+import LocalBarIcon from "@mui/icons-material/LocalBar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 //thunks
@@ -47,10 +46,13 @@ export default function CocktailCard(props) {
 
 	// console.log("loco", fetchCocktails);
 	return (
-		<Card sx={{ bgcolor: "#9999", maxWidth: 360 }}>
+		<Card sx={{ bgcolor: "#CCBDF0", maxWidth: 360 }}>
 			<CardHeader
 				avatar={
-					<Avatar sx={{ bgcolor: "#9e043b" }} aria-label="">
+					<Avatar
+						sx={{ bgcolor: "#ffdae7", color: "#9e043b" }}
+						aria-label=""
+					>
 						{props.userId}
 					</Avatar>
 				}
@@ -83,7 +85,7 @@ export default function CocktailCard(props) {
 					)}
 				</IconButton>
 				<IconButton aria-label="share">
-					<ShareIcon />
+					<LocalBarIcon />
 				</IconButton>
 				<ExpandMore
 					expand={expanded}

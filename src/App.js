@@ -38,7 +38,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 			</Routes>
 			<Footer />
-			<div class="background">
+			<div className="background">
 				<span></span>
 				<span></span>
 				<span></span>

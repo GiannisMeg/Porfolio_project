@@ -38,14 +38,14 @@ export const DetailsPage = () => {
 		dispatch(showAllReviews());
 	}, [dispatch, id]);
 
-	console.log("all reviews", allReviews);
+	// console.log("all reviews", allReviews);
 	return (
 		<div className="wrapper" style={{ display: "flex" }}>
 			<div
 				className="main_container"
 				style={{ width: "33%", padding: "10px" }}
 			>
-				<h3>{selectedCocktail.name}</h3>
+				<h3 style={{ color: "#9e043b" }}>{selectedCocktail.name}</h3>
 				<div className="main">
 					<CocktailCard
 						id={selectedCocktail.id}
@@ -67,11 +67,16 @@ export const DetailsPage = () => {
 				)}
 			</div>
 			<div
-				style={{ background: "", width: "66%", padding: "10px" }}
+				style={{
+					background: "",
+					width: "66%",
+					padding: "10px",
+					marginTop: "40px",
+				}}
 				className="review-list"
 			>
 				{" "}
-				<h3 style={{ textAlign: "center" }}>Review list</h3>
+				{/* <h3 style={{ textAlign: "center" }}> </h3> */}
 				{user || !user ? (
 					<div
 						style={{
@@ -80,10 +85,9 @@ export const DetailsPage = () => {
 							flexDirection: "column",
 							justifyContent: "center",
 							alignItems: "center",
-							border: "2px solid #222",
+							border: "2px solid #ed5e7a",
 							borderRadius: "10px",
-							background: "#E2E1E1",
-							// background: "#222",
+							background: "#ffe0db",
 						}}
 						className="comment-section"
 					>
@@ -94,7 +98,7 @@ export const DetailsPage = () => {
 										display: "flex",
 										width: "100%",
 										justifyContent: "space-between",
-										border: "2px solid #222",
+										border: "2px solid #ed5e7a",
 										borderRadius: "10px",
 										margin: 5,
 										padding: 4,
@@ -106,7 +110,7 @@ export const DetailsPage = () => {
 										{comm.text}
 									</p>
 									<p>
-										{comm.rating}{" "}
+										<strong>{comm.rating} </strong>
 										<StarBorderIcon style={{ color: "goldenrod" }} />
 									</p>
 								</li>

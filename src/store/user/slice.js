@@ -4,6 +4,7 @@ const initialState = {
 	token: localStorage.getItem("token"),
 	profile: null,
 	allComments: [],
+	cocktails: [],
 };
 
 export const userSlice = createSlice({
@@ -32,6 +33,9 @@ export const userSlice = createSlice({
 			// state.profile = action.payload;
 			state.allComments.push(action.payload);
 		},
+		newUserCocktail: (state, action) => {
+			state.profile.cocktails.push(action.payload);
+		},
 	},
 });
 
@@ -43,6 +47,7 @@ export const {
 	newComment,
 	setFavorite,
 	getAllComments,
+	newUserCocktail,
 } = userSlice.actions;
 
 export default userSlice.reducer;

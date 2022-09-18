@@ -53,17 +53,17 @@ export default function Comments() {
 			{!user ? (
 				<Button
 					className="btn-loggedOut-comment"
-					type="contained"
+					type="outlined"
 					style={{
 						marginBottom: "14px",
 						padding: "20px",
-						color: "#ed5e7a",
+						color: "#222",
 						fontSize: "14px",
 						fontWeight: "550",
 						border: "solid 1.5px #ed5e7a ",
 					}}
 				>
-					Login to leave a comment
+					Raise your glass and login to leave a comment
 				</Button>
 			) : (
 				<div>

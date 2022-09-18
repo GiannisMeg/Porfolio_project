@@ -10,15 +10,11 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 //thunks
-import { favoriteCocktail } from "../store/user/thunks";
+// import { favoriteCocktail } from "../store/user/thunks";
 
 const ExpandMore = styled((props) => {
 	const { expand, ...other } = props;
@@ -32,8 +28,6 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function DetailsCard(props) {
-	const dispatch = useDispatch();
-
 	// console.log("cocktailId", cocktailId);
 	//
 	const [expanded, setExpanded] = React.useState(false);

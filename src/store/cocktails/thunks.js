@@ -3,9 +3,9 @@ import {
 	getOneCocktail,
 	newReview,
 	newCocktail,
-	// getAllComments,
 	getAllReviews,
 } from "./slice";
+import { newUserCocktail } from "../user/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
 const axios = require("axios");
 
@@ -49,18 +49,20 @@ export const showAllReviews = () => async (dispatch, getState) => {
 // create cocktail
 
 export const addNewCocktail =
-	(name, glass, instructions, ingredients) => async (dispatch, getState) => {
+	(name, glass, instructions, imageUrl, ingredients) =>
+	async (dispatch, getState) => {
 		const token = getState().user.token;
 
 		try {
 			const response = await axios.post(
 				`http://localhost:4000/cocktails/create/`,
-				{ name, glass, instructions, ingredients },
+				{ name, glass, instructions, imageUrl, ingredients },
 				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 
 			console.log(response.data, "response successful added cocktail");
 			dispatch(newCocktail(response.data));
+			dispatch(newUserCocktail(response.data));
 		} catch (err) {
 			console.log(err.message);
 		}
@@ -90,8 +92,7 @@ export const postReview =
 					2000
 				)
 			);
-			// update state with recieved data of created comment
-			// dispatch(newComment({ userId, comment: response.data }));
+
 			dispatch(newReview(response.data));
 		} catch (err) {
 			console.log(err.message);

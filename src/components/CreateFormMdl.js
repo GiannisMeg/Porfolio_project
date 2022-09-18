@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import SendIcon from "@mui/icons-material/Send";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { Input } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -26,7 +26,7 @@ const style = {
 	left: "50%",
 	transform: "translate(-50%, -50%)",
 	width: 600,
-	height: 500,
+	height: 600,
 	bgcolor: "background.paper",
 	border: "2px solid #000",
 	boxShadow: 24,
@@ -48,15 +48,19 @@ export default function CreateFormMdl() {
 	const [glass, setGlass] = useState("");
 	const [instructions, setInstructions] = useState("");
 	const [ingredients, setIngredients] = useState("");
+	const [imageUrl, setImageUrl] = useState("");
 
 	const submitNewCocktail = (e) => {
 		e.preventDefault();
-		dispatch(addNewCocktail(name, glass, instructions, ingredients));
+		dispatch(
+			addNewCocktail(name, glass, instructions, imageUrl, ingredients)
+		);
 
 		setName("");
 		setGlass("");
 		setInstructions("");
 		setIngredients("");
+		setImageUrl("");
 
 		handleClose();
 		dispatch(
@@ -73,18 +77,6 @@ export default function CreateFormMdl() {
 		<div>
 			{!user ? (
 				<Link to={`/login`}>
-					{/* <Button
-						style={{
-							color: "white",
-							fontWeight: "550",
-							background: "darkgreen",
-						}}
-						variant="contained"
-						startIcon={<SendIcon />}
-						onClick={handleOpen}
-					>
-						Login to Add Your Own
-					</Button> */}
 					<CocktailButton />
 				</Link>
 			) : (
@@ -101,7 +93,7 @@ export default function CreateFormMdl() {
 								variant="h6"
 								component="h2"
 							>
-								<strong style={{}}>Add your own Cocktail! </strong>
+								<strong style={{}}>Add Cocktail </strong>
 							</Typography>
 							<form type="submit">
 								<Input
@@ -111,6 +103,14 @@ export default function CreateFormMdl() {
 									placeholder="name *"
 									sx={{ mt: 4 }}
 									required
+								></Input>
+								<br></br>
+								<Input
+									id="modal-modal-description"
+									value={imageUrl}
+									onChange={(e) => setImageUrl(e.target.value)}
+									placeholder="imageUrl *"
+									sx={{ mt: 4 }}
 								></Input>
 								<br></br>
 								<Input
@@ -146,10 +146,10 @@ export default function CreateFormMdl() {
 										display: "flex",
 										padding: "10px",
 										marginTop: "20px",
-										background: "darkgreen",
+										background: "goldenrod",
 									}}
 									variant="contained"
-									startIcon={<SendIcon />}
+									startIcon={<AddCircleOutlineIcon />}
 									onClick={submitNewCocktail}
 								>
 									Add Your Own

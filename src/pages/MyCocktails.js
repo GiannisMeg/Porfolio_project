@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 //thunks
 
 //selectors
+import { selectUserCocktails } from "../store/user/selectors";
 
-import { useEffect, useState } from "react";
 import CreateFormMdl from "../components/CreateFormMdl";
+import DetailsCard from "../components/DetailsCard";
 
 //[Todo]
 //		User profile can display in a cart
@@ -13,6 +14,9 @@ import CreateFormMdl from "../components/CreateFormMdl";
 //
 
 export const MyCocktails = () => {
+	const myCocktails = useSelector(selectUserCocktails);
+
+	// console.log("my cocktails", myCocktails);
 	return (
 		<div className="main-mycocktails" style={{}}>
 			<div className="mycocktails-tp-section">
@@ -29,8 +33,44 @@ export const MyCocktails = () => {
 						<CreateFormMdl />
 					</div>
 				</div>
-				<div className="md-section"></div>
-				<div className="btm-section"></div>
+				<div className="md-section" style={{}}>
+					<ul
+						style={{
+							display: "flex",
+							flexWrap: "wrap",
+							justifyContent: "space-around",
+						}}
+					>
+						{myCocktails &&
+							myCocktails?.map((cocktail) => {
+								return (
+									<li
+										style={{
+											listStyleType: "none",
+											width: 300,
+											margin: 10,
+										}}
+										key={cocktail.id}
+									>
+										<DetailsCard
+											id={cocktail.id}
+											name={cocktail.name}
+											imageUrl={
+												!cocktail.imageUrl
+													? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGe9Wkvu2ogozMTMDSJJv8GtRl8RK3jiMUXQ&usqp=CAU"
+													: cocktail.imageUrl
+											}
+											glass={cocktail.glass}
+											instructions={cocktail.instructions}
+											ingredients={cocktail.ingredients}
+											userId={cocktail.userId}
+										/>
+									</li>
+								);
+							})}
+					</ul>
+				</div>
+				<div className="btm-section" style={{}}></div>
 			</div>
 			<h2> HELLO</h2>
 		</div>

@@ -3,7 +3,7 @@ export const selectUser = (state) => state.user.profile;
 export const selectAllUsersWithComments = (state) =>
 	state.user.profile?.comment;
 
-// selectuserfavorites
+export const selectUserCocktails = (state) => state.user.profile?.cocktails;
 
 export const isUserFavorite = (cocktailId) => (state) =>
 	state.user?.profile?.userFavorites?.some((f) => f.id === cocktailId); //returns true || false

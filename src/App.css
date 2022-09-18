@@ -81,9 +81,8 @@
 	transform-origin: 6vw 11vh;
 	box-shadow: -98vmin 0 13.168365687515932vmin currentColor;
 }
-
-.btn-generate,
-.btn-loggedOut-comment {
+/* .btn-loggedOut-comment, */
+.btn-generate {
 	background: linear-gradient(89deg, #222222, #39007a);
 	background-size: 400% 400%;
 
