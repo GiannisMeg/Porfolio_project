@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
-import HeroBanner from "./HeroBanner";
+
+import Loading from "./Loading";
 
 // apiUrl
 const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -52,7 +53,6 @@ export const RandomCocktail = () => {
 				}}
 				className="random-cocktail"
 			>
-				{/* <HeroBanner /> */}
 				<Button
 					className="btn-generate"
 					style={{
@@ -82,6 +82,7 @@ export const RandomCocktail = () => {
 						key={idDrink}
 					>
 						<div
+							className="rdm-cocktail"
 							style={{
 								display: "flex",
 								flex: "1",
@@ -89,7 +90,6 @@ export const RandomCocktail = () => {
 								flexDirection: "column",
 								alignItems: "center",
 							}}
-							className="rdm-cocktail-n_i_c"
 						>
 							<h3 style={{ marginBottom: "20px" }}>{strDrink}</h3>
 							<h5 style={{ marginBottom: "20px" }}>{strCategory}</h5>
@@ -106,7 +106,7 @@ export const RandomCocktail = () => {
 						</div>
 						<div
 							style={{
-								// width: "33%",
+								padding: "40px",
 								display: "flex",
 								flex: "1",
 								flexDirection: "column",
@@ -116,7 +116,7 @@ export const RandomCocktail = () => {
 						>
 							<div>
 								<h4>Ingredients ..</h4>
-								{/* Map here the ingedians inside the <ul> */}
+
 								<ul style={{ listStyleType: "none" }}>
 									<li>
 										<span>{strIngredient1} </span>
@@ -158,7 +158,7 @@ export const RandomCocktail = () => {
 						</div>
 					</article>
 				) : (
-					<p>Loading...</p>
+					<Loading />
 				)}
 			</section>
 		</div>

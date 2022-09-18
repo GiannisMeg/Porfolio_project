@@ -9,6 +9,7 @@ import { showMessageWithTimeout } from "../store/appState/thunks";
 import { selectUser } from "../store/user/selectors";
 import { Button, TextareaAutosize } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import { Link } from "react-router-dom";
 
 //      [TODO]
 // 			:Submit a comment
@@ -51,20 +52,22 @@ export default function Comments() {
 		>
 			{/* IF NOT A USER CANT MAKE COMMEntS */}
 			{!user ? (
-				<Button
-					className="btn-loggedOut-comment"
-					type="outlined"
-					style={{
-						marginBottom: "14px",
-						padding: "20px",
-						color: "#222",
-						fontSize: "14px",
-						fontWeight: "550",
-						border: "solid 1.5px #ed5e7a ",
-					}}
-				>
-					Raise your glass and login to leave a comment
-				</Button>
+				<Link style={{ textDecoration: "none" }} to="/login">
+					<Button
+						className="btn-loggedOut-comment"
+						type="outlined"
+						style={{
+							marginBottom: "14px",
+							padding: "20px",
+							color: "#222",
+							fontSize: "14px",
+							fontWeight: "550",
+							border: "solid 1.5px #ed5e7a ",
+						}}
+					>
+						Raise your glass ... login to leave a comment
+					</Button>
+				</Link>
 			) : (
 				<div>
 					<div className="comments">

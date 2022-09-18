@@ -3,20 +3,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { FaCocktail } from "react-icons/fa";
-//selector
-// import { selectAllCocktails } from "../store/cocktails/selectors";
-
-//thunks
-// import { showAllCocktails } from "../store/cocktails/thunks";
-// import { useEffect } from "react";
 
 export const Navigation = () => {
 	const [open, setOpen] = useState(false);
-	// const { id } = useParams();
-	// const allCocktails = useSelector(selectAllCocktails);
 
 	const dispatch = useDispatch();
 
@@ -96,7 +88,8 @@ export const Navigation = () => {
 						<Button
 							variant="outlined"
 							style={{
-								color: "#D632E2",
+								color: "#c700a3",
+								fontWeight: "550",
 								fontSize: "14px",
 								padding: "10px 15px",
 								border: "solid 2px #B108BD ",

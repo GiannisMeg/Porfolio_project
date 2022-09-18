@@ -9,8 +9,8 @@ import CreateFormMdl from "../components/CreateFormMdl";
 import DetailsCard from "../components/DetailsCard";
 
 //[Todo]
-//		User profile can display in a cart
-// 		display a list of cocktail by id
+//		display favorites
+
 //
 
 export const MyCocktails = () => {

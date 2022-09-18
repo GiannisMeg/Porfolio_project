@@ -93,7 +93,7 @@ export const Homepage = () => {
 					boxShadow: "2px 2px  hsl(0, 5%, 94%)",
 				}}
 			>
-				<span>------</span>
+				<span> - - - - - - </span>
 			</div>
 			<div className="mdl-section" style={{ display: "flex" }}>
 				<div
@@ -102,26 +102,21 @@ export const Homepage = () => {
 						flex: "3",
 					}}
 				>
-					{/* <HeroBanner /> */}
 					<RandomCocktail />
 				</div>
 				<div
 					className="comment_list"
 					style={{
 						listStyleType: "none",
-
 						padding: "20px",
 						display: "flex",
 						flex: "1",
 						flexDirection: "column",
-						justifyContent: "space-around",
+						justifyContent: "space-between",
 						alignItems: "center",
-
 						borderRadius: "10px",
 					}}
 				>
-					<Comments />
-
 					{user || !user ? (
 						<div className="comment-section">
 							<details>
@@ -137,7 +132,7 @@ export const Homepage = () => {
 									}}
 								>
 									{" "}
-									Show Comments{" "}
+									Show comments{" "}
 								</summary>{" "}
 								<ul>
 									{allComments?.map((comm) => {
@@ -176,6 +171,7 @@ export const Homepage = () => {
 					) : (
 						" "
 					)}
+					<Comments />
 				</div>
 			</div>
 			<div
