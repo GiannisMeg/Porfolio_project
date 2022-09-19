@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 //thunks
 
@@ -72,7 +72,6 @@ export const MyCocktails = () => {
 				</div>
 				<div className="btm-section" style={{}}></div>
 			</div>
-			<h2> HELLO</h2>
 		</div>
 	);
 };

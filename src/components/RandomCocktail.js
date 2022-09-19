@@ -41,7 +41,10 @@ export const RandomCocktail = () => {
 	} = randomCocktail || {};
 
 	return (
-		<div style={{}}>
+		<div className="rnd-modal" style={{}}>
+			{/* <div className="rnd-text-intr" style={{ background: "#888" }}>
+				<p>Hello</p>
+			</div> */}
 			<section
 				style={{
 					position: "relative",
@@ -49,7 +52,7 @@ export const RandomCocktail = () => {
 					flexDirection: "column",
 					alignItems: "center",
 					minHeight: "830px",
-					padding: "50px",
+					padding: "5px",
 				}}
 				className="random-cocktail"
 			>
@@ -58,17 +61,18 @@ export const RandomCocktail = () => {
 					style={{
 						alignSelf: "center",
 						margin: "50px 0",
-						padding: "20px",
+						padding: "25px 50px",
 						color: "#fff",
 						fontSize: "20px",
-						border: "#222",
+						border: " 2px ridge #FFDEEA ",
 						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
+						borderRadius: "8px",
 						backgroundImage: `url("https://img.freepik.com/vrije-photo/selectie-van-verschillende-cocktails-op-de-tafel_140725-2909.jpg")`,
 					}}
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}
 				>
-					Generate Random Cocktail
+					Click me
 				</Button>
 
 				{randomCocktail ? (

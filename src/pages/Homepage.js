@@ -23,6 +23,9 @@ import FotosList from "../components/FotosList";
 import TwitCard1 from "../components/TwitCard3";
 import TwitCard2 from "../components/TwitCard2";
 import TwitCard3 from "../components/TwitCard3";
+import StepCard1 from "../components/StepsCard";
+import StepCard2 from "../components/StepsCard2";
+import StepCard3 from "../components/StepCard3";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -99,83 +102,124 @@ export const Homepage = () => {
 			>
 				<span>-</span>
 			</div>
-			<div className="mdl-section" style={{ display: "flex" }}>
+			<div
+				className="about-site-title"
+				style={{ textAlign: "center", marginTop: "60px" }}
+			>
+				<h2>Let’s talk about Shakes </h2>
+				<p>How this thing actually works:</p>
+			</div>
+			<div className="tp-mdl-section">
 				<div
-					className="random_cocktails"
+					className="tp-mdl-sct-steps"
 					style={{
-						flex: "3",
-					}}
-				>
-					<RandomCocktail />
-				</div>
-				<div
-					className="comment_list"
-					style={{
-						listStyleType: "none",
-						padding: "20px",
+						marginTop: "25px",
 						display: "flex",
-						flex: "1",
-						flexDirection: "column",
-						justifyContent: "space-between",
-						alignItems: "center",
-						borderRadius: "10px",
+						flexDirection: "row",
+						justifyContent: "space-around",
+						// background: "#999",
 					}}
 				>
-					{user || !user ? (
-						<div className="comment-section">
-							<details>
-								<summary
-									style={{
-										border: "solid 2px #222",
-										borderRadius: "5px",
-										padding: "5px",
-										textAlign: "center",
-										width: "300px",
-										position: "relative",
-										left: "60px",
-									}}
-								>
-									{" "}
-									Show comments{" "}
-								</summary>{" "}
-								<ul>
-									{allComments?.map((comm) => {
-										return (
-											<li
-												key={comm.id}
-												style={{
-													display: "flex",
-													flexDirection: "column",
-													width: "100%",
-													justifyContent: "space-between",
-													border: "2px solid  #ed5e7a ",
-													borderRadius: "10px",
-													margin: 5,
-													padding: 4,
-													background: "#ffe0db",
-													boxShadow: "2px 2px  hsl(0, 5%, 94%)",
-												}}
-											>
-												<h4
+					<div
+						className="steps-rnd-ckt"
+						style={{
+							display: "flex",
+							flex: "3",
+							justifyContent: "space-around",
+						}}
+					>
+						<StepCard1 />
+
+						<StepCard2 />
+
+						<StepCard3 />
+					</div>
+					<div
+						className="tp-comm-sec"
+						style={{
+							display: "flex",
+							flex: "1",
+						}}
+					></div>
+				</div>
+				<div className="mdl-section" style={{ display: "flex" }}>
+					<div
+						className="random_cocktails"
+						style={{
+							flex: "3",
+						}}
+					>
+						<RandomCocktail />
+					</div>
+					<div
+						className="comment_list"
+						style={{
+							listStyleType: "none",
+							padding: "20px",
+							display: "flex",
+							flex: "1",
+							flexDirection: "column",
+							justifyContent: "space-between",
+							alignItems: "center",
+							borderRadius: "10px",
+						}}
+					>
+						{user || !user ? (
+							<div className="comment-section">
+								<details>
+									<summary
+										style={{
+											border: "solid 2px #222",
+											borderRadius: "5px",
+											padding: "5px",
+											textAlign: "center",
+											width: "300px",
+											position: "relative",
+											left: "60px",
+										}}
+									>
+										{" "}
+										Show comments{" "}
+									</summary>{" "}
+									<ul>
+										{allComments?.map((comm) => {
+											return (
+												<li
+													key={comm.id}
 													style={{
 														display: "flex",
+														flexDirection: "column",
+														width: "100%",
+														justifyContent: "space-between",
+														border: "2px solid  #ed5e7a ",
+														borderRadius: "10px",
+														margin: 5,
+														padding: 4,
+														background: "#ffe0db",
+														boxShadow: "2px 2px  hsl(0, 5%, 94%)",
 													}}
 												>
-													{comm.name}
-												</h4>
-												<p style={{ fontSize: "small" }}>
-													{comm.text}
-												</p>
-											</li>
-										);
-									})}
-								</ul>
-							</details>
-						</div>
-					) : (
-						" "
-					)}
-					<Comments />
+													<h4
+														style={{
+															display: "flex",
+														}}
+													>
+														{comm.name}
+													</h4>
+													<p style={{ fontSize: "small" }}>
+														{comm.text}
+													</p>
+												</li>
+											);
+										})}
+									</ul>
+								</details>
+							</div>
+						) : (
+							" "
+						)}
+						<Comments />
+					</div>
 				</div>
 			</div>
 
