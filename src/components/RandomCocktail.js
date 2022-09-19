@@ -71,6 +71,8 @@ export const RandomCocktail = () => {
 								position: "relative",
 								flexDirection: "column",
 								alignItems: "center",
+								boxShadow: "0px 4px 24px rgb(0 0 0 / 10%)",
+								left: "45px",
 							}}
 						>
 							<h3 style={{ marginBottom: "20px" }}>{strDrink}</h3>
@@ -82,7 +84,6 @@ export const RandomCocktail = () => {
 									borderRadius: "5px",
 									maxWidth: "350px",
 									maxHeight: "350px",
-									marginBottom: "20px",
 								}}
 							/>
 						</div>
@@ -93,6 +94,8 @@ export const RandomCocktail = () => {
 								flex: "1",
 								flexDirection: "column",
 								justifyContent: "space-between",
+								position: "relative",
+								left: "40px",
 							}}
 							className="rdm-cocktail-instr"
 						>
@@ -146,7 +149,7 @@ export const RandomCocktail = () => {
 					className="btn-generate"
 					style={{
 						alignSelf: "center",
-						margin: "50px 0",
+						margin: "40px 0",
 						padding: "25px 50px",
 						color: "#fff",
 						fontSize: "20px",
@@ -154,12 +157,24 @@ export const RandomCocktail = () => {
 						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
 						borderRadius: "8px",
 						backgroundImage: `url("https://img.freepik.com/vrije-photo/selectie-van-verschillende-cocktails-op-de-tafel_140725-2909.jpg")`,
+						position: "relative",
+						left: "50px",
 					}}
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}
 				>
-					Get Random Drink
+					Get a Random Drink
 				</Button>
+				<img
+					style={{
+						width: 600,
+						height: 810,
+						position: "relative",
+						left: "210px",
+					}}
+					src="https://i.pinimg.com/originals/a8/cc/58/a8cc58a2f6125b2fccb41c480626b753.jpg"
+					alt=""
+				/>
 			</section>
 		</div>
 	);

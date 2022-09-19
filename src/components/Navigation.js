@@ -116,15 +116,21 @@ const MenuLink = styled(Link)`
 `;
 
 const Nav = styled.div`
+	width: 100%;
+	top: 0;
+	left: 0;
+
+	box-sizing: border-box;
+	position: fixed;
+	z-index: 1;
+	overflow: hidden;
 	padding: 2rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
 	background: #222;
-	border-radius: "3px";
 	font-weight: 1100;
-
 	background-image: url(https://assets.londonist.com/uploads/2016/10/i875/4322658427_3c659b16c2_o.jpg);
 `;
 

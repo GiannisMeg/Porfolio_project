@@ -29,6 +29,7 @@ export const FindCocktailsPage = () => {
 			style={{
 				display: "flex",
 				flexDirection: "column",
+				marginTop: "200px",
 			}}
 		>
 			<div className="main" style={{ width: "100%" }}>

@@ -155,7 +155,7 @@ export const MyCocktails = () => {
 
 	// console.log("my cocktails", favoriteCocktails);
 	return (
-		<div className="main-mycocktails">
+		<div className="main-mycocktails" style={{ marginTop: "160px" }}>
 			<div className="mycocktails-tp-section">
 				<div
 					className="ckt-add"
@@ -224,11 +224,25 @@ export const MyCocktails = () => {
 						// justifyContent: "space-around",
 					}}
 				>
-					<Box sx={{ minWidth: 275, margin: "40px" }}>
+					<Box
+						sx={{
+							minWidth: 275,
+							margin: "40px",
+							borderRadius: "8px",
+							boxShadow: "0px 4px 24px rgb(0 0 0 / 10%)",
+						}}
+					>
 						<Card variant="outlined">{ownedCocktailsCard}</Card>
 					</Box>
 
-					<Box sx={{ minWidth: 275, marginBottom: "40px" }}>
+					<Box
+						sx={{
+							minWidth: 275,
+							marginBottom: "40px",
+							borderRadius: "8px",
+							boxShadow: "0px 4px 24px rgb(0 0 0 / 10%)",
+						}}
+					>
 						<Card variant="outlined">{favoriteCocktailCard}</Card>
 					</Box>
 				</div>
@@ -251,36 +265,3 @@ export const MyCocktails = () => {
 // cocktails
 //https://www.cointreau.com/int/en/sites/int/files/styles/cocktail_image_l/public/cocktail-images/C0024-atlantic-cocktail.jpg?itok=JF8793EC
 //https://miro.medium.com/max/375/1*wMu2qWLbiz957bRQt8rTUg.png
-
-// <div
-// 						style={{
-// 							width: "20%",
-// 							paddingBottom: "4%",
-// 							left: "2%",
-// 							position: "relative",
-// 							display: "flex",
-// 						}}
-// 					>
-// 						<div
-// 							className="btn-create-modal"
-// 							style={{
-// 								display: "flex",
-// 								position: "relative",
-// 								left: "190%",
-// 								marginTop: "20px",
-// 							}}
-// 						>
-// 							<CreateFormMdl />
-// 						</div>
-
-// 						<iframe
-// 							src="https://giphy.com/embed/loLzRfDxhDLwEEGzJS"
-// 							width="100%"
-// 							height="100%"
-// 							style={{ position: "absolute" }}
-// 							frameBorder="0"
-// 							className="giphy-embed"
-// 							allowFullScreen
-// 						></iframe>
-// 					</div>
-// 				</div>

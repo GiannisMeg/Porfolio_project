@@ -85,14 +85,14 @@ export const Homepage = () => {
 
 	return (
 		<div className="home-container">
-			<div style={{ marginTop: "50px" }} className="c-homepage-carousel">
+			<div style={{ marginTop: "200px" }} className="c-homepage-carousel">
 				<Carousel slides={slides} autoplay={false} interval={1000} />
 			</div>
 			<div
 				className="middle-bar"
 				style={{
 					background: "#222",
-					marginTop: "40px",
+					marginTop: "100px",
 					marginLeft: "18%",
 					border: "solid 1px #fff",
 					borderRadius: "450%",
@@ -134,12 +134,22 @@ export const Homepage = () => {
 						<StepCard3 />
 					</div>
 					<div
-						className="tp-comm-sec"
 						style={{
+							width: "20%",
+							position: "relative",
 							display: "flex",
 							flex: "1",
 						}}
-					></div>
+					>
+						<iframe
+							src="https://giphy.com/embed/UqYtB1pVGW5vUQKrfz"
+							width="100%"
+							height="88%"
+							style={{ position: "relative", top: "20px" }}
+							frameBorder="0"
+							className="giphy-embed"
+						></iframe>
+					</div>
 				</div>
 				<div className="mdl-section" style={{ display: "flex" }}>
 					<div
@@ -260,7 +270,7 @@ export const Homepage = () => {
 						<h2
 							style={{
 								marginTop: "20px",
-								marginLeft: "25%",
+								marginLeft: "5%",
 							}}
 						>
 							{" "}
@@ -269,7 +279,6 @@ export const Homepage = () => {
 						<p
 							style={{
 								marginTop: "20px",
-								marginLeft: "25%",
 							}}
 						>
 							{" "}

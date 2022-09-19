@@ -94,7 +94,7 @@ export default function ReviewModal() {
 				style={{
 					margin: "20px 0",
 					color: "#ed5e7a",
-					width: "70%",
+					width: "500px",
 
 					background: "#222",
 					padding: "20px 0",
