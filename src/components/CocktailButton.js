@@ -93,8 +93,11 @@ export default function CocktailButton(handleOpen) {
 			sx={{
 				display: "flex",
 				flexWrap: "wrap",
-				minWidth: 300,
 				width: "100%",
+				marginBottom: "60px",
+				marginTop: "40px",
+				position: "relative",
+				right: "160px",
 			}}
 		>
 			{images.map((image) => (
@@ -106,7 +109,11 @@ export default function CocktailButton(handleOpen) {
 					}}
 					onClick={handleOpen.handleOpen}
 				>
-					<ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+					<ImageSrc
+						style={{
+							backgroundImage: `url(${image.url})`,
+						}}
+					/>
 					<ImageBackdrop className="MuiImageBackdrop-root" />
 					<Image>
 						<Typography

@@ -1,38 +1,50 @@
 import { useSelector } from "react-redux";
-
-//thunks
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import LocalBarIcon from "@mui/icons-material/LocalBar";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 //selectors
-import { selectUserCocktails } from "../store/user/selectors";
+import { selectUserCocktails, userFavorites } from "../store/user/selectors";
 
 import CreateFormMdl from "../components/CreateFormMdl";
 import DetailsCard from "../components/DetailsCard";
 
-//[Todo]
-//		display favorites
-
-//
-
 export const MyCocktails = () => {
 	const myCocktails = useSelector(selectUserCocktails);
+	const favoriteCocktails = useSelector(userFavorites);
 
-	// console.log("my cocktails", myCocktails);
-	return (
-		<div className="main-mycocktails" style={{}}>
-			<div className="mycocktails-tp-section">
-				<div className="ckt-add">
-					<div
-						className="btn-create-modal"
-						style={{
+	//my cocktails
+	const ownedCocktailsCard = (
+		<React.Fragment>
+			<CardContent
+				sx={{
+					background: "#FFDEEA",
+				}}
+			>
+				<Typography
+					sx={{
+						fontSize: 22,
+						fontWeight: "550",
+						display: "flex",
+						flexDirection: "row-reverse",
+					}}
+					color="text.secondary"
+					gutterBottom
+				>
+					My Cocktails
+					<LocalBarIcon
+						sx={{
+							fontSize: 28,
+
 							display: "flex",
-							position: "relative",
-							left: "42%",
-							marginTop: "20px",
+							flexDirection: "row-reverse",
 						}}
-					>
-						<CreateFormMdl />
-					</div>
-				</div>
+					/>
+				</Typography>
 				<div className="md-section" style={{}}>
 					<ul
 						style={{
@@ -70,8 +82,158 @@ export const MyCocktails = () => {
 							})}
 					</ul>
 				</div>
-				<div className="btm-section" style={{}}></div>
+			</CardContent>
+		</React.Fragment>
+	);
+	// fav cocktails card
+	const favoriteCocktailCard = (
+		<React.Fragment>
+			<CardContent
+				sx={{
+					background: "#FFDEEA",
+				}}
+			>
+				<Typography
+					sx={{
+						fontSize: 22,
+						fontWeight: "550",
+						display: "flex",
+					}}
+					color="text.secondary"
+					gutterBottom
+				>
+					Favorite Cocktails
+					<FavoriteBorderIcon
+						sx={{
+							fontSize: 28,
+
+							display: "flex",
+							flexDirection: "row-reverse",
+						}}
+					/>
+				</Typography>
+				<div className="md-section" style={{}}>
+					<ul
+						style={{
+							display: "flex",
+							flexWrap: "wrap",
+							justifyContent: "space-around",
+						}}
+					>
+						{favoriteCocktails &&
+							favoriteCocktails?.map((cocktail) => {
+								return (
+									<li
+										style={{
+											listStyleType: "none",
+											width: 300,
+											margin: 10,
+										}}
+										key={cocktail.id}
+									>
+										<DetailsCard
+											id={cocktail.id}
+											name={cocktail.name}
+											imageUrl={
+												!cocktail.imageUrl
+													? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGe9Wkvu2ogozMTMDSJJv8GtRl8RK3jiMUXQ&usqp=CAU"
+													: cocktail.imageUrl
+											}
+											glass={cocktail.glass}
+											instructions={cocktail.instructions}
+											ingredients={cocktail.ingredients}
+											userId={cocktail.userId}
+										/>
+									</li>
+								);
+							})}
+					</ul>
+				</div>
+			</CardContent>
+		</React.Fragment>
+	);
+
+	// console.log("my cocktails", favoriteCocktails);
+	return (
+		<div className="main-mycocktails">
+			<div className="mycocktails-tp-section">
+				<div
+					className="ckt-add"
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-around",
+						background: "#222",
+						marginBottom: "40px",
+					}}
+				>
+					<div
+						style={{
+							width: "20%",
+							position: "relative",
+							display: "flex",
+							flex: "1",
+						}}
+					>
+						<iframe
+							src="https://giphy.com/embed/loLzRfDxhDLwEEGzJS"
+							width="100%"
+							height="100%"
+							style={{ position: "absolute" }}
+							frameBorder="0"
+							className="giphy-embed"
+						></iframe>
+					</div>
+					<div
+						className="btn-create-modal"
+						style={{
+							display: "flex",
+							position: "relative",
+							flex: "4",
+							marginTop: "20px",
+							position: "relative",
+							left: "25%",
+						}}
+					>
+						<CreateFormMdl />
+					</div>
+					<div
+						style={{
+							width: "20%",
+							position: "relative",
+							display: "flex",
+							flex: "1",
+						}}
+					>
+						<iframe
+							src="https://giphy.com/embed/ckMiaoyvW6TnEGXDi6"
+							width="100%"
+							height="100%"
+							style={{ position: "absolute" }}
+							frameBorder="0"
+							className="giphy-embed"
+						></iframe>
+					</div>
+				</div>
+				<div
+					className="main-cards-container"
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						// justifyContent: "space-around",
+					}}
+				>
+					<Box sx={{ minWidth: 275, margin: "40px" }}>
+						<Card variant="outlined">{ownedCocktailsCard}</Card>
+					</Box>
+
+					<Box sx={{ minWidth: 275, marginBottom: "40px" }}>
+						<Card variant="outlined">{favoriteCocktailCard}</Card>
+					</Box>
+				</div>
 			</div>
+			<div className="btm-section" style={{}}></div>
 		</div>
 	);
 };
@@ -89,3 +251,36 @@ export const MyCocktails = () => {
 // cocktails
 //https://www.cointreau.com/int/en/sites/int/files/styles/cocktail_image_l/public/cocktail-images/C0024-atlantic-cocktail.jpg?itok=JF8793EC
 //https://miro.medium.com/max/375/1*wMu2qWLbiz957bRQt8rTUg.png
+
+// <div
+// 						style={{
+// 							width: "20%",
+// 							paddingBottom: "4%",
+// 							left: "2%",
+// 							position: "relative",
+// 							display: "flex",
+// 						}}
+// 					>
+// 						<div
+// 							className="btn-create-modal"
+// 							style={{
+// 								display: "flex",
+// 								position: "relative",
+// 								left: "190%",
+// 								marginTop: "20px",
+// 							}}
+// 						>
+// 							<CreateFormMdl />
+// 						</div>
+
+// 						<iframe
+// 							src="https://giphy.com/embed/loLzRfDxhDLwEEGzJS"
+// 							width="100%"
+// 							height="100%"
+// 							style={{ position: "absolute" }}
+// 							frameBorder="0"
+// 							className="giphy-embed"
+// 							allowFullScreen
+// 						></iframe>
+// 					</div>
+// 				</div>

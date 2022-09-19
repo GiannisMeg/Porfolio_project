@@ -117,7 +117,6 @@ export const Homepage = () => {
 						display: "flex",
 						flexDirection: "row",
 						justifyContent: "space-around",
-						// background: "#999",
 					}}
 				>
 					<div

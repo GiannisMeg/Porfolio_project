@@ -14,7 +14,7 @@ export const RandomCocktail = () => {
 		const data = await response.json();
 		//set incoming value
 		setRandomCocktail(data.drinks[0]);
-		console.log("cocktails fetched", data.drinks);
+		// console.log("cocktails fetched", data.drinks);
 	};
 
 	useEffect(() => {
@@ -42,39 +42,17 @@ export const RandomCocktail = () => {
 
 	return (
 		<div className="rnd-modal" style={{}}>
-			{/* <div className="rnd-text-intr" style={{ background: "#888" }}>
-				<p>Hello</p>
-			</div> */}
 			<section
 				style={{
-					position: "relative",
+					// position: "relative",
 					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
+					flexDirection: "row",
+
 					minHeight: "830px",
 					padding: "5px",
 				}}
 				className="random-cocktail"
 			>
-				<Button
-					className="btn-generate"
-					style={{
-						alignSelf: "center",
-						margin: "50px 0",
-						padding: "25px 50px",
-						color: "#fff",
-						fontSize: "20px",
-						border: " 2px ridge #FFDEEA ",
-						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
-						borderRadius: "8px",
-						backgroundImage: `url("https://img.freepik.com/vrije-photo/selectie-van-verschillende-cocktails-op-de-tafel_140725-2909.jpg")`,
-					}}
-					variant="outlined"
-					onClick={() => fetchApiCocktails()}
-				>
-					Click me
-				</Button>
-
 				{randomCocktail ? (
 					<article
 						style={{
@@ -164,6 +142,24 @@ export const RandomCocktail = () => {
 				) : (
 					<Loading />
 				)}
+				<Button
+					className="btn-generate"
+					style={{
+						alignSelf: "center",
+						margin: "50px 0",
+						padding: "25px 50px",
+						color: "#fff",
+						fontSize: "20px",
+						border: " 2px ridge #FFDEEA ",
+						boxShadow: "2px 2px  hsl(0, 7%, 89%)",
+						borderRadius: "8px",
+						backgroundImage: `url("https://img.freepik.com/vrije-photo/selectie-van-verschillende-cocktails-op-de-tafel_140725-2909.jpg")`,
+					}}
+					variant="outlined"
+					onClick={() => fetchApiCocktails()}
+				>
+					Get Random Drink
+				</Button>
 			</section>
 		</div>
 	);

@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShareIcon from "@mui/icons-material/Share";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { useDispatch } from "react-redux";

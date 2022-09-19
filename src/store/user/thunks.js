@@ -138,7 +138,7 @@ export const showAllComments = () => async (dispatch, getState) => {
 		const response = await axios.get(
 			"http://localhost:4000/comment/comments"
 		);
-		console.log("response comment", response);
+		// console.log("response comment", response);
 		dispatch(getAllComments(response.data));
 	} catch (err) {
 		console.log(err.message);

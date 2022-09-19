@@ -24,7 +24,7 @@ export const showAllCocktails = () => async (dispatch, getState) => {
 export const showSpecificCocktail = (id) => async (dispatch, getState) => {
 	try {
 		const response = await axios.get(`http://localhost:4000/cocktails/${id}`);
-		console.log(response.data, "response");
+		// console.log(response.data, "response");
 
 		dispatch(getOneCocktail(response.data));
 	} catch (err) {
