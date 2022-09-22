@@ -46,7 +46,14 @@ export default function CocktailCard(props) {
 
 	// console.log("loco", fetchCocktails);
 	return (
-		<Card sx={{ bgcolor: "#CCBDF0", width: 500 }}>
+		<Card
+			sx={{
+				bgcolor: "#CCBDF0",
+				width: 500,
+				fontFamily: "sans-serif",
+				boxShadow: "2px 2px  hsl( 5%,90%)",
+			}}
+		>
 			<CardHeader
 				avatar={
 					<Avatar
@@ -99,12 +106,15 @@ export default function CocktailCard(props) {
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
 					<Typography paragraph>
-						<strong> Method:</strong>
+						<strong style={{ fontFamily: "sans-serif" }}> Method:</strong>
 					</Typography>
 					<Typography paragraph>{props.instructions}</Typography>
 
 					<Typography paragraph>
-						<strong> Ingredients/measure :</strong>
+						<strong style={{ fontFamily: "sans-serif" }}>
+							{" "}
+							Ingredients/measure :
+						</strong>
 					</Typography>
 					<Typography paragraph>{props.ingredients}</Typography>
 				</CardContent>

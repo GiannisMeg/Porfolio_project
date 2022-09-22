@@ -43,11 +43,11 @@ export const Navigation = () => {
 							fontSize: "14px",
 							fontWeight: "550",
 							padding: "10px 15px",
-							border: "solid 2px #ed5e7a ",
+							border: "inset 2px #ed5e7a ",
 							borderRadius: "8px",
 						}}
 					>
-						MyCocktails
+						My Cocktails
 					</Button>
 				</MenuLink>
 				<MenuLink to="/cocktails/findone">
@@ -58,7 +58,7 @@ export const Navigation = () => {
 							fontWeight: "550",
 							margin: "-10px",
 							padding: "9px 13px",
-							border: "solid 2px #ed5e7a ",
+							border: "inset 2px #ed5e7a ",
 							borderRadius: "8px",
 						}}
 						to="/login"
@@ -75,7 +75,7 @@ export const Navigation = () => {
 							fontSize: "14px",
 							fontWeight: "550",
 							padding: "10px 15px",
-							border: "solid 2px #ed5e7a ",
+							border: "inset 2px #ed5e7a ",
 							borderRadius: "50%",
 						}}
 						variant="outlined"
@@ -88,11 +88,11 @@ export const Navigation = () => {
 						<Button
 							variant="outlined"
 							style={{
-								color: "#c700a3",
+								color: "#ed5e7a",
 								fontWeight: "550",
 								fontSize: "14px",
 								padding: "10px 15px",
-								border: "solid 2px #B108BD ",
+								border: "inset 3px #caeaee ",
 								borderRadius: "50%",
 							}}
 						>

@@ -28,15 +28,15 @@ export default function TwitCard2() {
 		>
 			<CardContent>
 				<Typography
-					sx={{ fontSize: 14, padding: " 30px 0" }}
+					sx={{ fontSize: 14, marginLeft: "10%", paddingTop: "30px" }}
 					color="text.secondary"
 					gutterBottom
 				>
-					honestly idk how I’ve managed to live my 20s without @Drizly
-					#lifesaver
+					honestly idk how I’ve managed to live my 20s without
+					@FridayShakes #lifesaver
 				</Typography>
 				<Typography
-					sx={{ mb: 1.5, padding: "15px" }}
+					sx={{ mb: 1.5, padding: "15px", marginLeft: "5%" }}
 					color="text.secondary"
 				>
 					Luz Ozuna
@@ -44,13 +44,16 @@ export default function TwitCard2() {
 			</CardContent>
 			<CardActions>
 				<Button
-					style={{ display: "flex", alignItem: "center" }}
-					size="small"
+					style={{
+						display: "flex",
+						marginLeft: "38%",
+					}}
+					size="xs"
 				>
 					<svg
 						role="presentation"
 						xmlns="http://www.w3.org/2000/svg"
-						class="social_section-module__twitterLogo___3THDa"
+						className="social_section-module__twitterLogo___3THDa"
 						viewBox="0 0 400 400"
 						style={{
 							fill: "#1da1f2",

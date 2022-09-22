@@ -195,3 +195,27 @@ export const favoriteCocktail = (cocktailId) => async (dispatch, getState) => {
 		console.log(err.message);
 	}
 };
+
+// Delete Cocktail
+// export const deleteCocktail = (storyId) => async (dispatch, getState) => {
+// 	// get spaceId from state
+// 	const spaceId = getState().user.profile.space.id;
+
+// 	try {
+// 		const response = await axios.delete(
+// 			`http://localhost:4000/spacedetails/${storyId}`
+// 		);
+// 		console.log(response.data);
+
+// 		//send dispatch that replaces the updated space in state
+
+// 		const spaceResponse = await axios.get(
+// 			`http://localhost:4000/spacedetails/${spaceId}`
+// 		);
+// 		console.log(spaceResponse.data);
+
+// 		dispatch(replaceSpace(spaceResponse.data));
+// 	} catch (e) {
+// 		console.log(e.message);
+// 	}
+// };

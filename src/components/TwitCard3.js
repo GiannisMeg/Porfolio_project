@@ -29,26 +29,26 @@ export default function TwitCard3() {
 		>
 			<CardContent>
 				<Typography
-					sx={{ fontSize: 14, padding: " 30px 0" }}
+					sx={{ fontSize: 14, marginLeft: "10%", paddingTop: "30px" }}
 					color="text.secondary"
 					gutterBottom
 				>
 					Looking at these snow predictions I’m not sure I’ll have adequate
-					booze. Hey @Drizly u up?
+					booze. Hey @FridayShakes u up?
 				</Typography>
-				<Typography sx={{ mb: 1.5 }} color="text.secondary">
+				<Typography
+					sx={{ mb: 1.5, padding: "15px", marginLeft: "5%" }}
+					color="text.secondary"
+				>
 					Jessica
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button
-					style={{ display: "flex", alignItem: "center" }}
-					size="small"
-				>
+				<Button style={{ display: "flex", marginLeft: "38%" }} size="xs">
 					<svg
 						role="presentation"
 						xmlns="http://www.w3.org/2000/svg"
-						class="social_section-module__twitterLogo___3THDa"
+						className="social_section-module__twitterLogo___3THDa"
 						viewBox="0 0 400 400"
 						style={{ fill: "#1da1f2" }}
 					>

@@ -1,18 +1,14 @@
-//css
-import { Carousel } from "3d-react-carousal";
-import { Link } from "react-router-dom";
-import Comments from "../components/Comments";
-import { RandomCocktail } from "../components";
-
-//files
+import TwitCard1 from "../components/TwitCard1 ";
+import TwitCard2 from "../components/TwitCard2";
+import TwitCard3 from "../components/TwitCard3";
+import StepCard1 from "../components/StepsCard";
+import StepCard2 from "../components/StepsCard2";
+import StepCard3 from "../components/StepCard3";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 //selectors
-import {
-	selectAllCocktails,
-	// selectAllComments,
-} from "../store/cocktails/selectors";
+import { selectAllCocktails } from "../store/cocktails/selectors";
 import { selectUser, selectAllComments } from "../store/user/selectors";
 
 //thunks
@@ -20,12 +16,12 @@ import { showAllCocktails } from "../store/cocktails/thunks";
 import { showAllComments } from "../store/user/thunks";
 import FotosList from "../components/FotosList";
 
-import TwitCard1 from "../components/TwitCard3";
-import TwitCard2 from "../components/TwitCard2";
-import TwitCard3 from "../components/TwitCard3";
-import StepCard1 from "../components/StepsCard";
-import StepCard2 from "../components/StepsCard2";
-import StepCard3 from "../components/StepCard3";
+//css
+import { Carousel } from "3d-react-carousal";
+import { Link } from "react-router-dom";
+import Comments from "../components/Comments";
+import { RandomCocktail } from "../components";
+import CommentIcon from "@mui/icons-material/Comment";
 
 export const Homepage = () => {
 	const dispatch = useDispatch();
@@ -175,7 +171,11 @@ export const Homepage = () => {
 					>
 						{user || !user ? (
 							<div className="comment-section">
-								<details>
+								<details
+									style={{
+										backgroundImage: "none",
+									}}
+								>
 									<summary
 										style={{
 											border: "solid 2px #222",
@@ -185,21 +185,37 @@ export const Homepage = () => {
 											width: "300px",
 											position: "relative",
 											left: "60px",
+											listStyle: "none",
 										}}
 									>
 										{" "}
-										Show comments{" "}
+										<strong
+											style={{
+												fontFamily: "sans-serif",
+												fontSize: "18px",
+											}}
+										>
+											<CommentIcon /> Community comments{" "}
+										</strong>
 									</summary>{" "}
-									<ul>
+									<ul
+										style={{
+											overflow: "scroll",
+											height: "500px",
+											width: "125%",
+										}}
+									>
 										{allComments?.map((comm) => {
 											return (
 												<li
 													key={comm.id}
 													style={{
 														display: "flex",
+
 														flexDirection: "column",
-														width: "100%",
-														justifyContent: "space-between",
+														width: "90%",
+														height: "90px",
+														justifyContent: "flex-start",
 														border: "2px solid  #ed5e7a ",
 														borderRadius: "10px",
 														margin: 5,

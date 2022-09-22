@@ -25,7 +25,7 @@ function App() {
 	}, [dispatch]);
 
 	return (
-		<div style={{}}>
+		<div className="App-body">
 			<Navigation />
 			<MessageBox />
 			{appLoading ? <Loading /> : null}

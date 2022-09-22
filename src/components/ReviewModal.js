@@ -53,7 +53,7 @@ export default function ReviewModal() {
 		setText("");
 
 		dispatch(
-			showMessageWithTimeout("success", false, "comment added!", 2000)
+			showMessageWithTimeout("success", false, "Review Submitted!", 2000)
 		);
 
 		// close modal
@@ -147,6 +147,7 @@ export default function ReviewModal() {
 					<form type="submit">
 						<TextareaAutosize
 							value={text}
+							maxLength={300}
 							onChange={(e) => setText(e.target.value)}
 							aria-label="minimum height"
 							minRows={4}

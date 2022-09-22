@@ -56,25 +56,13 @@ export const FindCocktailsPage = () => {
 							boxShadow: "0px 4px 24px rgb(0 0 0 / 10%)",
 						}}
 					>
-						<div
-							className="src-icon"
-							style={{
-								display: "flex",
-								margin: "0 10px 0 0",
-								color: "#9e043b",
-								borderRadius: "8px",
-								border: "1px solid #9e043b ",
-							}}
-						>
-							<SearchIcon />{" "}
-						</div>
 						<input
 							style={{
 								background: "#FFDAE7",
 								borderRadius: "8px",
 								border: "1px solid #ed5e7a ",
 								display: "flex",
-								width: "43%",
+								width: "65%",
 								boxShadow: "0px 4px 24px rgb(0 0 0 / 10%)",
 							}}
 							className="input-find"
@@ -82,6 +70,18 @@ export const FindCocktailsPage = () => {
 							value={searchName}
 							onChange={(e) => setSearchName(e.target.value)}
 						/>
+						<div
+							className="src-icon"
+							style={{
+								display: "flex",
+								margin: "0 0 0 10px",
+								color: "#9e043b",
+								borderRadius: "8px",
+								border: "1px solid #9e043b ",
+							}}
+						>
+							<SearchIcon />{" "}
+						</div>
 					</div>
 				</div>
 

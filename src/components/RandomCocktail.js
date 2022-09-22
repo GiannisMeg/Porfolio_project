@@ -163,7 +163,9 @@ export const RandomCocktail = () => {
 					variant="outlined"
 					onClick={() => fetchApiCocktails()}
 				>
-					Get a Random Drink
+					<strong style={{ fontFamily: "sans-serif" }}>
+						Get a Random Drink{" "}
+					</strong>
 				</Button>
 				<img
 					style={{

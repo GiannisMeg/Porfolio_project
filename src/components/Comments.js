@@ -88,6 +88,7 @@ export default function Comments() {
 									height: "100px",
 								}}
 								type="text"
+								maxLength={255}
 								row={4}
 								value={text}
 								onChange={(e) => setText(e.target.value)}

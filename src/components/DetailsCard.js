@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 //thunks
 // import { favoriteCocktail } from "../store/user/thunks";
@@ -66,8 +67,21 @@ export default function DetailsCard(props) {
 			</CardContent>
 			<CardActions disableSpacing>
 				{/* WE ADD THE FAVORITE CASES WITH THW DIFF BORDERS */}
-				<IconButton aria-label="share">
+				<IconButton aria-label="barIcon">
 					<LocalBarIcon />
+				</IconButton>
+				{/* <IconButton
+						onClick={() => dispatch(favoriteCocktail(cocktailId))}
+						aria-label="add to favorites"
+					>
+						{props.isFav ? (
+							<FavoriteIcon style={{ color: "red" }} />
+						) : (
+							<FavoriteBorderIcon />
+						)}
+					</IconButton> */}
+				<IconButton aria-label="deleteIcon">
+					<DeleteOutlineIcon />
 				</IconButton>
 				<ExpandMore
 					expand={expanded}

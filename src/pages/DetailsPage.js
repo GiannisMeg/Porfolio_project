@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReviewModal from "../components/ReviewModal";
-import ReviewList from "../components/ReviewList";
 
 //CSS
 
@@ -23,6 +22,7 @@ import {
 } from "../store/cocktails/selectors";
 import { isUserFavorite, selectUser } from "../store/user/selectors";
 import CocktailCard from "../components/CocktailCard";
+import { Box } from "@mui/material";
 
 export const DetailsPage = () => {
 	const { id } = useParams();
@@ -40,7 +40,95 @@ export const DetailsPage = () => {
 
 	// console.log("all reviews", allReviews);
 	return (
-		<div className="wrapper" style={{ marginTop: "165px" }}>
+		<div
+			className="wrapper"
+			style={{
+				marginTop: "165px",
+				flexDirection: "column",
+				display: "flex",
+			}}
+		>
+			<div
+				className="tp-banner"
+				style={{
+					display: "flex",
+					flexDirection: "row",
+					marginTop: "-3px",
+					wordWrap: "break-word",
+				}}
+			>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "100%",
+							height: "202px",
+							position: "relative",
+						}}
+						src="https://www.spirituosen-journal.de/wp-content/uploads/Bombay-Bramble-Drinks-Social.jpg"
+						alt=""
+					/>
+				</Box>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "134%",
+							height: "202px",
+							position: "relative",
+							left: "",
+						}}
+						src="https://cdn.shopify.com/s/files/1/2788/1238/files/5665_NGF_Tanqueray_Promo_Homepage_Banner_1600X900_171bbc5c-7447-4c4b-afb2-28d555370785_1920x.jpg?v=1652353683"
+						alt=""
+					/>
+				</Box>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "100%",
+							height: "202px",
+							position: "relative",
+							left: "31%",
+						}}
+						src="https://www.spirituosen-journal.de/wp-content/uploads/Bombay-Bramble-Drinks-Social.jpg"
+						alt=""
+					/>
+				</Box>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "134%",
+							height: "202px",
+							position: "relative",
+							left: "33%",
+						}}
+						src="https://cdn.shopify.com/s/files/1/2788/1238/files/5665_NGF_Tanqueray_Promo_Homepage_Banner_1600X900_171bbc5c-7447-4c4b-afb2-28d555370785_1920x.jpg?v=1652353683"
+						alt=""
+					/>
+				</Box>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "100%",
+							height: "202px",
+							position: "relative",
+							left: "62%",
+						}}
+						src="https://www.spirituosen-journal.de/wp-content/uploads/Bombay-Bramble-Drinks-Social.jpg"
+						alt=""
+					/>
+				</Box>
+				<Box sx={{}}>
+					<img
+						style={{
+							width: "125%",
+							height: "202px",
+							position: "relative",
+							left: "65%",
+						}}
+						src="https://cdn.shopify.com/s/files/1/2788/1238/files/5665_NGF_Tanqueray_Promo_Homepage_Banner_1600X900_171bbc5c-7447-4c4b-afb2-28d555370785_1920x.jpg?v=1652353683"
+						alt=""
+					/>
+				</Box>
+			</div>
 			<div
 				className="main_container"
 				style={{
@@ -57,35 +145,27 @@ export const DetailsPage = () => {
 						flex: "2",
 					}}
 				>
-					<div className="split-1" style={{ display: "flex" }}>
+					<div
+						className="split"
+						style={{ display: "flex", flexDirection: "row" }}
+					>
 						<div
 							style={{
 								position: "relative",
 								top: "80px",
 								display: "flex",
 								flexDirection: "row",
-								flex: "1",
 							}}
 						>
 							<div
-								className="split-2"
-								style={{
-									display: "flex",
-									flex: "1",
-								}}
-							>
-								{/* <img
-									style={{ width: "1000px", height: "500px" }}
-									src="https://cdn.shopify.com/s/files/1/0165/8909/5012/files/Website_Banner_4.png?v=1659410505"
-									alt=""
-								/> */}
-							</div>
-							<div
-								className="main"
+								className="main-2"
 								style={{
 									display: "flex",
 									flex: "1",
 									flexDirection: "column",
+									position: "relative",
+									top: "13%",
+									left: "150%",
 								}}
 							>
 								<h3
@@ -94,7 +174,7 @@ export const DetailsPage = () => {
 										alignSelf: "center",
 										border: "2px inset #ed5e7a",
 										borderRadius: "60%",
-										boxShadow: "2px 2px  hsl(0, 5%, 88%)",
+										boxShadow: "2px 2px  hsl(0, 5%, 70%)",
 										padding: "20px",
 									}}
 								>
@@ -129,44 +209,50 @@ export const DetailsPage = () => {
 				</div>
 				<div
 					style={{
-						background: "",
-						width: "66%",
 						display: "flex",
-						flex: "1",
 						flexDirection: "column",
 					}}
 					className="review-list"
 				>
-					<div className="r-foto-list">
-						<img
-							style={{
-								width: "800px",
-								height: "200px",
-								borderRadius: "8px",
-								boxShadow: "2px 2px  hsl(0, 5%, 94%)",
-							}}
-							src="http://www.gamingfortheweekend.com/wp-content/uploads/2017/08/Reviews-Banner.png"
-							alt=""
-						/>{" "}
-					</div>
-					<div className="r-list" style={{}}>
+					<div
+						className="r-list"
+						style={{
+							display: "flex",
+							flex: "1",
+							flexDirection: "column",
+						}}
+					>
 						{user || !user ? (
 							<div
 								style={{
-									padding: "10px",
+									marginTop: "100px",
+
 									display: "flex",
 									width: "800px",
-									height: "350px",
+									height: "450px",
 									flexDirection: "column",
 									justifyContent: "center",
 									alignItems: "center",
-									border: "2px solid #ed5e7a",
-									borderRadius: "10px",
+									border: "8px solid #fff",
+									borderRadius: "20px",
 									background: "#ffe0db",
+
+									// how to remove corners from schroll
 									overflow: "scroll",
 								}}
 								className="comment-section"
 							>
+								<img
+									style={{
+										width: "80%",
+										marginBottom: "20px",
+										height: "200px",
+										borderRadius: "50%",
+										boxShadow: "2px 2px  hsl(0, 5%, 94%)",
+									}}
+									src="http://www.gamingfortheweekend.com/wp-content/uploads/2017/08/Reviews-Banner.png"
+									alt=""
+								/>{" "}
 								{allReviews?.map((comm) => {
 									return (
 										<li
@@ -176,7 +262,7 @@ export const DetailsPage = () => {
 												justifyContent: "space-between",
 												border: "2px solid #ed5e7a",
 												borderRadius: "10px",
-												margin: 5,
+												margin: "40px",
 												padding: 4,
 												background: "#fff",
 											}}
@@ -204,7 +290,7 @@ export const DetailsPage = () => {
 								height: "400",
 								borderRadius: "10px",
 								boxShadow: "2px 2px  hsl(0, 5%, 94%)",
-								overflow: "hidden",
+								// overflow: "hidden",
 								marginBottom: "5px",
 							}}
 							src="https://m.media-amazon.com/images/I/7146kVR1CLL._SX522_.jpg"
