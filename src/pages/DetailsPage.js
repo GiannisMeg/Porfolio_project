@@ -236,8 +236,6 @@ export const DetailsPage = () => {
 									border: "8px solid #fff",
 									borderRadius: "20px",
 									background: "#ffe0db",
-
-									// how to remove corners from schroll
 									overflow: "scroll",
 								}}
 								className="comment-section"
@@ -290,7 +288,7 @@ export const DetailsPage = () => {
 								height: "400",
 								borderRadius: "10px",
 								boxShadow: "2px 2px  hsl(0, 5%, 94%)",
-								// overflow: "hidden",
+
 								marginBottom: "5px",
 							}}
 							src="https://m.media-amazon.com/images/I/7146kVR1CLL._SX522_.jpg"
@@ -302,12 +300,3 @@ export const DetailsPage = () => {
 		</div>
 	);
 };
-
-//under review img
-//https://m.media-amazon.com/images/I/7146kVR1CLL._SX522_.jpg
-
-//temp matching colors
-//https://cdn.shopify.com/s/files/1/0165/8909/5012/files/Website_Banner_4.png?v=1659410505
-
-// review
-//http://www.gamingfortheweekend.com/wp-content/uploads/2017/08/Reviews-Banner.png

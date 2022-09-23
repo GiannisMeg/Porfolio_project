@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 //thunks
 // import { favoriteCocktail } from "../store/user/thunks";
@@ -81,7 +81,7 @@ export default function DetailsCard(props) {
 						)}
 					</IconButton> */}
 				<IconButton aria-label="deleteIcon">
-					<DeleteOutlineIcon />
+					<AutoAwesomeIcon />
 				</IconButton>
 				<ExpandMore
 					expand={expanded}
