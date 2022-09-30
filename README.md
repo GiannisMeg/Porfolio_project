@@ -25,6 +25,8 @@ Bring joi to the people is all about and thats what i was trying to reach by spe
 
 ## Some Preview Photos
 
+<img height="700" src="https://github.com/GiannisMeg/Porfolio_project/blob/master/src/Screenshot%202022-09-30%20at%2011.37.19.png">
+
 ---
 
 ## Database Diagram
