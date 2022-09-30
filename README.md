@@ -1,14 +1,7 @@
 ## Welcome to FridayShakes.
 
-This is an App made as part of my final Project as a Student in Coddaiseur Coding BootCamp.
+This is a Website as part of my final Project as a Student in Coddaiseur Coding BootCamp.
 This is a project made in 10 days from scratch using no templates or previous code.
-
----
-
-## The idea behind ; 
-
-The need in the market for an easy to use Events App has never been bigger.
-I know that from experience and since now i have the tools i took the liberty to start a small revolution by making a new easy to use, friendly and FREE App for small Bars and Breweries.
 
 ---
 
@@ -21,6 +14,10 @@ I know that from experience and since now i have the tools i took the liberty to
 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
 <code><img height='20' title='postgreSQL' src='https://user-images.githubusercontent.com/31222514/155521312-96e008ba-1d5e-409f-aaec-ca229ca275c6.jpeg'></code>
 <code><img height='20' title= 'CSS3' src='https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png'></code>
+
+---
+
+## Some Preview Photos
 
 ---
 
