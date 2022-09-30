@@ -5,6 +5,12 @@ This is a project made in 10 days from scratch using no templates or previous co
 
 ---
 
+## The idea behind; 
+
+After a stressful week everybody is dreaming about friday drinks and have some fun with colleague and friends.
+~Gather all together , make creative cocktails , sharing experiences and make plans for the weeknend.
+Bring joi to the people is all about and thats what i was trying to reach by spending less time to get a nice and easy way to find the cocktail that matches everybodys flavours and mood.
+
 **Languages and Tools:**
 
 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
